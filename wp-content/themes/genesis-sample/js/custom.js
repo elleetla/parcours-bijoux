@@ -4,7 +4,20 @@
         $( "#nav-search" ).slideToggle( "slow", function() {
             // Animation complete.
         });
-    })
+
+    //slider
+    $(".owl-carousel").owlCarousel({
+        items:1,
+        loop:false,
+        center:true,
+        nav:true,
+        navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+        autoplay:true,
+        autoplayTimeout:5000,
+        autoplayHoverPause:true,
+        autoHeight:true
+    });
+})
 
 })(jQuery);
 
