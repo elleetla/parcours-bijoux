@@ -21,7 +21,7 @@ function slider_project() {
 
             // Variables that contain fields
             $galleryPicture = get_sub_field('picture_slider_lieux');
-            $titlePictureLieux = get_sub_field(' title_picture_lieux');
+            $titlePictureLieux = get_sub_field('title_picture_lieux');
             $cat = get_sub_field('categorie_picture_lieux');
 
             // Viewing fields
@@ -40,6 +40,7 @@ function slider_project() {
     echo '</div>';
 
 }
+
 add_action( 'genesis_after_header', 'slider_project', 10 );
 
 genesis();
