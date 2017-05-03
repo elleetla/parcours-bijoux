@@ -14,7 +14,7 @@ remove_action( 'genesis_after_header', 'genesis_breadcrumb_args' );
 //* Display picture of the slider and its title
 function slider_project() {
 
-    echo '<div class="owl-carousel owl-theme">';
+    //echo '<div class="owl-carousel owl-theme">';
 
     if( have_rows('slider_lieux') ):
         while ( have_rows('slider_lieux') ) : the_row();
@@ -37,7 +37,7 @@ function slider_project() {
         echo 'Il n\'y a aucun slider sur cette page';
     endif;
 
-    echo '</div>';
+    //echo '</div>';
 
 }
 
