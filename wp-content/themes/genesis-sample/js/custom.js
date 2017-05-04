@@ -4,8 +4,9 @@
         $( "#nav-search" ).slideToggle( "slow", function() {
             // Animation complete.
         });
+    })
 
-    //slider
+    //* slider
     $(".owl-carousel").owlCarousel({
         items:1,
         loop:false,
@@ -17,7 +18,12 @@
         autoplayHoverPause:true,
         autoHeight:true
     });
-})
+
+    $(document).ready(function() {
+        $(".owl-carousel").owlCarousel();
+
+    });
+    //* .slider
 
 })(jQuery);
 

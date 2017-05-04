@@ -1665,6 +1665,47 @@ p.entry-meta {
 	display: none;
 }
 
+/* # Slider
+---------------------------------------------------------------------------------------------------- */
+
+/* place the caption*/
+.owl-carousel div .caption{
+	position:absolute;
+	display:block;
+	right:25%;
+	bottom:35%;
+}
+
+/* place the navigation button */
+div.owl-prev{
+	position:absolute;
+	left: 5%;
+	bottom:40%;
+}
+
+div.owl-next{
+	position:absolute;
+	right: 5%;
+	bottom:40%;
+}
+
+div.owl-dots{
+	margin-top:-5%;
+	opacity:1;
+	color: black;
+}
+
+/* style the caption */
+.owl-carousel div h4{
+	text-transform: uppercase;
+	color: #ffffff;
+}
+
+.owl-carousel div h1{
+	color: #ffffff;
+}
+
+
 
 /* # Sidebars
 ---------------------------------------------------------------------------------------------------- */
