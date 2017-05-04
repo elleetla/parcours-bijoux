@@ -27,12 +27,17 @@ function slider_project() {
 
             // Viewing fields
             echo '<div class="item">'; // .item
-                echo '<img src="'.$galleryPicture.'" />';
 
-                echo '<div class="caption">'; // .caption
-                    echo '<h4>'.$cat->name.'</h4>';
-                    echo '<h1>'.$titlePictureLieux.'</h1>';
-                echo '</div>'; // ./caption
+            echo '<img src="'.$galleryPicture.'" />';
+
+            echo '<div class="caption">'; // .caption
+
+            echo '<h4>'.$cat->name.'</h4>';
+
+            echo '<h1>'.$titlePictureLieux.'</h1>';
+
+            echo '</div>'; // ./caption
+
             echo '</div>'; // ./item
 
         endwhile;
