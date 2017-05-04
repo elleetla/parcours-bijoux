@@ -63,7 +63,7 @@ function category_project(){
     echo '<h4>'.get_the_term_list(get_the_ID(), 'categorie').'</h4>';
 }
 
-//* Display list of artists & crédits
+//* Display all artists
 add_action('genesis_entry_footer', 'artists_project',5);
 function artists_project(){
 
@@ -87,12 +87,71 @@ function artists_project(){
 
 }
 
+//* Display credits of the project
 add_action('genesis_entry_footer', 'credits_project');
 function credits_project(){
     $creditsPerson = get_field('credits_lieux');
 
     echo '<div class="post-credit">&copy; crédits : '.$creditsPerson.'</div>';
 }
+
+//* Display date of the event
+add_action('genesis_after_sidebar_widget_area','date_project',1);
+function date_project(){
+    $date1 = get_field('event_date1');
+    $date2 = get_field('event_date2');
+    echo 'Du '.$date1.' au '.$date2;
+    echo '<br>';
+}
+
+//* Display practic infos
+add_action('genesis_after_sidebar_widget_area','info_project',2);
+function info_project(){
+    $infos = get_field('info_plus');
+    echo $infos;
+    echo '<br>';
+}
+
+//* Display opening hours
+add_action('genesis_after_sidebar_widget_area','open_hours_project',3);
+function open_hours_project(){
+    $open_hours = get_field('opening_hours');
+    echo $open_hours;
+    echo '<br>';
+}
+
+//* Display address of the event
+add_action('genesis_after_sidebar_widget_area','address_project',4);
+function address_project(){
+    $address = get_field('event_adress');
+    echo $address;
+    echo '<br>';
+}
+
+//* Display phone number
+add_action('genesis_after_sidebar_widget_area','phone_project',5);
+function phone_project(){
+    $tel = get_field('tel');
+    echo $tel;
+    echo '<br>';
+}
+
+//* Display means of transport
+add_action('genesis_after_sidebar_widget_area','transport_project',6);
+function transport_project(){
+    $transport = get_field('transport');
+    echo $transport;
+    echo '<br>';
+}
+
+//* Display email
+add_action('genesis_after_sidebar_widget_area','email_project',7);
+function email_project(){
+    $email = get_field('email');
+    echo $email;
+    echo '<br>';
+}
+
 
 
 genesis();
