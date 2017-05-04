@@ -283,6 +283,7 @@ h3 {
 h4 {
 	font-size: 20px;
 	font-size: 2rem;
+	text-transform: uppercase;
 }
 
 h5 {
@@ -1696,15 +1697,9 @@ div.owl-dots{
 }
 
 /* style the caption */
-.owl-carousel div h4{
-	text-transform: uppercase;
+.owl-carousel div h4, .owl-carousel div h1{
 	color: #ffffff;
 }
-
-.owl-carousel div h1{
-	color: #ffffff;
-}
-
 
 
 /* # Sidebars
