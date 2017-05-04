@@ -259,3 +259,11 @@ function filter_expositions(){
     <?php }
 }
 add_action('genesis_after_header','filter_expositions',15);
+
+/* in posts */
+// remove post-date
+add_filter('genesis_post_info', 'remove_post_info');
+function remove_post_info($post_info){
+    $post_info = '';
+    return $post_info;
+}
