@@ -27,14 +27,6 @@ function slider_project() {
 
             // Viewing fields
             echo '<div class="item">'; // .item
-<<<<<<< HEAD
-                echo '<img src="'.$galleryPicture.'" />';
-
-                echo '<div class="caption">'; // .caption
-                    echo '<h4>'.$cat->name.'</h4>';
-                    echo '<h1>'.$titlePictureLieux.'</h1>';
-                echo '</div>'; // ./caption
-=======
 
             echo '<img src="'.$galleryPicture.'" />';
 
@@ -46,7 +38,6 @@ function slider_project() {
 
             echo '</div>'; // ./caption
 
->>>>>>> 0deb363de6d977b0052cf313d39942baf804d3e6
             echo '</div>'; // ./item
 
         endwhile;
@@ -57,6 +48,15 @@ function slider_project() {
 
     echo '</div>'; // ./owl-carousel
 
+}
+
+//* Display a return button
+add_action('genesis_before_entry','return_button');
+function return_button(){
+    $return_page = get_site_url().'/expositions/';
+    echo '<div class="return">';
+    echo '<button onclick="location.href=\''.$return_page.'\';" class"float-left">Retour</button>';
+    echo '</div>';
 }
 
 
@@ -77,12 +77,8 @@ function category_project(){
     echo '<h4>'.get_the_term_list(get_the_ID(), 'categorie').'</h4>';
 }
 
-<<<<<<< HEAD
 //* Display all artists
-=======
-//* Display list of artists & crédits
->>>>>>> 0deb363de6d977b0052cf313d39942baf804d3e6
-add_action('genesis_entry_footer', 'artists_project',5);
+add_action('genesis_entry_content', 'artists_project',15);
 function artists_project(){
 
     //display all artists
@@ -105,77 +101,56 @@ function artists_project(){
 
 }
 
-<<<<<<< HEAD
 //* Display credits of the project
-=======
->>>>>>> 0deb363de6d977b0052cf313d39942baf804d3e6
 add_action('genesis_entry_footer', 'credits_project');
 function credits_project(){
     $creditsPerson = get_field('credits_lieux');
 
     echo '<div class="post-credit">&copy; crédits : '.$creditsPerson.'</div>';
 }
-<<<<<<< HEAD
 
-//* Display date of the event
-add_action('genesis_after_sidebar_widget_area','date_project',1);
-function date_project(){
-    $date1 = get_field('event_date1');
-    $date2 = get_field('event_date2');
-    echo 'Du '.$date1.' au '.$date2;
-    echo '<br>';
-}
 
-//* Display practic infos
-add_action('genesis_after_sidebar_widget_area','info_project',2);
-function info_project(){
-    $infos = get_field('info_plus');
-    echo $infos;
-    echo '<br>';
-}
 
-//* Display opening hours
-add_action('genesis_after_sidebar_widget_area','open_hours_project',3);
-function open_hours_project(){
-    $open_hours = get_field('opening_hours');
-    echo $open_hours;
-    echo '<br>';
-}
+function crunchify_social_sharing_buttons($content) {
+    global $post;
+    if(is_singular() || is_home()){
 
-//* Display address of the event
-add_action('genesis_after_sidebar_widget_area','address_project',4);
-function address_project(){
-    $address = get_field('event_adress');
-    echo $address;
-    echo '<br>';
-}
+        // Get current page URL
+        $post_url = urlencode(get_permalink());
 
-//* Display phone number
-add_action('genesis_after_sidebar_widget_area','phone_project',5);
-function phone_project(){
-    $tel = get_field('tel');
-    echo $tel;
-    echo '<br>';
-}
+        // Get current page title
+        $post_title = str_replace( ' ', '%20', get_the_title());
 
-//* Display means of transport
-add_action('genesis_after_sidebar_widget_area','transport_project',6);
-function transport_project(){
-    $transport = get_field('transport');
-    echo $transport;
-    echo '<br>';
-}
+        // Get the email address to send the mail
+        $address_mail = get_field('email');
 
-//* Display email
-add_action('genesis_after_sidebar_widget_area','email_project',7);
-function email_project(){
-    $email = get_field('email');
-    echo $email;
-    echo '<br>';
-}
+        // Get url of icon image in media bibliography (=> http://localhost:8888/parcours-bijoux/wp-content/uploads)
+        $folder_social_icon = wp_upload_dir();
+        $icon_url = $folder_social_icon['baseurl'];
 
-=======
->>>>>>> 0deb363de6d977b0052cf313d39942baf804d3e6
+        // Construct sharing URL without using any script
+        $facebookURL = 'https://www.facebook.com/sharer/sharer.php?u='.$post_url;
+        $twitterURL = 'https://twitter.com/intent/tweet?text='.$post_title.'&amp;url='.$post_url.'&amp;via=Crunchify';
+        $googleURL = 'https://plus.google.com/share?url='.$post_url;
+        $pinterestURL = 'https://pinterest.com/pin/create/button/?url='.$post_url.'&amp;description='.$post_title;
+        $mailURL = 'mailto:'.$address_mail.'?subject='.$post_title;
 
+        // Add sharing button at the end of page/page content
+        $content .= '<!-- Crunchify.com social sharing. Get your copy here: http://crunchify.me/1VIxAsz -->';
+        $content .= '<div class="social-share">';
+        $content .= '<div><a class="link facebook" href="'.$facebookURL.'" target="_blank"><img src="'.$icon_url.'/2017/05/facebook_logo.png'.'"/></a></div>';
+        $content .= '<div><a class="link twitter" href="'. $twitterURL .'" target="_blank"><img src="'.$icon_url.'/2017/05/twitter_logo.png'.'"/></a></div>';
+        $content .= '<div><a class="link googleplus" href="'.$googleURL.'" target="_blank"><img src="'.$icon_url.'/2017/05/G_logo.png'.'"/></a></div>';
+        $content .= '<div><a class="link pinterest" href="'.$pinterestURL.'" data-pin-custom="true" target="_blank"><img src="'.$icon_url.'/2017/05/pinterest_logo.png'.'"/></a></div>';
+        $content .= '<div><a class="link mail" href="'.$mailURL.'" ><img src="'.$icon_url.'/2017/05/mail_icon.png'.'"/></a></div>';
+        $content .= '</div>';
+
+        return $content;
+    }else{
+        // if not a post/page then don't include sharing button
+        return $content;
+    }
+};
+add_filter( 'the_content', 'crunchify_social_sharing_buttons');
 
 genesis();
