@@ -27,12 +27,26 @@ function slider_project() {
 
             // Viewing fields
             echo '<div class="item">'; // .item
+<<<<<<< HEAD
                 echo '<img src="'.$galleryPicture.'" />';
 
                 echo '<div class="caption">'; // .caption
                     echo '<h4>'.$cat->name.'</h4>';
                     echo '<h1>'.$titlePictureLieux.'</h1>';
                 echo '</div>'; // ./caption
+=======
+
+            echo '<img src="'.$galleryPicture.'" />';
+
+            echo '<div class="caption">'; // .caption
+
+            echo '<h4>'.$cat->name.'</h4>';
+
+            echo '<h1>'.$titlePictureLieux.'</h1>';
+
+            echo '</div>'; // ./caption
+
+>>>>>>> 0deb363de6d977b0052cf313d39942baf804d3e6
             echo '</div>'; // ./item
 
         endwhile;
@@ -63,7 +77,11 @@ function category_project(){
     echo '<h4>'.get_the_term_list(get_the_ID(), 'categorie').'</h4>';
 }
 
+<<<<<<< HEAD
 //* Display all artists
+=======
+//* Display list of artists & crédits
+>>>>>>> 0deb363de6d977b0052cf313d39942baf804d3e6
 add_action('genesis_entry_footer', 'artists_project',5);
 function artists_project(){
 
@@ -87,13 +105,17 @@ function artists_project(){
 
 }
 
+<<<<<<< HEAD
 //* Display credits of the project
+=======
+>>>>>>> 0deb363de6d977b0052cf313d39942baf804d3e6
 add_action('genesis_entry_footer', 'credits_project');
 function credits_project(){
     $creditsPerson = get_field('credits_lieux');
 
     echo '<div class="post-credit">&copy; crédits : '.$creditsPerson.'</div>';
 }
+<<<<<<< HEAD
 
 //* Display date of the event
 add_action('genesis_after_sidebar_widget_area','date_project',1);
@@ -152,6 +174,8 @@ function email_project(){
     echo '<br>';
 }
 
+=======
+>>>>>>> 0deb363de6d977b0052cf313d39942baf804d3e6
 
 
 genesis();
