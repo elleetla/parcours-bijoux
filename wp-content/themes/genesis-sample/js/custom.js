@@ -158,7 +158,7 @@ function initMap() {
         }
 
         $.ajax({
-            url: "markers.json",
+            url: "http://localhost:8888/parcours-bijoux/markers.json",
             context: document.body
         }).done(function(data) {
 
