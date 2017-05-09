@@ -18,18 +18,13 @@
         autoplayHoverPause:true,
         autoHeight:true
     });
-
-    $(document).ready(function() {
-        $(".owl-carousel").owlCarousel();
-
-    });
     //* .slider
 
 })(jQuery);
 
 function initMap() {
 
-    var styleParcoursBijoux = [
+    var mapParcoursBijoux = [
         {
             elementType: 'geometry',
             stylers: [{color: '#fff2e9'}]
@@ -118,23 +113,72 @@ function initMap() {
         }
     ];
 
-    // Create a map object and specify the DOM element for display.
     var map = new google.maps.Map(document.getElementById('map'), {
-        center: {
-            lat: 48.8589506,
-            lng: 2.3407315,
-        },
-        zoom: 13,
-        styles: styleParcoursBijoux,
-        disableDefaultUI: false,
-        mapTypeControl: false,
+        center: { lat: 48.866667, lng: 2.333333 },
         scrollwheel: false,
+        zoom: 12,
+        disableDefaultUI: false,
+        styles: mapParcoursBijoux
     });
 
+    $.ajax({
+        url: "addresses.json",
+        context: document.body
+    }).done(function(data) {
 
-    document.getElementById("button-geolocation").onclick = function() {getLocation()};
+        //$( this ).append(JSON.stringify(data));
+        console.log(data);
+        var marker = new google.maps.Marker({
+            position: data,
+            map: map,
+            title: 'Hello World!'
+        });
 
-    function getLocation() {
+    });
+
+    function setMarkers(map) {
+        // Adds markers to the map.
+
+        // Marker sizes are expressed as a Size of X,Y where the origin of the image
+        // (0,0) is located in the top left of the image.
+
+        // Origins, anchor positions and coordinates of the marker increase in the X
+        // direction to the right and in the Y direction down.
+        var image = {
+            url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+            // This marker is 20 pixels wide by 32 pixels high.
+            size: new google.maps.Size(22, 29),
+            // The origin for this image is (0, 0).
+            origin: new google.maps.Point(0, 0),
+            // The anchor for this image is the base of the flagpole at (0, 32).
+            anchor: new google.maps.Point(0, 29)
+        };
+        // Shapes define the clickable region of the icon. The type defines an HTML
+        // <area> element 'poly' which traces out a polygon as a series of X,Y points.
+        // The final coordinate closes the poly by connecting to the first coordinate.
+        var shape = {
+            coords: [1, 1, 1, 20, 18, 20, 18, 1],
+            type: 'poly'
+        };
+        for (var i = 0; i < beaches.length; i++) {
+            var beach = beaches[i];
+            var marker = new google.maps.Marker({
+                position: {lat: beach[1], lng: beach[2]},
+                map: map,
+                icon: image,
+                shape: shape,
+                title: beach[0],
+                zIndex: beach[3]
+            });
+        }
+    }
+
+    document.getElementById("button-map").onclick = function() {
+        getLocaltion();
+    };
+
+    function getLocaltion(){
+
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
                 var pos = {
@@ -147,19 +191,28 @@ function initMap() {
                 var infoWindow = new google.maps.InfoWindow({map: map});
 
                 infoWindow.setPosition(pos);
-                infoWindow.setContent('<h5 style="margin: 0; color: #e74c3c;">Votre position</h5>');
+                infoWindow.setContent('<p style="margin: 0; color: #e74c3c; font-weight: 300;">Vous êtes ici !</p>');
                 map.setCenter(pos);
-            }, function() {
+            },function() {
                 handleLocationError(true, infoWindow, map.getCenter());
             });
         } else {
             // Browser doesn't support Geolocation
             handleLocationError(false, infoWindow, map.getCenter());
         }
-        // End try HTML5 geolocation
+
     }
 
+    setMarkers(map);
 }
+// end initMap
+
+var beaches = [
+    ['Bondi Beach', 48.866667, 2.333333],
+    ['Froment', 48.8677952, 2.3279679],
+    ['Iesa saint augustin', 48.8688285, 2.3376012],
+    ['elle&la', 48.8936866, 2.3371175],
+];
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
@@ -167,3 +220,4 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         'Error: The Geolocation service failed.' :
         'Error: Your browser doesn\'t support geolocation.');
 }
+// end handleLocationError
