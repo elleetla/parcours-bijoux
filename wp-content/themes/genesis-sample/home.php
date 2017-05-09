@@ -32,6 +32,7 @@ function elleetla_geolocation(){ ?>
 
                 <?php endwhile; endif; ?>
                 <?php wp_reset_postdata(); ?>
+                test
 
             </div>
 
