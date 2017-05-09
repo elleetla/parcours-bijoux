@@ -153,4 +153,6 @@ function crunchify_social_sharing_buttons($content) {
 };
 add_filter( 'the_content', 'crunchify_social_sharing_buttons');
 
+//display approximité
+
 genesis();
