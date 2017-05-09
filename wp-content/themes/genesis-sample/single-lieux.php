@@ -153,6 +153,94 @@ function crunchify_social_sharing_buttons($content) {
 };
 add_filter( 'the_content', 'crunchify_social_sharing_buttons');
 
-//display approximité
+//display post "A proximité"
+function proposition_post(){?>
+
+<section id="last-projects">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12">
+                <p id="titleProject">à promixité</p>
+            </div>
+
+            <?php
+            //get the terms for the particular item "categories"
+            $terms = get_the_terms( $post->ID , 'categories' );
+            // loop over each item since it's an array
+            if ( $terms != null ){
+                foreach( $terms as $term ) {
+                    $cat[] = $term->slug ;
+
+                    /*for each term, define taxonomy parameters
+                    if($cat[0] == "design"){
+                        $tax = array(
+                            array(
+                                'taxonomy' => 'categorie',
+                                'field'    => 'slug',
+                                'terms'    => array( 'design' ),
+                            )
+                        );
+                    }
+                    elseif ($cat[0] == "digital"){
+                        $tax = array(
+                            array(
+                                'taxonomy' => 'categorie',
+                                'field'    => 'slug',
+                                'terms'    => array( 'digital' ),
+                            )
+                        );
+                    }
+
+                    elseif ($cat[0] == "innovation"){
+                        $tax = array(
+                            array(
+                                'taxonomy' => 'categorie',
+                                'field'    => 'slug',
+                                'terms'    => array( 'innovation' ),
+                            )
+                        );
+                    }*/
+                }
+            }
+
+            $args = array(
+                'post_type'         =>  'lieux',
+                'posts_per_page'    =>  3,
+                //'tax_query'         => $tax,
+                'orderby'           => 'rand',
+                'post__not_in'      => array(get_the_ID())
+            );
+            $loop = new WP_Query( $args );
+            while ( $loop->have_posts() ) : $loop->the_post();
+
+                ?>
+
+                <div class="all col-lg-3 col-md-3 col-sm-6 col-xs-12 portfolio-item <?php echo $tax ?>">
+                    <div class="bloc-project">
+                        <a href=" <?php the_permalink(); ?>">
+                            <img class="img-responsive" src="<?php
+                            $thumbnailURL = wp_get_attachment_image_src(get_post_thumbnail_id ( $post_ID ), 'medium');
+                            echo $thumbnailURL[0];  ?>" />
+
+                            <div class="caption-project">
+                                <h4><?php echo get_the_term_list(get_the_ID(), 'categorie'); ?></h4>
+                                <h1><?php the_title();?></h1>
+                                <span><?php echo get_field('nom_lieu'); ?></span><br>
+                                <span><?php echo get_field('periode'); ?></span>
+                            </div>
+                        </a>
+                    </div><!-- ./bloc-projet -->
+                </div><!-- ./all col-lg-3 -->
+
+            <?php endwhile; ?>
+        </div>
+    </div>
+</section>
+<?php
+}
+add_action('genesis_after_entry','proposition_post');
+
+//add_action('genesis_entry_header', 'category_project', 6);
 
 genesis();

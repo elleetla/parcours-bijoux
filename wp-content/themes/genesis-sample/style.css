@@ -1725,14 +1725,34 @@ div.owl-dots{
 	width:7%;
 }
 
-.
-/* Tags */
-.entry-tags a{
-	color: pink;
+
+/* Post "A proximité" */
+.row{
+	margin:20px 0;
 }
 
-/* # Footer Widgets
----------------------------------------------------------------------------------------------------- */
+.all.col-lg-3.col-md-3.col-sm-6.col-xs-12.portfolio-item{
+	display: inline-block;
+	background-color: #fff;
+}
+
+.img-responsive{
+	display: block;
+	width: auto;
+	height: auto;
+	margin: 0 auto;
+}
+
+.caption-project{
+	margin: 20px;
+}
+
+#titleProject{
+	text-transform: uppercase;
+}
+
+	/* # Footer Widgets
+    ---------------------------------------------------------------------------------------------------- */
 
 .footer-widgets {
 	background-color: #2b3844;
