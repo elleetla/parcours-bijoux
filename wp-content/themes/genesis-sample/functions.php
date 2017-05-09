@@ -267,3 +267,12 @@ function remove_post_info($post_info){
     $post_info = '';
     return $post_info;
 }
+
+// google map
+
+function my_google_map_api( $api ){
+    $api['key'] = 'AIzaSyAo2vFww4DDQ5-LpuOKj0CAQiW19GddIks';
+    return $api;
+}
+
+add_filter('acf/fields/google_map/api', 'my_google_map_api');

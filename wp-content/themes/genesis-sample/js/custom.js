@@ -20,6 +20,23 @@
     });
     //* .slider
 
+    $.ajax({
+        url: 'http://localhost:8888/parcours-bijoux/wp-json/wp/v2/posts',
+        data: {
+            filter: {
+                'posts_per_page': 5
+            }
+        },
+        dataType: 'json',
+        type: 'GET',
+        success: function(data) {
+            // success code
+        },
+        error: function() {
+            // error code
+        }
+    });
+
 })(jQuery);
 
 function initMap() {
