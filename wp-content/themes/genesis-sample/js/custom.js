@@ -2,9 +2,8 @@
 
     $( "#menu-item-241" ).click(function() {
         $( "#nav-search" ).slideToggle( "slow", function() {
-            // Animation complete.
         });
-    })
+    });
 
     //* slider
     $(".owl-carousel").owlCarousel({
