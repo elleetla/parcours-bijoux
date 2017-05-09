@@ -158,7 +158,7 @@ function initMap() {
         }
 
         $.ajax({
-            url: "http://localhost:8888/parcours-bijoux/wp-content/themes/genesis-sample/addresses.json",
+            url: "markers.json",
             context: document.body
         }).done(function(data) {
 
