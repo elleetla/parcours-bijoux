@@ -116,24 +116,9 @@ function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 48.866667, lng: 2.333333 },
         scrollwheel: false,
-        zoom: 12,
+        zoom: 11,
         disableDefaultUI: false,
         styles: mapParcoursBijoux
-    });
-
-    $.ajax({
-        url: "addresses.json",
-        context: document.body
-    }).done(function(data) {
-
-        //$( this ).append(JSON.stringify(data));
-        console.log(data);
-        var marker = new google.maps.Marker({
-            position: data,
-            map: map,
-            title: 'Hello World!'
-        });
-
     });
 
     function setMarkers(map) {
@@ -171,6 +156,22 @@ function initMap() {
                 zIndex: beach[3]
             });
         }
+
+        $.ajax({
+            url: "http://localhost:8888/parcours-bijoux/wp-content/themes/genesis-sample/addresses.json",
+            context: document.body
+        }).done(function(data) {
+
+            //$( this ).append(JSON.stringify(data));
+            console.log(data);
+            var marker = new google.maps.Marker({
+                position: data,
+                map: map,
+                title: 'Hello World!'
+            });
+
+        });
+
     }
 
     document.getElementById("button-map").onclick = function() {
