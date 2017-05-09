@@ -99,7 +99,7 @@ function artists_project(){
 
     }
 
-}blabla
+}
 
 //* Display credits of the project
 add_action('genesis_entry_footer', 'credits_project');
@@ -154,7 +154,5 @@ function crunchify_social_sharing_buttons($content) {
 add_filter( 'the_content', 'crunchify_social_sharing_buttons');
 
 //display approximité
-
-blabla
 
 genesis();
