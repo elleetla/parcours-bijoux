@@ -181,25 +181,6 @@ function proposition_post(){?>
                                 'terms'    => array( 'design' ),
                             )
                         );
-                    }
-                    elseif ($cat[0] == "digital"){
-                        $tax = array(
-                            array(
-                                'taxonomy' => 'categorie',
-                                'field'    => 'slug',
-                                'terms'    => array( 'digital' ),
-                            )
-                        );
-                    }
-
-                    elseif ($cat[0] == "innovation"){
-                        $tax = array(
-                            array(
-                                'taxonomy' => 'categorie',
-                                'field'    => 'slug',
-                                'terms'    => array( 'innovation' ),
-                            )
-                        );
                     }*/
                 }
             }
@@ -216,7 +197,7 @@ function proposition_post(){?>
 
                 ?>
 
-                <div class="all col-lg-3 col-md-3 col-sm-6 col-xs-12 portfolio-item <?php echo $tax ?>">
+                <div class="all col-lg-3 col-md-3 col-sm-6 col-xs-12 portfolio-item <?php // echo $tax ?>">
                     <div class="bloc-project">
                         <a href=" <?php the_permalink(); ?>">
                             <img class="img-responsive" src="<?php
@@ -230,7 +211,7 @@ function proposition_post(){?>
                                 <span><?php echo get_field('periode'); ?></span>
                             </div>
                         </a>
-                    </div><!-- ./bloc-projet -->
+                    </div><!-- ./bloc-project -->
                 </div><!-- ./all col-lg-3 -->
 
             <?php endwhile; ?>
