@@ -155,4 +155,6 @@ add_filter( 'the_content', 'crunchify_social_sharing_buttons');
 
 //display approximité
 
+blabla
+
 genesis();
