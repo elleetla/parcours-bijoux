@@ -27,7 +27,7 @@ function elleetla_geolocation(){ ?>
                     <h3><a href="<?php echo the_permalink(); ?>"><?php echo the_title(); ?></a></h3>
                     <p><?php echo get_field('event_adress'); ?></p>
                     <time><?php echo get_field('event_date'); ?></time>
-                    <p><a href="<?php echo the_permalink(); ?>">En savoir plus</a></p>
+                    <p><a href="<?php echo the_permalink(); ?>">En savoir +</a></p>
                 </div>
 
                 <?php endwhile; endif; ?>
