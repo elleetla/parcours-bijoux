@@ -20,10 +20,17 @@
       <file leaf-file-name="single-lieux.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/genesis-sample/single-lieux.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="692">
               <caret line="157" column="0" lean-forward="false" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="6" />
               <folding>
                 <marker date="1494318571000" expanded="true" signature="2678:2684" ph="©" />
+=======
+            <state relative-caret-position="399">
+              <caret line="101" column="7" lean-forward="false" selection-start-line="101" selection-start-column="7" selection-end-line="101" selection-end-column="7" />
+              <folding>
+                <marker date="1494318528000" expanded="true" signature="2684:2690" ph="©" />
+>>>>>>> a0fc160175712ca147bd41a68965843564501504
               </folding>
             </state>
           </provider>
@@ -268,12 +275,16 @@
       <workItem from="1493914040908" duration="253000" />
       <workItem from="1494316849800" duration="203000" />
       <workItem from="1494317562124" duration="395000" />
-      <workItem from="1494318358080" duration="45000" />
+      <workItem from="1494318358080" duration="127000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="16457000" />
+=======
+    <option name="totallyTimeSpent" value="16473000" />
+>>>>>>> a0fc160175712ca147bd41a68965843564501504
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1438" height="873" extended-state="0" />
@@ -388,7 +399,11 @@
         <state relative-caret-position="2205">
           <caret line="154" column="0" lean-forward="false" selection-start-line="154" selection-start-column="0" selection-end-line="154" selection-end-column="0" />
           <folding>
+<<<<<<< HEAD
             <marker date="1494318571000" expanded="true" signature="2678:2684" ph="©" />
+=======
+            <marker date="1494318528000" expanded="true" signature="2684:2690" ph="©" />
+>>>>>>> a0fc160175712ca147bd41a68965843564501504
           </folding>
         </state>
       </provider>
@@ -688,10 +703,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/genesis-sample/single-lieux.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="692">
           <caret line="157" column="0" lean-forward="false" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="6" />
           <folding>
             <marker date="1494318571000" expanded="true" signature="2678:2684" ph="©" />
+=======
+        <state relative-caret-position="399">
+          <caret line="101" column="7" lean-forward="false" selection-start-line="101" selection-start-column="7" selection-end-line="101" selection-end-column="7" />
+          <folding>
+            <marker date="1494318528000" expanded="true" signature="2684:2690" ph="©" />
+>>>>>>> a0fc160175712ca147bd41a68965843564501504
           </folding>
         </state>
       </provider>

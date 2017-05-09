@@ -99,7 +99,7 @@ function artists_project(){
 
     }
 
-}
+}blabla
 
 //* Display credits of the project
 add_action('genesis_entry_footer', 'credits_project');
