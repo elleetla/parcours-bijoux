@@ -8,6 +8,6 @@
 
 add_action( 'genesis_after_header', 'slider_project', 10 );
 
-remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
+remove_action( 'genesis_entry_content', 'genesis_do_post_content' );
 
 genesis();
