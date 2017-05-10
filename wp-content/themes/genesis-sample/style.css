@@ -1797,6 +1797,20 @@ div.owl-dots{
 	padding: 40px;
 }
 
+
+/* # Categories Content
+---------------------------------------------------------------------------------------------------- */
+.archive-description{
+	/*display: none;*/
+}
+
+.type-lieux{
+	display: inline-block;
+	margin: 20px;
+	padding:20px;
+	width: 363px;
+}
+
 /* # Post Content
 ---------------------------------------------------------------------------------------------------- */
 
@@ -1804,7 +1818,6 @@ div.owl-dots{
 .social-share div img{
 	width:7%;
 }
-
 
 /* Post "A proximité" */
 .row{
@@ -1814,6 +1827,8 @@ div.owl-dots{
 .all.col-lg-3.col-md-3.col-sm-6.col-xs-12.portfolio-item{
 	display: inline-block;
 	background-color: #fff;
+	margin: 10px;
+	width: 363px;
 }
 
 .img-responsive{
@@ -1824,15 +1839,16 @@ div.owl-dots{
 }
 
 .caption-project{
-	margin: 20px;
+	margin: 20px ;
 }
 
 #titleProject{
 	text-transform: uppercase;
 }
 
-	/* # Footer Widgets
-    ---------------------------------------------------------------------------------------------------- */
+
+/* # Footer Widgets
+---------------------------------------------------------------------------------------------------- */
 
 .footer-widgets {
 	background-color: #2b3844;

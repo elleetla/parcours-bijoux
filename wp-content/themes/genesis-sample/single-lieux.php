@@ -5,7 +5,7 @@
  * Date: 02/05/2017
  * Time: 11:29
  *
- * Custom a Single Page of Exposition
+ * Custom a Single Page of "Lieux"
  */
 
 //* Remove the default Genesis loop
@@ -13,42 +13,6 @@ remove_action( 'genesis_after_header', 'genesis_breadcrumb_args' );
 
 //* Display picture of the slider and its title
 add_action( 'genesis_after_header', 'slider_project', 10 );
-function slider_project() {
-
-    echo '<div class="owl-carousel owl-theme">'; // .owl-carousel
-
-    if( have_rows('slider_lieux') ):
-        while ( have_rows('slider_lieux') ) : the_row();
-
-            // Variables that contain fields
-            $galleryPicture = get_sub_field('picture_slider_lieux');
-            $titlePictureLieux = get_sub_field('title_picture_lieux');
-            $cat = get_sub_field('categorie_picture_lieux');
-
-            // Viewing fields
-            echo '<div class="item">'; // .item
-
-            echo '<img src="'.$galleryPicture.'" />';
-
-            echo '<div class="caption">'; // .caption
-
-            echo '<h4>'.$cat->name.'</h4>';
-
-            echo '<h1>'.$titlePictureLieux.'</h1>';
-
-            echo '</div>'; // ./caption
-
-            echo '</div>'; // ./item
-
-        endwhile;
-
-    else :
-        echo 'Il n\'y a aucun slider sur cette page';
-    endif;
-
-    echo '</div>'; // ./owl-carousel
-
-}
 
 //* Display a return button
 add_action('genesis_before_entry','return_button');
@@ -201,7 +165,7 @@ function proposition_post(){?>
                     <div class="bloc-project">
                         <a href=" <?php the_permalink(); ?>">
                             <img class="img-responsive" src="<?php
-                            $thumbnailURL = wp_get_attachment_image_src(get_post_thumbnail_id ( $post_ID ), 'medium');
+                            $thumbnailURL = wp_get_attachment_image_src(get_post_thumbnail_id ( $post_ID ), 'slider-image');
                             echo $thumbnailURL[0];  ?>" />
 
                             <div class="caption-project">

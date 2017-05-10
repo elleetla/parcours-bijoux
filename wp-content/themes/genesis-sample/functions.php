@@ -104,6 +104,8 @@ add_theme_support( 'genesis-footer-widgets', 3 );
 
 //* Add Image Sizes
 add_image_size( 'featured-image', 720, 400, TRUE );
+add_image_size('thumbnail-image',363,297, TRUE);
+add_image_size('slider-image',1920,498,TRUE);
 
 //* Rename primary and secondary navigation menus
 add_theme_support( 'genesis-menus' , array( 'primary' => __( 'After Header Menu', 'genesis-sample' ), 'secondary' => __( 'Footer Menu', 'genesis-sample' ) ) );
@@ -274,4 +276,42 @@ add_filter('genesis_post_info', 'remove_post_info');
 function remove_post_info($post_info){
     $post_info = '';
     return $post_info;
+}
+
+//* Display picture of the slider and its title
+function slider_project() {
+
+    echo '<div class="owl-carousel owl-theme">'; // .owl-carousel
+
+    if( have_rows('slider_lieux') ):
+        while ( have_rows('slider_lieux') ) : the_row();
+
+            // Variables that contain fields
+            $galleryPicture = get_sub_field('picture_slider_lieux');
+            $titlePictureLieux = get_sub_field('title_picture_lieux');
+            $cat = get_sub_field('categorie_picture_lieux');
+
+            // Viewing fields
+            echo '<div class="item">'; // .item
+
+            echo '<img src="'.$galleryPicture.'" />';
+
+            echo '<div class="caption">'; // .caption
+
+            echo '<h4>'.$cat->name.'</h4>';
+
+            echo '<h1>'.$titlePictureLieux.'</h1>';
+
+            echo '</div>'; // ./caption
+
+            echo '</div>'; // ./item
+
+        endwhile;
+
+    else :
+        echo 'Il n\'y a aucun slider sur cette page';
+    endif;
+
+    echo '</div>'; // ./owl-carousel
+
 }
