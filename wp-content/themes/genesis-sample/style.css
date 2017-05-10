@@ -184,6 +184,11 @@ input[type="search"]{
 	background-position: center;
 }
 
+span.cat-places {
+	font-size: 13px;
+	text-transform: uppercase;
+}
+
 .linkage {
 	padding: 26px;
 	border-bottom: 1px solid #ebebeb;

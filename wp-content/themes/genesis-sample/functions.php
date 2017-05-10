@@ -223,11 +223,8 @@ function filter_expositions(){
                 <li><a href="#">Événements</a></li>
                 <div class="dropdown">
                     <ul>
-                        <?php if($query->have_posts()) : while ($query->have_posts() ) : $query->the_post(); ?>
-                        <li><?php echo the_title(); ?></li>
-                        <?php endwhile; ?>
-                        <?php endif; ?>
-                        <?php wp_reset_postdata(); ?>
+                        <li><a href="#">Dropdown 1</a></li>
+                        <li><a href="#">Dropdown 2</a></li>
                     </ul>
                 </div>
             </ul>
