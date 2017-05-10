@@ -171,6 +171,7 @@ input[type="search"]{
 .locations{
 	padding: 0;
 	position: relative;
+	border-bottom: 2px solid #ff6400;
 }
 
 .acf-map {
@@ -184,8 +185,8 @@ input[type="search"]{
 }
 
 .linkage {
-	padding: 35px;
-	border-bottom: 1px solid #f8f8f8;
+	padding: 26px;
+	border-bottom: 1px solid #ebebeb;
 }
 
 .linkage:hover{

@@ -35,6 +35,7 @@ function elleetla_geolocation(){
 
             $address = get_field('google_maps');
             printf( '<div class="marker" data-lat="%s" data-lng="%s">
+                        <span>Category à faire</span>
 						<h3 class="title">'.get_the_title().'</h3>
 							<div class="address"><p>'.$address['address'].'</p></div>
 							<a class="readmore" href="'.get_the_permalink().'">en savoir +</a>
