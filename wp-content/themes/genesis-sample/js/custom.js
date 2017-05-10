@@ -1,11 +1,12 @@
 (function($){
 
+    // Animation menu search site
     $( "#menu-item-241" ).click(function() {
         $( "#nav-search" ).slideToggle( "slow", function() {
         });
     });
 
-    //* slider
+    //* slider page categorie lieux
     $(".owl-carousel").owlCarousel({
         items:1,
         loop:false,
@@ -17,28 +18,8 @@
         autoplayHoverPause:true,
         autoHeight:true
     });
-    //* .slider
 
-    $.ajax({
-        url: 'http://localhost:8888/parcours-bijoux/wp-json/wp/v2/posts',
-        data: {
-            filter: {
-                'posts_per_page': 5
-            }
-        },
-        dataType: 'json',
-        type: 'GET',
-        success: function(data) {
-            // success code
-        },
-        error: function() {
-            // error code
-        }
-    });
-
-})(jQuery);
-
-function initMap() {
+    // Map
 
     var mapParcoursBijoux = [
         {
@@ -129,112 +110,124 @@ function initMap() {
         }
     ];
 
-    var map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: 48.866667, lng: 2.333333 },
-        scrollwheel: false,
-        zoom: 11,
-        disableDefaultUI: false,
-        styles: mapParcoursBijoux
-    });
+    function render_map( $el ) {
 
-    function setMarkers(map) {
-        // Adds markers to the map.
+        // var
+        var $markers = $(document).find('.marker');
 
-        // Marker sizes are expressed as a Size of X,Y where the origin of the image
-        // (0,0) is located in the top left of the image.
-
-        // Origins, anchor positions and coordinates of the marker increase in the X
-        // direction to the right and in the Y direction down.
-        var image = {
-            url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-            // This marker is 20 pixels wide by 32 pixels high.
-            size: new google.maps.Size(22, 29),
-            // The origin for this image is (0, 0).
-            origin: new google.maps.Point(0, 0),
-            // The anchor for this image is the base of the flagpole at (0, 32).
-            anchor: new google.maps.Point(0, 29)
+        // vars
+        var args = {
+            zoom        : 13,
+            center      : new google.maps.LatLng(48.866667, 2.333333),
+            mapTypeId   : google.maps.MapTypeId.ROADMAP,
+            scrollwheel: false,
+            mapTypeControlOptions: {
+                mapTypeIds: [google.maps.MapTypeId.ROADMAP]
+            },
+            styles: mapParcoursBijoux
         };
-        // Shapes define the clickable region of the icon. The type defines an HTML
-        // <area> element 'poly' which traces out a polygon as a series of X,Y points.
-        // The final coordinate closes the poly by connecting to the first coordinate.
-        var shape = {
-            coords: [1, 1, 1, 20, 18, 20, 18, 1],
-            type: 'poly'
-        };
-        for (var i = 0; i < beaches.length; i++) {
-            var beach = beaches[i];
-            var marker = new google.maps.Marker({
-                position: {lat: beach[1], lng: beach[2]},
-                map: map,
-                icon: image,
-                shape: shape,
-                title: beach[0],
-                zIndex: beach[3]
+
+        // create map
+        var map = new google.maps.Map( $el[0], args);
+
+        // add a markers reference
+        map.markers = [];
+        // add markers
+        index=0;
+        $markers.each(function(){
+            add_marker( $(this), map, index);
+            index++;
+        });
+
+        // center map
+        center_map( map );
+
+    }
+
+    function add_marker( $marker, map, index ) {
+
+        // var
+        var latlng = new google.maps.LatLng( $marker.attr('data-lat'), $marker.attr('data-lng') );
+        var image = new google.maps.MarkerImage("https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png", null, null, null, new google.maps.Size(25,30));
+
+        // create marker
+        var marker = new google.maps.Marker({
+            position    : latlng,
+            map         : map,
+            icon        : image
+        });
+
+        // add to array
+        map.markers.push( marker );
+
+
+        // if marker contains HTML, add it to an infoWindow
+        if( $marker.html() )
+        {
+            $('#listdata').append('<div class= "linkage" id="p'+index+'">'+$marker.html()+'</div>'); // change html here if you want but eave id intact!!
+
+            $(document).on('click', '#p'+index, function(){
+                infowindow.open(map, marker);
+                setTimeout(function () { infowindow.close(); }, 5000);
             });
+
+            // create info window
+            var infowindow = new google.maps.InfoWindow({
+                content     : $marker.html(),
+            });
+
+            // show info window when marker is clicked
+            google.maps.event.addListener(marker, 'click', function() {
+
+                infowindow.open( map, marker );
+
+            });
+
         }
 
-        $.ajax({
-            url: "http://localhost:8888/parcours-bijoux/markers.json",
-            context: document.body
-        }).done(function(data) {
+    }
 
-            //$( this ).append(JSON.stringify(data));
-            console.log(data);
-            var marker = new google.maps.Marker({
-                position: data,
-                map: map,
-                title: 'Hello World!'
-            });
+    function center_map( map ) {
+
+        // vars
+        var bounds = new google.maps.LatLngBounds();
+
+        // loop through all markers and create bounds
+        $.each( map.markers, function( i, marker ){
+
+            var latlng = new google.maps.LatLng( marker.position.lat(), marker.position.lng() );
+
+            bounds.extend( latlng );
 
         });
 
-    }
-
-    document.getElementById("button-map").onclick = function() {
-        getLocaltion();
-    };
-
-    function getLocaltion(){
-
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-                var pos = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude,
-                };
-
-                map.setZoom(15);
-
-                var infoWindow = new google.maps.InfoWindow({map: map});
-
-                infoWindow.setPosition(pos);
-                infoWindow.setContent('<p style="margin: 0; color: #e74c3c; font-weight: 300;">Vous êtes ici !</p>');
-                map.setCenter(pos);
-            },function() {
-                handleLocationError(true, infoWindow, map.getCenter());
-            });
-        } else {
-            // Browser doesn't support Geolocation
-            handleLocationError(false, infoWindow, map.getCenter());
+        // only 1 marker?
+        if( map.markers.length == 1 )
+        {
+            // set center of map
+            alert(bounds);
+            map.setCenter( bounds.getCenter() );
+            map.setZoom( 16 );
+        }
+        else
+        {
+            // fit to bounds
+            map.fitBounds( bounds );
         }
 
     }
 
-    setMarkers(map);
-}
-// end initMap
+// Call it
 
-var beaches = [
-    ['Bondi Beach', 48.866667, 2.333333],
-    ['Froment', 48.8677952, 2.3279679],
-    ['Iesa saint augustin', 48.8688285, 2.3376012],
-    ['elle&la', 48.8936866, 2.3371175],
-];
 
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-    infoWindow.setPosition(pos);
-    infoWindow.setContent(browserHasGeolocation ?
-        'Error: The Geolocation service failed.' :
-        'Error: Your browser doesn\'t support geolocation.');
-}
-// end handleLocationError
+    $(document).ready(function(){
+
+        $('.acf-map').each(function(){
+
+            render_map( $(this) );
+
+        });
+
+    });
+
+})(jQuery);

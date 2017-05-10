@@ -6,46 +6,55 @@
  * Time: 17:22
  */
 
-function elleetla_geolocation(){ ?>
+function elleetla_geolocation(){
 
-    <div style="position: relative; overflow: hidden;">
-        <div style="height: 100%; width: 35%; background-color: #ffffff; position: absolute; right: 0; display: block; z-index: 10;">
-            <div style="max-height: 100%; overflow: scroll;">
-                <?php
+    // accepts any wp_query args
+    $args = (array(
+        'post_type'      => 'lieux',
+        'order'          => 'ASC',
+        'orderby'       => 'title'
+    ));
 
-                $args = array(
-                    'post_type' => 'lieux',
-                    'order' => 'ASC',
-                );
+    // The Query
+    $the_query = new WP_Query( $args );
 
-                $my_query = new WP_Query($args);
+    // The Loop
+    if ( $the_query->have_posts() ) {
+        echo '<div class="locations"><div class="acf-map"></div>';
 
-                if($my_query->have_posts()) : while ($my_query->have_posts() ) : $my_query->the_post(); ?>
+        echo '<div id="listdata"></div><div id="newdiv">';
+        while ( $the_query->have_posts() ) {
+            $the_query->the_post();
 
-                <div class="list-last-places">
-                    <span><?php the_category(); ?></span>
-                    <h3><a href="<?php echo the_permalink(); ?>"><?php echo the_title(); ?></a></h3>
-                    <p><?php echo get_field('event_adress'); ?></p>
-                    <time><?php echo get_field('event_date'); ?></time>
-                    <p><a href="<?php echo the_permalink(); ?>">En savoir +</a></p>
-                </div>
+            $address = get_field( 'google_maps' );
+            printf( '<div class="marker" data-lat="%s" data-lng="%s">
+						<h4 class="title">%s</h4>
+							<div class="address"><i class="fa fa-map-marker" aria-hidden="true"></i> %s
+							<a href="" target="_blank" class="website" title="%s"></a>
+							<div class="address-item"><i class="fa fa-phone" aria-hidden="true"></i> %s</div>
+							<div class="address-item">%s</div>
+							</div>
+						</div>',
+                $address['lat'],
+                $address['lng'],
+                get_the_title(),
+                $address['address'],
+                get_the_title(),
+                $contact_number,
+                $opening_hours);
+        }
 
-                <?php endwhile; endif; ?>
-                <?php wp_reset_postdata(); ?>
+        echo '</div></div>';
 
-                <button id="button-map">localisation</button>
+        /* Restore original Post Data */
+        wp_reset_postdata();
+    } else {
+        // no posts found
+    }
 
-            </div>
+}
 
-        </div>
-
-        <div style="width: 65%; height: 800px; background-color: #dddddd; z-index: 0;" id="map"></div>
-
-    </div>
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAo2vFww4DDQ5-LpuOKj0CAQiW19GddIks&callback=initMap" async defer></script>
-
-<?php }
+add_action( 'wp_enqueue_scripts', 'io_enqueue_locations' );
 
 add_action('genesis_after_header','elleetla_geolocation',20);
 
