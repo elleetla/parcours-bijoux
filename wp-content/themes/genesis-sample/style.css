@@ -228,6 +228,7 @@ h3.title {
 
 .structure-places{
 	height: 100%; width: 35%; top:0; background-color: #ffffff; position: absolute; right: 0; display: block; z-index: 10;
+	overflow: hidden;
 }
 
 /* # Defaults
