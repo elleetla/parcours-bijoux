@@ -8,48 +8,55 @@
 
 function elleetla_geolocation(){
 
+    echo '<div class="locations">';
+
+    echo '<div class="acf-map"></div>';
+
     // accepts any wp_query args
     $args = (array(
         'post_type'      => 'lieux',
         'order'          => 'ASC',
-        'orderby'       => 'title'
+        'orderby'       => 'title',
     ));
 
-    // The Query
     $the_query = new WP_Query( $args );
 
-    // The Loop
     if ( $the_query->have_posts() ) {
-        echo '<div class="locations"><div class="acf-map"></div>';
 
-        echo '<div id="listdata"></div><div id="newdiv">';
+        echo '<div class="structure-places"></div>';
+
+        echo '<div id="newdiv">';
+
+        echo '<div class="list-last-places">';
+
         while ( $the_query->have_posts() ) {
+
             $the_query->the_post();
 
-            $address = get_field( 'google_maps' );
+            $address = get_field('google_maps');
             printf( '<div class="marker" data-lat="%s" data-lng="%s">
-						<h4 class="title">%s</h4>
-							<div class="address"><i class="fa fa-map-marker" aria-hidden="true"></i> %s
-							<a href="" target="_blank" class="website" title="%s"></a>
-							<div class="address-item"><i class="fa fa-phone" aria-hidden="true"></i> %s</div>
-							<div class="address-item">%s</div>
-							</div>
+						<h3 class="title">'.get_the_title().'</h3>
+							<div class="address"><p>'.$address['address'].'</p></div>
+							<a class="readmore" href="'.get_the_permalink().'">en savoir +</a>
 						</div>',
                 $address['lat'],
-                $address['lng'],
-                get_the_title(),
-                $address['address'],
-                get_the_title(),
-                $contact_number,
-                $opening_hours);
+                $address['lng']
+            );
         }
 
-        echo '</div></div>';
+        echo '</div>';
+
+        echo '</div>';
+
+        echo '</div>';
 
         /* Restore original Post Data */
         wp_reset_postdata();
+
     } else {
-        // no posts found
+
+        echo '<p>il n y a aucun post disponible</p>';
+
     }
 
 }

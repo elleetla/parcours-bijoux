@@ -164,7 +164,7 @@
         // if marker contains HTML, add it to an infoWindow
         if( $marker.html() )
         {
-            $('#listdata').append('<div class= "linkage" id="p'+index+'">'+$marker.html()+'</div>'); // change html here if you want but eave id intact!!
+            $('.structure-places').append('<div class= "linkage" id="p'+index+'">'+$marker.html()+'</div>'); // change html here if you want but eave id intact!!
 
             $(document).on('click', '#p'+index, function(){
                 infowindow.open(map, marker);
@@ -205,9 +205,8 @@
         if( map.markers.length == 1 )
         {
             // set center of map
-            alert(bounds);
             map.setCenter( bounds.getCenter() );
-            map.setZoom( 16 );
+            map.setZoom( 13 );
         }
         else
         {
@@ -219,14 +218,9 @@
 
 // Call it
 
+    $('.acf-map').each(function(){
 
-    $(document).ready(function(){
-
-        $('.acf-map').each(function(){
-
-            render_map( $(this) );
-
-        });
+        render_map( $(this) );
 
     });
 
