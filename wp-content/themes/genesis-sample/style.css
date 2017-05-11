@@ -1803,25 +1803,38 @@ div.owl-dots{
 }
 
 
+
 /* # Categories Content
 ---------------------------------------------------------------------------------------------------- */
 .archive-description{
 	/*display: none;*/
 }
 
-.type-lieux{
-	display: inline-block;
-	margin: 20px;
-	padding:20px;
+.categorie-expositions {
 	width: 363px;
 }
+
 
 /* # Post Content
 ---------------------------------------------------------------------------------------------------- */
 
+/* Main content */
+.type-lieux{
+	margin: 20px;
+	padding: 76px 70px;
+	width: 1146px;
+}
+
 /* Social icon */
 .social-share div img{
 	width:7%;
+}
+
+/* Tags */
+.entry-tags a{
+	background-color:#f5f5f5;
+	padding: 10px;
+	border-radius: 5px;
 }
 
 /* Post "A proximité" */
