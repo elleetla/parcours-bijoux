@@ -94,10 +94,10 @@ function crunchify_social_sharing_buttons($content) {
 
         // Construct sharing URL without using any script
         $facebookURL = 'https://www.facebook.com/sharer/sharer.php?u='.$post_url;
-        $twitterURL = 'https://twitter.com/intent/tweet?text='.$post_title.'&amp;url='.$post_url.'&amp;via=Crunchify';
+        $twitterURL = 'https://twitter.com/intent/tweet?text='.$post_title.'&amp;url='.$post_url.'&amp;via=ParcoursBijoux';
         $googleURL = 'https://plus.google.com/share?url='.$post_url;
         $pinterestURL = 'https://pinterest.com/pin/create/button/?url='.$post_url.'&amp;description='.$post_title;
-        $mailURL = 'mailto:'.$address_mail.'?subject='.$post_title;
+        $mailURL = 'mailto:?subject= Parcours Bijoux - '.$post_title;
 
         // Add sharing button at the end of page/page content
         $content .= '<!-- Crunchify.com social sharing. Get your copy here: http://crunchify.me/1VIxAsz -->';
