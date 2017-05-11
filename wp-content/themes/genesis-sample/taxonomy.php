@@ -55,5 +55,13 @@ function random () {
     query_posts($query_string . "&orderby=rand");
 }
 
+//Load More button
+add_action('genesis_before_loop', 'load_more');
+add_action('genesis_after_loop', 'load_more');
+
+function load_more () {?>
+    <button class="load-more"">+ voir tous les évènements +</button>
+<?php
+}
 
 genesis();

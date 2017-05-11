@@ -9,7 +9,7 @@
     //* slider page categorie lieux
     $(".owl-carousel").owlCarousel({
         items:1,
-        loop:false,
+        loop:true,
         center:true,
         nav:true,
         navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],

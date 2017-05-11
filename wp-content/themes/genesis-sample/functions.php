@@ -312,3 +312,6 @@ function slider_project() {
     echo '</div>'; // ./owl-carousel
 
 }
+
+
+//Load More
