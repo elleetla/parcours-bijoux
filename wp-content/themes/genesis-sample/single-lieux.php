@@ -46,7 +46,7 @@ add_action('genesis_entry_content', 'artists_project',15);
 function artists_project(){
 
     //display all artists
-    $terms = get_terms('artiste');
+    $terms = get_the_terms( $post->ID , 'artiste' );
     $count = count($terms);
     $i = 1;
     foreach ($terms as $term){
