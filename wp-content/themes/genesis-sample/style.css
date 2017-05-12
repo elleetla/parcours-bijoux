@@ -1756,34 +1756,28 @@ p.entry-meta {
 ---------------------------------------------------------------------------------------------------- */
 
 /* place the caption*/
-.owl-carousel div .caption{
+.caption-slider{
 	position:absolute;
 	display:block;
 	right:25%;
-	bottom:35%;
+	bottom:50%;
 }
 
 /* place the navigation button */
 div.owl-prev{
 	position:absolute;
 	left: 5%;
-	bottom:40%;
+	bottom:50%;
 }
 
 div.owl-next{
 	position:absolute;
 	right: 5%;
-	bottom:40%;
-}
-
-div.owl-dots{
-	margin-top:-5%;
-	opacity:1;
-	color: black;
+	bottom:50%;
 }
 
 /* style the caption */
-.owl-carousel div h4, .owl-carousel div h1{
+.owl-carousel div a, .owl-carousel div h1{
 	color: #ffffff;
 }
 
