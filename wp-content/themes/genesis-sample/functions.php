@@ -62,7 +62,10 @@ function genesis_sample_enqueue_scripts_styles() {
     wp_enqueue_script( 'genesis-sample-owl-carousel-js', get_stylesheet_directory_uri() . '/js/owl.carousel.min.js', array( 'jquery' ), '1.0.0', true );
     wp_enqueue_script( 'genesis-sample-custom', get_stylesheet_directory_uri() . '/js/custom.js', array( 'jquery' ), '1.0.0', true );
     wp_enqueue_script( 'google-maps-api', '//maps.googleapis.com/maps/api/js?key=AIzaSyAo2vFww4DDQ5-LpuOKj0CAQiW19GddIks', array(), '', true );
-	$output = array(
+
+
+
+    $output = array(
 		'mainMenu' => __( 'Menu', 'genesis-sample' ),
 		'subMenu'  => __( 'Menu', 'genesis-sample' ),
 	);
@@ -268,14 +271,14 @@ function filter_expositions(){
 add_action('genesis_after_header','filter_expositions',15);
 
 /* in posts */
-// remove post-date
+//* Remove post-date
 add_filter('genesis_post_info', 'remove_post_info');
 function remove_post_info($post_info){
     $post_info = '';
     return $post_info;
 }
 
-//* Display picture of the slider and its title
+//* Display picture of the slider, its category and title
 function slider_project() {
 
     echo '<div class="owl-carousel owl-theme">';
@@ -312,6 +315,33 @@ function slider_project() {
     echo '</div><!-- ./owl-carousel -->';
 
 
+}
+
+//* Display post content
+function post_content(){?>
+    <div class="all col-lg-3 col-md-3 col-sm-6 col-xs-12 portfolio-item <?php // echo $tax ?>">
+        <div class="bloc-project">
+            <a href=" <?php the_permalink(); ?>">
+                <img class="img-responsive" src="<?php
+                $thumbnailURL = wp_get_attachment_image_src(get_post_thumbnail_id ( $post_ID ), 'slider-image');
+                echo $thumbnailURL[0];  ?>" />
+
+                <div class="caption-project">
+                    <h4><?php echo get_the_term_list(get_the_ID(), 'categorie'); ?></h4>
+                    <h1><?php the_title();?></h1>
+                    <span><?php echo get_field('nom_lieu'); ?></span><br>
+                    <span><?php echo get_field('periode'); ?></span>
+                </div>
+            </a>
+        </div><!-- ./bloc-project -->
+    </div><!-- ./all col-lg-3 -->
+    <?php
+}
+
+//* Display posts randomly
+function random () {
+    global $query_string;
+    query_posts($query_string . "&orderby=rand");
 }
 
 //Load More

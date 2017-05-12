@@ -17,7 +17,7 @@ add_action( 'genesis_after_header', 'slider_project', 10 );
 //* Display a return button
 add_action('genesis_before_entry','return_button');
 function return_button(){
-    $return_page = get_site_url().'/expositions/';
+    $return_page = get_site_url().'/categorie/expositions/';
     echo '<div class="return">';
     echo '<button onclick="location.href=\''.$return_page.'\';" class"float-left">Retour</button>';
     echo '</div>';
@@ -73,9 +73,7 @@ function credits_project(){
     echo '<div class="post-credit">&copy; crédits : '.$creditsPerson.'</div>';
 }
 
-
-
-function crunchify_social_sharing_buttons($content) {
+function social_sharing_buttons($content) {
     global $post;
     if(is_singular() || is_home()){
 
@@ -115,7 +113,7 @@ function crunchify_social_sharing_buttons($content) {
         return $content;
     }
 };
-add_filter( 'the_content', 'crunchify_social_sharing_buttons');
+add_filter( 'the_content', 'social_sharing_buttons');
 
 //display post "A proximité"
 function proposition_post(){?>
