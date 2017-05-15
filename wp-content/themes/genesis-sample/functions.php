@@ -180,6 +180,18 @@ if(get_field('header_fixe_transparent')){
 
 }
 
+add_action('genesis_header_right', 'info_header');
+function info_header(){?>
+    <div id="header-date">25 sept ------------ 21 janv 2017</div>
+    <div id="header-description">
+        <p id="comtemporains">Bijoux contemporains</p>
+        <p id="parcours">parcours d'expositions</p>
+        <p id="paris">paris</p>
+    </div>
+
+    <?php
+}
+
 //* Customize the breadcrumbs genesis
 remove_action( 'genesis_before_loop', 'genesis_do_breadcrumbs' );
 add_action( 'genesis_after_header', 'genesis_do_breadcrumbs',15 );

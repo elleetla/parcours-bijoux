@@ -1752,6 +1752,31 @@ p.entry-meta {
 	display: none;
 }
 
+/* # Home page
+---------------------------------------------------------------------------------------------------- */
+
+#header-date{
+	float: left;
+	display:inline;
+	text-transform: uppercase;
+}
+
+#header-description{
+	float: right;
+	display:inline;
+}
+
+#header-description p{
+	margin-bottom: 0;
+}
+
+#comtemporains{
+	font-weight:bold;
+}
+
+#parcours, #paris{
+	text-transform: uppercase;
+}
 /* # Slider
 ---------------------------------------------------------------------------------------------------- */
 
