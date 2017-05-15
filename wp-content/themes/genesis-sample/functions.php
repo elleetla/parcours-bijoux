@@ -187,8 +187,11 @@ if(get_field('header_fixe_transparent')){
 }
 
 add_action('genesis_header_right', 'info_header');
-function info_header(){?>
-    <div id="header-date">25 sept ------------ 21 janv 2017</div>
+function info_header(){
+    $trait = get_stylesheet_directory_uri().'/images/barre_header_dates.svg';
+    ?>
+
+    <div id="header-date">25 sept <img src="<?php echo $trait; ?>"/> 21 janv 2017</div>
     <div id="header-description">
         <p id="comtemporains">Bijoux contemporains</p>
         <p id="parcours">parcours d'expositions</p>
@@ -205,16 +208,34 @@ add_action( 'genesis_after_header', 'genesis_do_breadcrumbs',15 );
 // title page
 remove_action( 'genesis_before_loop', 'genesis_do_posts_page_heading' );
 
+
+//* Search functionalities
 // function search
 function search_exposition(){ ?>
 
-    <div id="nav-search" style="padding: 30px 0; background-color: #ff6400;">
-        <div class="wrap">Barre de recherche</div>
+    <div id="nav-search">
+        <div class="wrap"><?php get_search_form(); ?></div>
     </div>
 
     <?php
 }
 add_action('genesis_after_header','search_exposition',10);
+
+// modify search form input box
+add_filter( 'genesis_search_text', 'b3m_genesis_search_text' );
+function b3m_genesis_search_text( $text ) {
+
+    return esc_attr( 'Un lieu, unex exposition, une date, un artiste ?' );
+
+}
+
+// modify search form input button
+add_filter( 'genesis_search_button_text', 'b3m_genesis_search_button_text' );
+function b3m_genesis_search_button_text( $text ) {
+
+    return esc_attr( 'rechercher' );
+
+}
 
 // function search filter
 function filter_expositions(){
@@ -355,7 +376,7 @@ function post_content(){?>
 
         </div><!-- ./bloc-project -->
     </div><!-- ./all col-lg-3 -->
-    <?php
+<?php
 }
 
 //* Display posts randomly
@@ -363,5 +384,3 @@ function random () {
     global $query_string;
     query_posts($query_string . "&orderby=rand");
 }
-
-//Load More

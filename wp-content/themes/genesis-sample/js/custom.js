@@ -7,10 +7,12 @@
     });
 
     // Animation menu search site
+    /*
     $( "#menu-item-241" ).click(function() {
         $( "#nav-search" ).slideToggle( "slow", function() {
         });
     });
+    */
 
     //* slider page categorie lieux
     $(".owl-carousel").owlCarousel({
@@ -18,7 +20,7 @@
         loop:true,
         center:true,
         nav:true,
-        navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+        navText: ["<img src='/parcours-bijoux/wp-content/themes/genesis-sample/images/chevron_slider_gauche.svg'>","<img src='/parcours-bijoux/wp-content/themes/genesis-sample/images/chevron_slider_droit.svg'>"],
         autoplay:true,
         autoplayTimeout:5000,
         autoplayHoverPause:true,

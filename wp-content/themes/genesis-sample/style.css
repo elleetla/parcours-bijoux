@@ -90,7 +90,23 @@ input[type="search"]{
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing:    border-box;
 	box-sizing:         border-box;
+
 }
+
+input[type="search"]{
+	background-color:rgba(0, 0, 0, 0);
+	border:0;
+	border-bottom:1px solid white;
+	margin:10px;
+	padding: 0;
+	color:white;
+	width: 80%;
+}
+input[type="search"]::-webkit-input-placeholder {
+	color: #ffffff;
+}
+
+
 
 *,
 *:before,
@@ -887,6 +903,8 @@ th:first-child {
 .post-password-form input[type="submit"],
 .search-form input[type="submit"] {
 	margin-top: 10px;
+	background-color: transparent;
+	margin-left:5px;
 }
 
 .genesis-nav-menu .search input[type="submit"],
@@ -1094,7 +1112,9 @@ img.alignright,
 }
 
 #nav-search{
-	display: none;
+	/*display: none;*/
+	padding: 30px 0;
+	background-color: #ff6400;
 }
 
 .overlay {
@@ -1245,6 +1265,7 @@ img.alignright,
 .site-header {
 	background-color: #fff;
 	padding:20px 0px;
+	color:#ff6400;
 }
 
 .site-header-active .site-header {
@@ -1258,6 +1279,30 @@ img.alignright,
 .site-header > .wrap {
 	padding: 0;
 }
+
+#header-date{
+	float: left;
+	display:inline;
+	text-transform: uppercase;
+}
+
+#header-description{
+	float: right;
+	display:inline;
+}
+
+#header-description p{
+	margin-bottom: 0;
+}
+
+#comtemporains{
+	font-weight:bold;
+}
+
+#parcours, #paris{
+	text-transform: uppercase;
+}
+
 
 /* # Filter header
 ---------------------------------------------------------------------------------------------------- */
@@ -1752,38 +1797,6 @@ p.entry-meta {
 	display: none;
 }
 
-/* # Home page
----------------------------------------------------------------------------------------------------- */
-
-/* Header */
-#header-date{
-	float: left;
-	display:inline;
-	text-transform: uppercase;
-}
-
-#header-description{
-	float: right;
-	display:inline;
-}
-
-#header-description p{
-	margin-bottom: 0;
-}
-
-#comtemporains{
-	font-weight:bold;
-}
-
-#parcours, #paris{
-	text-transform: uppercase;
-}
-
-/* Footer */
-#footer a{
-	margin-right: 5%;
-	text-transform: uppercase;
-}
 
 /* # Slider
 ---------------------------------------------------------------------------------------------------- */
@@ -1798,12 +1811,14 @@ p.entry-meta {
 
 /* place the navigation button */
 div.owl-prev{
+	width:40px;
 	position:absolute;
 	left: 5%;
 	bottom:50%;
 }
 
 div.owl-next{
+	width:40px;
 	position:absolute;
 	right: 5%;
 	bottom:50%;
@@ -1851,6 +1866,13 @@ article{
 }
 /* # Post Content
 ---------------------------------------------------------------------------------------------------- */
+
+/* Return button */
+
+.return button{
+	background-color:transparent;
+	color:#ff6400;
+}
 
 /* Main content */
 .type-lieux{
@@ -1947,6 +1969,10 @@ article{
 	margin-bottom: 0;
 }
 
+#footer a{
+	margin-right: 5%;
+	text-transform: uppercase;
+}
 
 /* # Media Queries
 ---------------------------------------------------------------------------------------------------- */
