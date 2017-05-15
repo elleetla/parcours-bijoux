@@ -17,7 +17,11 @@ add_action( 'genesis_after_header', 'slider_project', 10 );
 //* Display a return button
 add_action('genesis_before_entry','return_button');
 function return_button(){
-    $return_page = get_site_url().'/categorie/expositions/';
+    $categories = get_the_terms( $post->ID, 'categorie' );
+    foreach( $categories as $category ) {
+        $return_categorie  = $category->slug;
+    }
+    $return_page = get_site_url().'/categorie/'.$return_categorie;
     echo '<div class="return">';
     echo '<button onclick="location.href=\''.$return_page.'\';" class"float-left">Retour</button>';
     echo '</div>';

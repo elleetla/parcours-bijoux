@@ -3,25 +3,8 @@
     //* load more button
     $("article").slice(0, 6).show();
     $(".load-more").on('click', function () {
-        $("article:hidden").slice(0, 54).slideDown();
-        /*if ($("article:hidden").length == 0) {
-            $("#load").fadeOut('slow');
-        }
-        $('html,body').animate({
-            scrollTop: $(this).offset().top
-        }, 1500);*/
+        $("article:hidden").slice(0).slideDown();
     });
-    /* send 2 admin-ajax
-        jQuery.post(
-            ajaxurl,
-            {
-                'action': 'see_all',
-            },
-            function(response){
-                $('#genesis-content').append(response);
-            }
-        );
-    });*/
 
     // Animation menu search site
     $( "#menu-item-241" ).click(function() {

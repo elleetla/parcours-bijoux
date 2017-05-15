@@ -321,18 +321,20 @@ function slider_project() {
 function post_content(){?>
     <div class="all col-lg-3 col-md-3 col-sm-6 col-xs-12 portfolio-item <?php // echo $tax ?>">
         <div class="bloc-project">
-            <a href=" <?php the_permalink(); ?>">
-                <img class="img-responsive" src="<?php
-                $thumbnailURL = wp_get_attachment_image_src(get_post_thumbnail_id ( $post_ID ), 'slider-image');
-                echo $thumbnailURL[0];  ?>" />
 
-                <div class="caption-project">
-                    <h4><?php echo get_the_term_list(get_the_ID(), 'categorie'); ?></h4>
+            <img class="img-responsive" src="<?php
+            $thumbnailURL = wp_get_attachment_image_src(get_post_thumbnail_id ( $post_ID ), 'slider-image');
+            echo $thumbnailURL[0];  ?>" />
+
+            <div class="caption-project">
+                <h4><?php echo get_the_term_list(get_the_ID(), 'categorie'); ?></h4>
+                <a href="<?php the_permalink(); ?>">
                     <h1><?php the_title();?></h1>
                     <span><?php echo get_field('nom_lieu'); ?></span><br>
                     <span><?php echo get_field('periode'); ?></span>
-                </div>
-            </a>
+                </a>
+            </div>
+
         </div><!-- ./bloc-project -->
     </div><!-- ./all col-lg-3 -->
     <?php
