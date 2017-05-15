@@ -1755,6 +1755,7 @@ p.entry-meta {
 /* # Home page
 ---------------------------------------------------------------------------------------------------- */
 
+/* Header */
 #header-date{
 	float: left;
 	display:inline;
@@ -1777,6 +1778,13 @@ p.entry-meta {
 #parcours, #paris{
 	text-transform: uppercase;
 }
+
+/* Footer */
+#footer a{
+	margin-right: 5%;
+	text-transform: uppercase;
+}
+
 /* # Slider
 ---------------------------------------------------------------------------------------------------- */
 
