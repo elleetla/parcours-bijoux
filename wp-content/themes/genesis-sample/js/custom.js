@@ -173,8 +173,9 @@
             $('.structure-places').append('<div class= "linkage" id="p'+index+'">'+$marker.html()+'</div>'); // change html here if you want but eave id intact!!
 
             $(document).on('click', '#p'+index, function(){
-                infowindow.open(map, marker);
-                setTimeout(function () { infowindow.close(); }, 5000);
+                if (typeof( window.infoopened ) != 'undefined') infoopened.close();
+                infowindow.open(map,marker);
+                infoopened = infowindow;
             });
 
             // create info window
@@ -184,9 +185,9 @@
 
             // show info window when marker is clicked
             google.maps.event.addListener(marker, 'click', function() {
-
-                infowindow.open( map, marker );
-
+                if (typeof( window.infoopened ) != 'undefined') infoopened.close();
+                infowindow.open(map,marker);
+                infoopened = infowindow;
             });
 
         }
