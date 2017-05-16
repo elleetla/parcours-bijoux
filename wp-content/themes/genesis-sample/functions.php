@@ -240,62 +240,66 @@ function b3m_genesis_search_button_text( $text ) {
 // function search filter
 function filter_expositions(){
 
-    if ( is_front_page() ){
-
-        $queried_object = get_queried_object();
-        $taxonomy = $queried_object->taxonomy;
-        $term_id = $queried_object->term_id;
-        $event_lieux = get_field('event_adress', $taxonomy . '_' . $term_id);
-
-        $args = array(
-            'post_type' => 'lieux',
-            'order' => 'DESC',
-            'tax_query' => array(
-                'taxonomy' => 'category',
-                'field'    => 'id',
-                'terms'    => array($event_lieux)
-            ),
-        );
-
-        $query = new WP_Query( $args ); ?>
+    if ( is_front_page() ){?>
 
         <div id="filter-expositions">
         <div class="wrap">
             <ul class="filter-nav">
                 <li><a href="#">Événements</a></li>
-                <div class="dropdown">
-                    <ul>
-                        <li><a href="#">Dropdown 1</a></li>
-                        <li><a href="#">Dropdown 2</a></li>
+                    <ul class="dropdown">
+                        <?php
+                            $events = get_terms('categorie' );
+
+                            foreach( $events as $event ) {
+                                echo '<li><a href="#" data-filter=".'.$event->slug.'">'.$event->name.'</a></li>';
+                            }
+                        ?>
                     </ul>
-                </div>
             </ul>
+
             <ul class="filter-nav">
                 <li><a href="#">Lieux</a></li>
-                <div class="dropdown">
-                    <ul>
-                        <li><a href="#">Dropdown 1</a></li>
-                        <li><a href="#">Dropdown 2</a></li>
+                    <ul class="dropdown">
+                        <?php
+                            $arrts = get_terms('arrondissement',
+                                array(
+                                        'orderby'   => 'slug'
+                                ));
+
+                            foreach( $arrts as $arrt ) {
+                                echo '<li><a href="#" data-filter=".'.$arrt->slug.'">'.$arrt->name.'</a></li>';
+                            }
+                        ?>
                     </ul>
-                </div>
             </ul>
+
             <ul class="filter-nav">
                 <li><a href="#">Dates</a></li>
-                <div class="dropdown">
-                    <ul>
-                        <li><a href="#">Dropdown 1</a></li>
-                        <li><a href="#">Dropdown 2</a></li>
+                    <ul class="dropdown">
+                        <?php
+                            $dates = get_terms('dates',
+                                array(
+                                    'orderby'   => 'slug'
+                                ));
+
+                            foreach( $dates as $date ) {
+                                echo '<li><a href="#" data-filter=".'.$date->slug.'">'.$date->name.'</a></li>';
+                            }
+                        ?>
                     </ul>
-                </div>
             </ul>
+
             <ul class="filter-nav">
                 <li><a href="#">Artistes</a></li>
-                <div class="dropdown">
-                    <ul>
-                        <li><a href="#">Dropdown 1</a></li>
-                        <li><a href="#">Dropdown 2</a></li>
+                    <ul class="dropdown">
+                        <?php
+                            $artistes = get_terms('artiste' );
+
+                            foreach( $artistes as $artiste ) {
+                                echo '<li><a href="#" data-filter=".'.$artiste->slug.'">'.$artiste->name.'</a></li>';
+                            }
+                        ?>
                     </ul>
-                </div>
             </ul>
             <button>Filtrer</button>
             <div style="width: 75%; display: block;">

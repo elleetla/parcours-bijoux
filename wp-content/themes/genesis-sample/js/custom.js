@@ -156,7 +156,15 @@
 
         // var
         var latlng = new google.maps.LatLng( $marker.attr('data-lat'), $marker.attr('data-lng') );
+
         var image = new google.maps.MarkerImage("https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png", null, null, null, new google.maps.Size(25,30));
+        /*
+        var image = {
+            url : "http://localhost:8888/parcours-bijoux/wp-content/themes/genesis-sample/images/picto_map_noir.svg",
+            //scaledSize: new google.maps.Size(25, 30),
+            size: new google.maps.Size(25,30)
+        };
+        */
 
         // create marker
         var marker = new google.maps.Marker({

@@ -249,7 +249,7 @@ h3.title {
 
 .structure-places{
 	height: 100%; width: 35%; top:0; background-color: #ffffff; position: absolute; right: 0; display: block; z-index: 10;
-	overflow: hidden;
+	overflow-x: hidden; overflow:scroll;
 }
 
 /* # Defaults
@@ -1348,6 +1348,13 @@ img.alignright,
 .filter-nav:hover .dropdown{
 	display: block;
 }
+ul.dropdown{
+
+	max-height:300px;
+	overflow: hidden;
+	overflow-y: auto;
+ }
+
 
 .dropdown{
 	padding: 0 0 10px 0;
@@ -1815,6 +1822,7 @@ div.owl-prev{
 	position:absolute;
 	left: 5%;
 	bottom:50%;
+	background:transparent !important;
 }
 
 div.owl-next{
@@ -1822,6 +1830,7 @@ div.owl-next{
 	position:absolute;
 	right: 5%;
 	bottom:50%;
+	background:transparent !important;
 }
 
 /* style the caption */
