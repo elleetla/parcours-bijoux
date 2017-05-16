@@ -15,8 +15,7 @@ function elleetla_geolocation(){
     // accepts any wp_query args
     $args = (array(
         'post_type'      => 'lieux',
-        'order'          => 'ASC',
-        'orderby'       => 'title',
+        'orderby'       => 'rand',
     ));
 
     $the_query = new WP_Query( $args );
@@ -34,12 +33,19 @@ function elleetla_geolocation(){
             $the_query->the_post();
 
             $address = get_field('google_maps');
+            
             printf( '<div class="marker" data-lat="%s" data-lng="%s">
-                        <span class="cat-places">'.get_the_term_list(get_the_ID(), 'categorie').'</span>
-						<h3 class="title">'.get_the_title().'</h3>
-							<div class="address"><p>'.$address['address'].'</p></div>
-							<a class="readmore" href="'.get_the_permalink().'">en savoir +</a>
-						</div>',
+
+                                <span class="cat-places">'.get_the_term_list(get_the_ID(), 'categorie').'</span>
+                                <h3 class="title">'.get_the_title().'</h3>
+                                
+                                    <div class="address">
+                                        <p>'.$address['address'].'</p>
+                                    </div>
+                                
+                                <a class="readmore" href="'.get_the_permalink().'">en savoir +</a>
+
+                            </div>',
                 $address['lat'],
                 $address['lng']
             );

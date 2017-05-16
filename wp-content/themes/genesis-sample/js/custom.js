@@ -180,7 +180,7 @@
         // if marker contains HTML, add it to an infoWindow
         if( $marker.html() )
         {
-            $('.structure-places').append('<div class= "linkage" id="p'+index+'">'+$marker.html()+'</div>'); // change html here if you want but eave id intact!!
+            $('.structure-places').append('<div class= "linkage" id="p'+index+'">'+$marker.html()+'</div>'); // change html here if you want but leave id intact!!
 
             $(document).on('click', '#p'+index, function(){
                 if (typeof( window.infoopened ) != 'undefined') infoopened.close();

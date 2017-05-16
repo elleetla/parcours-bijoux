@@ -107,8 +107,8 @@ add_theme_support( 'genesis-footer-widgets', 3 );
 
 //* Add Image Sizes
 add_image_size( 'featured-image', 720, 400, TRUE );
-add_image_size('thumbnail-image',363,297, TRUE);
-add_image_size('slider-image',1920,498,TRUE);
+add_image_size('thumbnail-image',364,298, TRUE);
+add_image_size('slider-image',1920,500,TRUE);
 
 //* Rename primary and secondary navigation menus
 add_theme_support( 'genesis-menus' , array( 'primary' => __( 'After Header Menu', 'genesis-sample' ), 'secondary' => __( 'Footer Menu', 'genesis-sample' ) ) );
@@ -225,7 +225,7 @@ add_action('genesis_after_header','search_exposition',10);
 add_filter( 'genesis_search_text', 'b3m_genesis_search_text' );
 function b3m_genesis_search_text( $text ) {
 
-    return esc_attr( 'Un lieu, unex exposition, une date, un artiste ?' );
+    return esc_attr( 'Un lieu, une exposition, une date, un artiste ?' );
 
 }
 
@@ -340,8 +340,8 @@ function slider_project() {
 
             <div class="item">
                 <img class="img-responsive" src="<?php
-                $thumbnailURL = wp_get_attachment_image_src(get_post_thumbnail_id ( $post_ID ), 'slider-image');
-                echo $thumbnailURL[0];  ?>"/>
+                $slider = get_field('slider');
+                echo $slider['url'] ?>"/>
 
                 <div class="caption-slider">
                     <h4><?php echo get_the_term_list(get_the_ID(), 'categorie'); ?></h4>
