@@ -239,6 +239,7 @@ function b3m_genesis_search_button_text( $text ) {
 
 // function search filter
 function filter_expositions(){
+    /*
 
     if ( is_front_page() ){?>
 
@@ -309,9 +310,27 @@ function filter_expositions(){
         </div>
     </div>
 
-    <?php }
+    <?php
+
+        echo do_shortcode( '[searchandfilter taxonomies="categorie,arrondissement,dates,artiste"
+            order_by="slug,slug,slug,slug"
+            all_items_labels="événements,lieux,dates,artistes"
+            submit_label="Filtrer"]'
+
+        );
+        // show empty taxonomies hide_empty=0
+    */
+
+        echo do_shortcode('[searchandfilter id="503"]');
+        //echo do_shortcode('[searchandfilter id="505"]');
+
+    //}
+
 }
 add_action('genesis_after_header','filter_expositions',15);
+
+
+
 
 /* in posts */
 //* Remove post-date

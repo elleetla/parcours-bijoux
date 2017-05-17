@@ -8,6 +8,8 @@
 
 function elleetla_geolocation(){
 
+    do_action('show_beautiful_filters');
+
     echo '<div class="locations">';
 
     echo '<div class="acf-map"></div>';
@@ -15,7 +17,7 @@ function elleetla_geolocation(){
     // accepts any wp_query args
     $args = (array(
         'post_type'      => 'lieux',
-        'orderby'       => 'rand',
+        //'orderby'       => 'rand',
     ));
 
     $the_query = new WP_Query( $args );
@@ -33,7 +35,7 @@ function elleetla_geolocation(){
             $the_query->the_post();
 
             $address = get_field('google_maps');
-            
+
             printf( '<div class="marker" data-lat="%s" data-lng="%s">
 
                                 <span class="cat-places">'.get_the_term_list(get_the_ID(), 'categorie').'</span>
@@ -62,7 +64,7 @@ function elleetla_geolocation(){
 
     } else {
 
-        echo '<p>il n y a aucun post disponible</p>';
+        echo do_shortcode('[searchandfilter id="503" show="results"]');
 
     }
 
