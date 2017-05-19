@@ -191,11 +191,11 @@ function info_header(){
     $trait = get_stylesheet_directory_uri().'/images/barre_header_dates.svg';
     ?>
 
-    <div id="header-date">25 sept <img src="<?php echo $trait; ?>"/> 21 janv 2017</div>
+    <div id="header-date">25 sept <img id="trait" src="<?php echo $trait; ?>"/> 30 nov 2017</div>
     <div id="header-description">
         <p id="comtemporains">Bijoux contemporains</p>
-        <p id="parcours">parcours d'expositions</p>
-        <p id="paris">paris</p>
+        <p>parcours d'expositions</p>
+        <p>paris</p>
     </div>
 
     <?php
@@ -210,7 +210,7 @@ remove_action( 'genesis_before_loop', 'genesis_do_posts_page_heading' );
 
 
 //* Search functionalities
-// function search
+// display search bar
 function search_exposition(){ ?>
 
     <div id="nav-search">
@@ -220,6 +220,17 @@ function search_exposition(){ ?>
     <?php
 }
 add_action('genesis_after_header','search_exposition',10);
+
+// limit search result to cpt "lieux"
+function searchfilter($query) {
+
+    if ($query->is_search && !is_admin() ) {
+        $query->set('post_type',array('post','lieux'));
+    }
+
+    return $query;
+}
+add_filter('pre_get_posts','searchfilter');
 
 // modify search form input box
 add_filter( 'genesis_search_text', 'b3m_genesis_search_text' );
@@ -236,100 +247,6 @@ function b3m_genesis_search_button_text( $text ) {
     return esc_attr( 'rechercher' );
 
 }
-
-// function search filter
-function filter_expositions(){
-    /*
-
-    if ( is_front_page() ){?>
-
-        <div id="filter-expositions">
-        <div class="wrap">
-            <ul class="filter-nav">
-                <li><a href="#">Événements</a></li>
-                    <ul class="dropdown">
-                        <?php
-                            $events = get_terms('categorie' );
-
-                            foreach( $events as $event ) {
-                                echo '<li><a href="#" data-filter=".'.$event->slug.'">'.$event->name.'</a></li>';
-                            }
-                        ?>
-                    </ul>
-            </ul>
-
-            <ul class="filter-nav">
-                <li><a href="#">Lieux</a></li>
-                    <ul class="dropdown">
-                        <?php
-                            $arrts = get_terms('arrondissement',
-                                array(
-                                        'orderby'   => 'slug'
-                                ));
-
-                            foreach( $arrts as $arrt ) {
-                                echo '<li><a href="#" data-filter=".'.$arrt->slug.'">'.$arrt->name.'</a></li>';
-                            }
-                        ?>
-                    </ul>
-            </ul>
-
-            <ul class="filter-nav">
-                <li><a href="#">Dates</a></li>
-                    <ul class="dropdown">
-                        <?php
-                            $dates = get_terms('dates',
-                                array(
-                                    'orderby'   => 'slug'
-                                ));
-
-                            foreach( $dates as $date ) {
-                                echo '<li><a href="#" data-filter=".'.$date->slug.'">'.$date->name.'</a></li>';
-                            }
-                        ?>
-                    </ul>
-            </ul>
-
-            <ul class="filter-nav">
-                <li><a href="#">Artistes</a></li>
-                    <ul class="dropdown">
-                        <?php
-                            $artistes = get_terms('artiste' );
-
-                            foreach( $artistes as $artiste ) {
-                                echo '<li><a href="#" data-filter=".'.$artiste->slug.'">'.$artiste->name.'</a></li>';
-                            }
-                        ?>
-                    </ul>
-            </ul>
-            <button>Filtrer</button>
-            <div style="width: 75%; display: block;">
-            </div>
-            <!--<button id="button-geolocation">Se géolocaliser</button>-->
-
-        </div>
-    </div>
-
-    <?php
-
-        echo do_shortcode( '[searchandfilter taxonomies="categorie,arrondissement,dates,artiste"
-            order_by="slug,slug,slug,slug"
-            all_items_labels="événements,lieux,dates,artistes"
-            submit_label="Filtrer"]'
-
-        );
-        // show empty taxonomies hide_empty=0
-    */
-
-        echo do_shortcode('[searchandfilter id="503"]');
-        //echo do_shortcode('[searchandfilter id="505"]');
-
-    //}
-
-}
-add_action('genesis_after_header','filter_expositions',15);
-
-
 
 
 /* in posts */
