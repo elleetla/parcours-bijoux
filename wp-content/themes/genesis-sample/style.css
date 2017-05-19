@@ -2023,6 +2023,12 @@ article{
 #footer a{
 	margin-right: 5%;
 	text-transform: uppercase;
+	color: #fff;
+	font-weight: bold;
+}
+
+#footer img{
+	width:5%;
 }
 
 /* # Media Queries
