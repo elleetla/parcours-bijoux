@@ -197,8 +197,8 @@ function info_header(){
     <div id="header-date">25 sept <img id="trait" src="<?php echo $trait; ?>"/> 30 nov 2017</div>
     <div id="header-description">
         <p id="comtemporains">Bijoux contemporains</p>
-        <p>parcours d'expositions</p>
-        <p>paris</p>
+        <p id="parcours-expo">parcours d'expositions</p>
+        <p id="paris">paris</p>
     </div>
 
     <?php
@@ -309,7 +309,7 @@ function post_content(){?>
             echo $thumbnailURL[0];  ?>" />
 
             <div class="caption-project">
-                <h4><?php echo get_the_term_list(get_the_ID(), 'categorie'); ?></h4>
+                <span class="cat-places"><?php echo get_the_term_list(get_the_ID(), 'categorie'); ?></span>
                 <a href="<?php the_permalink(); ?>">
                     <h1><?php the_title();?></h1>
                     <span><?php echo get_field('nom_lieu'); ?></span><br>

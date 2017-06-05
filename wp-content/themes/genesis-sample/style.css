@@ -1,4 +1,5 @@
 /*
+font-family: 'BrandonGrotesque-Medium', Helvetica Neue, Helvetica, Arial, sans-serif;
 	Theme Name: Ohouais WP
 	Theme URI: http://www.studiopress.com/
 	Description: This is the sample theme created for the Genesis Framework.
@@ -96,16 +97,43 @@ input[type="search"]{
 input[type="search"]{
 	background-color:rgba(0, 0, 0, 0);
 	border:0;
-	border-bottom:1px solid white;
-	padding: 0;
+	border-bottom:2px solid white;
+	padding: 10px 0 0 0;
 	color:white;
+	line-height: 38px;
 	width: 80%;
 }
 input[type="search"]::-webkit-input-placeholder {
 	color: #ffffff;
 }
 
+input::-webkit-input-placeholder{
+	color: #ffffff;
+	font-size: 30px;
+	font-family: 'BrandonGrotesque-Light', Helvetica Neue, Helvetica, Arial, sans-serif;
+	opacity: 1;
+}
 
+input::-moz-placeholder {
+	color: #ffffff;
+	font-size: 30px;
+	font-family: 'BrandonGrotesque-Light', Helvetica Neue, Helvetica, Arial, sans-serif;
+	opacity: 1;
+}
+
+input:-moz-placeholder{
+	color: #ffffff;
+	font-size: 30px;
+	font-family: 'BrandonGrotesque-Light', Helvetica Neue, Helvetica, Arial, sans-serif;
+	opacity: 1;
+}
+
+input:-ms-input-placeholder {
+	color: #ffffff;
+	font-size: 30px;
+	font-family: 'BrandonGrotesque-Light', Helvetica Neue, Helvetica, Arial, sans-serif;
+	opacity: 1;
+}
 
 *,
 *:before,
@@ -181,6 +209,20 @@ input[type="search"]::-webkit-input-placeholder {
 	font-style: normal;
 }
 
+
+@font-face {
+	font-family: 'BrandonGrotesque-Light';
+	src: url('fonts/BrandonGrotesque-Light/BrandonGrotesque-Light.eot');
+	src: url('fonts/BrandonGrotesque-Light/BrandonGrotesque-Light.woff2') format('woff2'),
+	url('fonts/BrandonGrotesque-Light/BrandonGrotesque-Light.woff') format('woff'),
+	url('fonts/BrandonGrotesque-Light/BrandonGrotesque-Light.ttf') format('truetype'),
+	url('fonts/BrandonGrotesque-Light/BrandonGrotesque-Light.svg#BrandonGrotesque-Light') format('svg'),
+	url('fonts/BrandonGrotesque-Light/BrandonGrotesque-Light.eot?#iefix') format('embedded-opentype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
 /* test map */
 
 .locations{
@@ -216,17 +258,27 @@ span.cat-places {
 .linkage p{
 	margin-bottom: 10px;
 	font-size: 18px;
-	color: #999999;
+	color: #000000;
+	line-height: 1.2;
 }
 
 .linkage .readmore{
 	color: #ff6400;
 	text-transform: uppercase;
 	font-size: 15px;
+	border: 2px solid #ff6400;
+	border-radius: 4px;
+	padding: 8px 90px;
 }
 
 .linkage .readmore:hover{
-	color: #000000;
+	color: #ffffff;
+	background-color: #ff6400;
+	text-transform: uppercase;
+	font-size: 15px;
+	border: 2px solid #ff6400;
+	border-radius: 4px;
+	padding: 8px 90px;
 }
 
 .linkage, .linkage:hover, .readmore, .readmore:hover{
@@ -238,8 +290,12 @@ span.cat-places {
 
 h3.title {
 	text-transform: uppercase;
-	color: #000000 !important;
+	color: #ff6400 !important;
 	cursor: pointer;
+	font-size:25px;
+	line-height: 1.1 ;
+	font-family: 'BrandonGrotesque-Regular', Helvetica Neue, Helvetica, Arial, sans-serif;
+
 }
 
 #newdiv {
@@ -1284,6 +1340,7 @@ img.alignright,
 	float: left;
 	display:inline;
 	text-transform: uppercase;
+	font-size: 30px;
 }
 
 #header-description{
@@ -1295,11 +1352,21 @@ img.alignright,
 
 #header-description p{
 	margin-bottom: 0;
+	font-size: 17px;
 }
 
 #comtemporains{
 	text-transform: none;
-	font-weight:bold;
+	font-weight:normal;
+	font-size: 26px !important;
+}
+
+#parcours-expo{
+	font-family: 'BrandonGrotesque-Regular', Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+#paris{
+	font-weight:600;
 }
 
 #trait{
@@ -1403,6 +1470,12 @@ input.search-filter-reset {
 	color: #606060;
 	font-weight: bold;
 }
+
+input[type=submit]{
+	font-size:20px;
+	font-family: 'BrandonGrotesque-Regular', Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
 /* ## Title Area
 --------------------------------------------- */
 
@@ -1491,9 +1564,7 @@ input.search-filter-reset {
 	clear: both;
 	font-size: 16px;
 	font-size: 1.6rem;
-	font-weight: 600;
 	line-height: 1;
-	font-family: 'Roboto Condensed', sans-serif;
 	width: 100%;
 }
 
@@ -1509,8 +1580,7 @@ input.search-filter-reset {
 	text-decoration: none;
 	display: block;
 	text-transform: uppercase;
-	font-weight:400;
-	padding: 32px 54px 32px 0;
+	padding: 32px 82px 32px 0;
 }
 
 #menu-item-241{
@@ -1923,6 +1993,7 @@ article{
 .return button{
 	background-color:transparent;
 	color:#ff6400;
+	font-size:20px;
 }
 
 /* Main content */
@@ -1932,9 +2003,77 @@ article{
 	width: 1146px;
 }
 
+h1.entry-title{
+	text-transform: uppercase;
+	color: #ff6400 !important;
+	cursor: pointer;
+	font-size: 25px;
+	line-height: 1.1;
+	font-family: 'BrandonGrotesque-Regular', Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+.wpb_text_column wpb_content_element{
+	font-size:18px;
+	font-family: 'BrandonGrotesque-Regular', Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+.intervalle-date,
+.lieu-expo,
+.detail-site{
+	font-size:18px;
+	font-weight:bold;
+}
+.detail-vernissage{
+	font-size:13px;
+	font-family: 'BrandonGrotesque-Regular', Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+.detail-horaires,
+.detail-adresse,
+.detail-tel,
+.detail-metro{
+	font-size:13px;
+	text-transform: uppercase;
+	font-family: 'BrandonGrotesque-Regular', Helvetica Neue, Helvetica, Arial, sans-serif;
+	line-height: 1.2;
+}
+
+.intervalle-date,
+.wpb_wrapper p,
+.detail-vernissage,
+.lieu-expo p,
+.detail-adresse,
+.detail-tel{
+	margin:0 0 13px 0!important;
+}
+
+.detail-horaires{
+	margin:0 0 30px 0!important;
+}
+
+.detail-metro{
+	margin:0 0 24px 0!important;
+}
+
+.detail-site{
+	link:#ff6400;
+}
+
+
 /* Social icon */
 .social-share div img{
 	width:7%;
+}
+
+.list-artistes{
+	font-size:15px;
+	font-weight:bold;
+}
+
+.post-credit{
+	font-size:14px;
+	color: #bebebe;
+	font-family: 'BrandonGrotesque-Regular', Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 /* Tags */
@@ -1945,6 +2084,13 @@ article{
 }
 
 /* Post "A proximité" */
+#a-proximite{
+	font-size:25px;
+	color: #ff6400;
+	text-transform: uppercase;
+	font-family: 'BrandonGrotesque-Regular', Helvetica Neue, Helvetica, Arial, sans-serif;
+
+}
 .row{
 	margin:20px 0;
 }
@@ -1967,9 +2113,6 @@ article{
 	margin: 20px ;
 }
 
-#titleProject{
-	text-transform: uppercase;
-}
 
 
 /* # Footer Widgets

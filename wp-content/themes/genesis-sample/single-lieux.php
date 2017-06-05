@@ -43,7 +43,7 @@ function image_project(){
 //* Display the category
 add_action('genesis_entry_header', 'category_project', 6);
 function category_project(){
-    echo '<h4>'.get_the_term_list(get_the_ID(), 'categorie').'</h4>';
+    echo '<span class="cat-places">'.get_the_term_list(get_the_ID(), 'categorie').'</span>';
 }
 
 //* Display all artists
@@ -54,6 +54,7 @@ function artists_project(){
     $terms = get_the_terms( $post->ID , 'artiste' );
     $count = count($terms);
     $i = 1;
+    echo "<div class='list-artistes'>";
     foreach ($terms as $term){
 
         $separateur = ', ';
@@ -67,6 +68,7 @@ function artists_project(){
         $i += 1;
 
     }
+    echo"</div>";
 
 }
 
@@ -128,7 +130,7 @@ function proposition_post(){?>
         <div class="row">
 
             <div class="col-lg-12">
-                <p id="titleProject">à promixité</p>
+                <p id="a-proximite">à promixité</p>
             </div>
 
             <?php
@@ -172,7 +174,8 @@ function proposition_post(){?>
                             echo $thumbnailURL[0];  ?>" />
 
                             <div class="caption-project">
-                                <h4><?php echo get_the_term_list(get_the_ID(), 'categorie'); ?></h4>
+                                <span class="cat-places"><?php echo get_the_term_list(get_the_ID(), 'categorie'); ?></span>
+                                <span class="cat-places"><?php echo get_the_term_list(get_the_ID(), 'categorie') ?></span>
                                 <h1><?php the_title();?></h1>
                                 <span><?php echo get_field('nom_lieu'); ?></span><br>
                                 <span><?php echo get_field('periode'); ?></span>
