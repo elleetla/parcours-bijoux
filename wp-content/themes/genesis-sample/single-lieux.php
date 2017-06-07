@@ -29,19 +29,9 @@ function return_button(){
 }
 
 //* Add custom classes to posts article
-add_filter( 'genesis_attr_entry', 'add_post_class' );
-function atp_post_class( $attributes ) {
-
-    $attributes['class'] = join( ' ', get_post_class() ).' detail-content1';
-
-    if ( ! is_main_query() && ! genesis_is_blog_template() ) {
-        return $attributes;
-    }
-    return $attributes;
-}
-
-function srf_attr_site_inner( $attr ) {
-    return srf_add_class( $attr, 'detail-content' );
+add_filter( 'genesis_attr_entry', 'attr_post_class' );
+function attr_post_class( $attr ) {
+    return add_class( $attr, 'detail-content' );
 }
 
 //* Display the image

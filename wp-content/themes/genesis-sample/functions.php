@@ -251,18 +251,16 @@ function b3m_genesis_search_button_text( $text ) {
 
 }
 
-
-
 // general function to add a class
-add_filter( 'genesis_attr_site-inner', 'srf_attr_site_inner' );
-function srf_add_class( $attr, $class ) {
+function add_class( $attr, $class ) {
     $attr['class'] .= ' ' . sanitize_html_class( $class );
     return $attr;
 }
 
 // Add custom class to site-inner (description in home page)
-function srf_attr_site_inner( $attr ) {
-    return srf_add_class( $attr, 'home-description' );
+add_filter( 'genesis_attr_site-inner', 'attr_site_inner' );
+function attr_site_inner( $attr ) {
+    return add_class( $attr, 'home-description' );
 }
 
 /* in posts */
@@ -321,7 +319,7 @@ function post_content(){?>
                 <img class="img-responsive" src="<?php
                 $thumbnailURL = wp_get_attachment_image_src(get_post_thumbnail_id ( $post_ID ), 'slider-image');
                 echo $thumbnailURL[0]; ?>" />
-            </a>
+
 
             <div class="caption-project">
                 <span class="cat-places"><?php echo get_the_term_list(get_the_ID(), 'categorie'); ?></span>
@@ -329,6 +327,7 @@ function post_content(){?>
                 <span><?php echo get_field('nom_lieu'); ?></span>
                 <span><?php echo get_field('periode'); ?></span>
             </div>
+            </a>
 
         </div><!-- ./bloc-project -->
     </div><!-- ./all col-lg-3 -->
