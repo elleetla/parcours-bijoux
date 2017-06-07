@@ -1,5 +1,10 @@
 /*
+
 font-family: 'BrandonGrotesque-Medium', Helvetica Neue, Helvetica, Arial, sans-serif;
+
+*/
+
+/*
 	Theme Name: Ohouais WP
 	Theme URI: http://www.studiopress.com/
 	Description: This is the sample theme created for the Genesis Framework.
@@ -222,6 +227,17 @@ input:-ms-input-placeholder {
 	font-style: normal;
 }
 
+@font-face {
+	font-family: 'BrandonGrotesque-Bold';
+	src: url('fonts/BrandonGrotesque-Bold/BrandonGrotesque-Bold.eot');
+	src: url('fonts/BrandonGrotesque-Bold/BrandonGrotesque-Bold.woff2') format('woff2'),
+	url('fonts/BrandonGrotesque-Bold/BrandonGrotesque-Bold.woff') format('woff'),
+	url('fonts/BrandonGrotesque-Bold/BrandonGrotesque-Bold.ttf') format('truetype'),
+	url('fonts/BrandonGrotesque-Bold/BrandonGrotesque-Bold.svg#BrandonGrotesque-Bold') format('svg'),
+	url('fonts/BrandonGrotesque-Bold/BrandonGrotesque-Bold.eot?#iefix') format('embedded-opentype');
+	font-weight: normal;
+	font-style: normal;
+}
 
 /* test map */
 
@@ -752,8 +768,9 @@ th:first-child {
 
 .site-inner {
 	clear: both;
-	padding-top: 40px;
+	padding-top: 82px;
 	word-wrap: break-word;
+	background-color: #ffffff;
 }
 
 .vcfw .site-inner{
@@ -1759,9 +1776,8 @@ input[type=submit]{
 
 
 .entry {
-	background-color: #fff;
-	margin-bottom: 40px;
-	padding: 70px 80px;
+	/*background-color: transparent;*/
+	background-color: pink;
 }
 
 .vcfw .entry {
@@ -1969,14 +1985,6 @@ div.owl-next{
 
 /* # Categories Content
 ---------------------------------------------------------------------------------------------------- */
-.archive-description{
-	/*display: none;*/
-}
-
-.categorie-expositions {
-	width: 363px;
-}
-
 /* Load More */
 article{
 	display:none;
@@ -1984,12 +1992,20 @@ article{
 
 .load-more{
 	margin: 0 41%;
+	text-transform: uppercase;
+	color: #ff6400;
+	font-size:20px;
+	width:100%;
+	display:block;
+	margin-bottom:50px;
+	font-family: 'BrandonGrotesque-Bold', Helvetica Neue, Helvetica, Arial, sans-serif;
 }
+
+
 /* # Post Content
 ---------------------------------------------------------------------------------------------------- */
 
 /* Return button */
-
 .return button{
 	background-color:transparent;
 	color:#ff6400;
@@ -1997,7 +2013,12 @@ article{
 }
 
 /* Main content */
-.type-lieux{
+.detail-content{
+	background-color: #ffffff;
+}
+
+/* Left Column */
+.detail-conten{
 	margin: 20px;
 	padding: 76px 70px;
 	width: 1146px;
@@ -2012,11 +2033,59 @@ h1.entry-title{
 	font-family: 'BrandonGrotesque-Regular', Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
-.wpb_text_column wpb_content_element{
+.detail-pays {
 	font-size:18px;
+	margin-bottom:13px !important;
+}
+
+.detail-description{
+	line-height: 1.2;
 	font-family: 'BrandonGrotesque-Regular', Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
+.list-artistes{
+	font-size:15px;
+	font-weight:bold;
+	margin-top:-29px;
+}
+
+.post-credit{
+	font-size:14px;
+	color: #bebebe;
+	font-family: 'BrandonGrotesque-Regular', Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+
+/* Right Column */
+/* Social icon */
+.social-share div{
+	display:inline-block;
+	margin-right: 12px;
+	position: relative;
+	left: 51%;
+}
+.social-share div img{
+	width:16px;
+	height: 16px;
+}
+
+/* Tags */
+.entry-meta{
+	width: 425px;
+	padding:0 !important;
+	position: relative;
+	left: 51%;
+}
+.entry-tags a{
+	background-color:#f5f5f5;
+	padding: 10px;
+	border-radius: 5px;
+	line-height: 3.7;
+	font-size:11px;
+	text-transform: uppercase;
+}
+
+.detail-pays,
 .intervalle-date,
 .lieu-expo,
 .detail-site{
@@ -2055,33 +2124,10 @@ h1.entry-title{
 	margin:0 0 24px 0!important;
 }
 
-.detail-site{
-	link:#ff6400;
+.detail-website a:visited{
+	color:#ff6400;
 }
 
-
-/* Social icon */
-.social-share div img{
-	width:7%;
-}
-
-.list-artistes{
-	font-size:15px;
-	font-weight:bold;
-}
-
-.post-credit{
-	font-size:14px;
-	color: #bebebe;
-	font-family: 'BrandonGrotesque-Regular', Helvetica Neue, Helvetica, Arial, sans-serif;
-}
-
-/* Tags */
-.entry-tags a{
-	background-color:#f5f5f5;
-	padding: 10px;
-	border-radius: 5px;
-}
 
 /* Post "A proximité" */
 #a-proximite{
@@ -2092,7 +2138,7 @@ h1.entry-title{
 
 }
 .row{
-	margin:20px 0;
+	margin:20px;
 }
 
 .all.col-lg-3.col-md-3.col-sm-6.col-xs-12.portfolio-item{
@@ -2110,9 +2156,19 @@ h1.entry-title{
 }
 
 .caption-project{
-	margin: 20px ;
+	margin: 30px ;
+
 }
 
+.caption-project h1{
+	color: #ff6400 !important;
+	margin-bottom: 10px;
+}
+
+.caption-project p{
+	margin-bottom: 0;
+	line-height: 1.2;
+}
 
 
 /* # Footer Widgets
@@ -2164,14 +2220,19 @@ h1.entry-title{
 }
 
 #footer a{
-	margin-right: 5%;
+	/*margin-right:5%;*/
+	margin-right: 75px;
 	text-transform: uppercase;
-	color: #fff;
-	font-weight: bold;
+	color: #ffffff;
+	font-size:16px;
+	font-family: 'BrandonGrotesque-Bold', Helvetica Neue, Helvetica, Arial, sans-serif;
+
 }
 
 #footer img{
-	width:5%;
+	width:22px;
+	margin-left:470px;
+	/* margin-left:40%;*/
 }
 
 /* # Media Queries

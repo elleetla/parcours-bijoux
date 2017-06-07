@@ -24,7 +24,6 @@ remove_action('genesis_entry_content', 'genesis_do_post_content');
 //* Remove footer content
 remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
 
-
 //* Display post content
 add_action('genesis_entry_content', 'post_content');
 

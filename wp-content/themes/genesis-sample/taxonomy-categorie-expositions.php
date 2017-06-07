@@ -34,7 +34,6 @@ add_action('genesis_before_loop', 'random');
 //Load More button
 add_action('genesis_before_loop', 'load_more');
 add_action('genesis_after_loop', 'load_more');
-
 function load_more () {?>
     <a class="load-more" href="#">+ voir tous les événements +</a>
     <?php

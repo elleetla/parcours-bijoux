@@ -252,6 +252,19 @@ function b3m_genesis_search_button_text( $text ) {
 }
 
 
+
+// general function to add a class
+add_filter( 'genesis_attr_site-inner', 'srf_attr_site_inner' );
+function srf_add_class( $attr, $class ) {
+    $attr['class'] .= ' ' . sanitize_html_class( $class );
+    return $attr;
+}
+
+// Add custom class to site-inner (description in home page)
+function srf_attr_site_inner( $attr ) {
+    return srf_add_class( $attr, 'home-description' );
+}
+
 /* in posts */
 //* Remove post-date
 add_filter('genesis_post_info', 'remove_post_info');
@@ -304,17 +317,17 @@ function post_content(){?>
     <div class="all col-lg-3 col-md-3 col-sm-6 col-xs-12 portfolio-item <?php // echo $tax ?>">
         <div class="bloc-project">
 
-            <img class="img-responsive" src="<?php
-            $thumbnailURL = wp_get_attachment_image_src(get_post_thumbnail_id ( $post_ID ), 'slider-image');
-            echo $thumbnailURL[0];  ?>" />
+            <a href=" <?php the_permalink(); ?>">
+                <img class="img-responsive" src="<?php
+                $thumbnailURL = wp_get_attachment_image_src(get_post_thumbnail_id ( $post_ID ), 'slider-image');
+                echo $thumbnailURL[0]; ?>" />
+            </a>
 
             <div class="caption-project">
                 <span class="cat-places"><?php echo get_the_term_list(get_the_ID(), 'categorie'); ?></span>
-                <a href="<?php the_permalink(); ?>">
-                    <h1><?php the_title();?></h1>
-                    <span><?php echo get_field('nom_lieu'); ?></span><br>
-                    <span><?php echo get_field('periode'); ?></span>
-                </a>
+                <h1><?php the_title();?></h1>
+                <span><?php echo get_field('nom_lieu'); ?></span>
+                <span><?php echo get_field('periode'); ?></span>
             </div>
 
         </div><!-- ./bloc-project -->
