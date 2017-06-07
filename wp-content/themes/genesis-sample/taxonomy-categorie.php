@@ -24,6 +24,12 @@ remove_action('genesis_entry_content', 'genesis_do_post_content');
 //* Remove footer content
 remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
 
+//* Add custom classes to posts article
+add_filter( 'genesis_attr_site-inner', 'attr__post_class' );
+function attr__post_class( $attr ) {
+    return add_class( $attr, 'categorie-content' );
+}
+
 //* Display post content
 add_action('genesis_entry_content', 'post_content');
 

@@ -24,7 +24,7 @@ function return_button(){
     $return_page = get_site_url().'/categorie/'.$return_categorie;
     $imageURL = get_stylesheet_directory_uri().'/images/fleche_retour.svg';
     echo '<div class="return">';
-    echo '<button onclick="location.href=\''.$return_page.'\';" class"float-left"><img src="'.$imageURL.'"/>Retour</button>';
+    echo '<div><button onclick="location.href=\''.$return_page.'\';" class"float-left"><img class="fleche-retour" src="'.$imageURL.'"/>Retour</button></div>';
     echo '</div>';
 }
 
@@ -183,9 +183,13 @@ function proposition_post(){?>
 
                         <div class="caption-project">
                             <span class="cat-places"><?php echo get_the_term_list(get_the_ID(), 'categorie'); ?></span>
-                            <h1><?php the_title();?></h1>
-                            <span><?php echo get_field('nom_lieu'); ?></span>
-                            <span><?php echo get_field('periode'); ?></span>
+
+                            <a href=" <?php the_permalink(); ?>">
+                                <h3 class="title"><?php the_title();?></h3>
+                                <?php echo get_field('nom_lieu'); ?>
+                                <p><?php echo get_field('periode'); ?></p>
+                            </a>
+
                         </div>
                     </div><!-- ./bloc-project -->
                 </div><!-- ./all col-lg-3 -->

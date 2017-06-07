@@ -18,14 +18,14 @@ $(function() {
     //* slider page categorie lieux
     $(".owl-carousel").owlCarousel({
         items:1,
-        loop:true,
+        //loop:true,
         center:true,
         nav:true,
         navText: ["<img src='/parcours-bijoux/wp-content/themes/genesis-sample/images/chevron_slider_gauche.svg'>","<img src='/parcours-bijoux/wp-content/themes/genesis-sample/images/chevron_slider_droit.svg'>"],
-        autoplay:true,
-        autoplayTimeout:5000,
-        autoplayHoverPause:true,
-        autoHeight:true
+        //autoplay:true,
+        //autoplayTimeout:5000,
+        //autoplayHoverPause:true,
+        //autoHeight:true
     });
 
     // Map

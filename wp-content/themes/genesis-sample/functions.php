@@ -167,14 +167,6 @@ function ohouais_custom_mentions_footer() {
 
 }
 
-// modification du footer
-add_action( 'genesis_footer', 'ohouais_custom_test_footer' );
-function ohouais_custom_test_footer() {
-
-    echo'<p></p>';
-
-}
-
 // Ajout d'une class pour header active
 if(get_field('header_fixe_transparent')){
 
@@ -257,11 +249,6 @@ function add_class( $attr, $class ) {
     return $attr;
 }
 
-// Add custom class to site-inner (description in home page)
-add_filter( 'genesis_attr_site-inner', 'attr_site_inner' );
-function attr_site_inner( $attr ) {
-    return add_class( $attr, 'home-description' );
-}
 
 /* in posts */
 //* Remove post-date
@@ -319,15 +306,18 @@ function post_content(){?>
                 <img class="img-responsive" src="<?php
                 $thumbnailURL = wp_get_attachment_image_src(get_post_thumbnail_id ( $post_ID ), 'slider-image');
                 echo $thumbnailURL[0]; ?>" />
-
+            </a>
 
             <div class="caption-project">
                 <span class="cat-places"><?php echo get_the_term_list(get_the_ID(), 'categorie'); ?></span>
-                <h1><?php the_title();?></h1>
-                <span><?php echo get_field('nom_lieu'); ?></span>
-                <span><?php echo get_field('periode'); ?></span>
+
+                <a href=" <?php the_permalink(); ?>">
+                    <h3 class="title"><?php the_title();?></h3>
+                    <?php echo get_field('nom_lieu'); ?>
+                    <p><?php echo get_field('periode'); ?></p>
+                </a>
+
             </div>
-            </a>
 
         </div><!-- ./bloc-project -->
     </div><!-- ./all col-lg-3 -->

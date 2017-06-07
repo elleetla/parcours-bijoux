@@ -274,7 +274,7 @@ span.cat-places {
 .linkage p{
 	margin-bottom: 10px;
 	font-size: 18px;
-	color: #000000;
+	color: #999999;
 	line-height: 1.2;
 }
 
@@ -311,7 +311,7 @@ h3.title {
 	font-size:25px;
 	line-height: 1.1 ;
 	font-family: 'BrandonGrotesque-Regular', Helvetica Neue, Helvetica, Arial, sans-serif;
-
+	margin: 20px 0;
 }
 
 #newdiv {
@@ -768,9 +768,21 @@ th:first-child {
 
 .site-inner {
 	clear: both;
-	padding-top: 82px;
 	word-wrap: break-word;
+}
+
+/* home page */
+.home-description{
+	padding:82px 485px 52px;
+	margin:0;
+	max-width:100% !important;
 	background-color: #ffffff;
+}
+
+/* categorie page */
+.categorie-content{
+	margin:55px 387px 52px;
+	background-color: transparent ;
 }
 
 .vcfw .site-inner{
@@ -1776,8 +1788,7 @@ input[type=submit]{
 
 
 .entry {
-	/*background-color: transparent;*/
-	background-color: pink;
+	background-color: transparent;
 }
 
 .vcfw .entry {
@@ -1935,7 +1946,6 @@ p.entry-meta {
 
 /* # Slider
 ---------------------------------------------------------------------------------------------------- */
-
 /* place the caption*/
 .caption-slider{
 	position:absolute;
@@ -1966,6 +1976,18 @@ div.owl-next{
 	color: #ffffff;
 }
 
+/* dots */
+.owl-dots {
+	display:block;
+}
+
+.owl-dot span{
+	background: #9f9b9b !important;
+}
+.owl-dot.active span {
+	background: #f5f5f5 !important;
+}
+
 
 /* # Sidebars
 ---------------------------------------------------------------------------------------------------- */
@@ -1990,15 +2012,24 @@ article{
 	display:none;
 }
 
-.load-more{
+.load-more-top,
+.load-more-bottom{
 	margin: 0 41%;
 	text-transform: uppercase;
 	color: #ff6400;
 	font-size:20px;
 	width:100%;
 	display:block;
-	margin-bottom:50px;
 	font-family: 'BrandonGrotesque-Bold', Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+.load-more-top{
+	margin-bottom:55px;
+
+}
+
+.load-more-bottom{
+	margin-top:44px;
 }
 
 
@@ -2010,18 +2041,23 @@ article{
 	background-color:transparent;
 	color:#ff6400;
 	font-size:20px;
+	margin-left:40px;
+	padding:0;
+}
+
+img.fleche-retour{
+	display: inline-block;
+	width: 60px;
+	margin-right:28px;
 }
 
 /* Main content */
-.detail-content{
-	background-color: #ffffff;
-}
-
 /* Left Column */
-.detail-conten{
-	margin: 20px;
-	padding: 76px 70px;
+.detail-content{
+	margin: 50px 40px 37px;
+	padding: 76px 70px 57px;
 	width: 1146px;
+	background-color: #ffffff;
 }
 
 h1.entry-title{
@@ -2135,16 +2171,18 @@ h1.entry-title{
 	color: #ff6400;
 	text-transform: uppercase;
 	font-family: 'BrandonGrotesque-Regular', Helvetica Neue, Helvetica, Arial, sans-serif;
+	margin-bottom:40px;
 
 }
 .row{
-	margin:20px;
+	margin:0 40px 26px;
 }
 
 .all.col-lg-3.col-md-3.col-sm-6.col-xs-12.portfolio-item{
 	display: inline-block;
 	background-color: #fff;
-	margin: 10px;
+	margin-right:24px;
+	margin-bottom:28px;
 	width: 363px;
 }
 
@@ -2158,11 +2196,6 @@ h1.entry-title{
 .caption-project{
 	margin: 30px ;
 
-}
-
-.caption-project h1{
-	color: #ff6400 !important;
-	margin-bottom: 10px;
 }
 
 .caption-project p{

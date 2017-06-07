@@ -5,6 +5,13 @@
  * Date: 08/01/2017
  * Time: 17:22
  */
+
+// Add custom class to site-inner (description in home page)
+add_filter( 'genesis_attr_site-inner', 'attr_site_inner' );
+function attr_site_inner( $attr ) {
+    return add_class( $attr, 'home-description' );
+}
+
 // function search filter
 function filter_expositions(){
     /*
@@ -102,8 +109,8 @@ function filter_expositions(){
     //}
 
 }
-add_action('genesis_after_header','filter_expositions',15);
 
+add_action('genesis_after_header','filter_expositions',15);
 function elleetla_geolocation(){
 
     do_action('show_beautiful_filters');
