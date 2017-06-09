@@ -8,12 +8,12 @@ $(function() {
     });
 
     // Animation menu search site
-    /*
-    $( "#menu-item-241" ).click(function() {
-        $( "#nav-search" ).slideToggle( "slow", function() {
-        });
-    });
-    */
+
+     $( "#menu-item-241" ).click(function() {
+         $( "#nav-search" ).slideToggle( "slow", function() {
+         });
+     });
+
 
     //* slider page categorie lieux
     $(".owl-carousel").owlCarousel({
@@ -142,10 +142,8 @@ $(function() {
         // add a markers reference
         map.markers = [];
         // add markers
-        index=0;
         $markers.each(function(){
-            add_marker( $(this), map, index);
-            index++;
+            add_marker( $(this), map);
         });
 
         // center map
@@ -153,19 +151,19 @@ $(function() {
 
     }
 
-    function add_marker( $marker, map, index ) {
+    function add_marker( $marker, map ) {
 
         // var
         var latlng = new google.maps.LatLng( $marker.attr('data-lat'), $marker.attr('data-lng') );
 
         var image = new google.maps.MarkerImage("https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png", null, null, null, new google.maps.Size(25,30));
-        /*
+
         var image = {
-            url : "http://localhost:8888/parcours-bijoux/wp-content/themes/genesis-sample/images/picto_map_noir.svg",
-            //scaledSize: new google.maps.Size(25, 30),
-            size: new google.maps.Size(25,30)
+        url : "http://localhost:8888/parcours-bijoux/wp-content/themes/genesis-sample/images/picto_map_noir.svg",
+        //scaledSize: new google.maps.Size(25, 30),
+        size: new google.maps.Size(25,30)
         };
-        */
+
 
         // create marker
         var marker = new google.maps.Marker({
@@ -181,9 +179,9 @@ $(function() {
         // if marker contains HTML, add it to an infoWindow
         if( $marker.html() )
         {
-            $('.structure-places').append('<div class= "linkage" id="p'+index+'">'+$marker.html()+'</div>'); // change html here if you want but leave id intact!!
+            // $('.structure-places').append('<div class= "linkage" id="p'+index+'">'+$marker.html()+'</div>'); // change html here if you want but leave id intact!!
 
-            $(document).on('click', '#p'+index, function(){
+            $(document).on('click', '#'+$marker.attr('id'), function(){
                 if (typeof( window.infoopened ) != 'undefined') infoopened.close();
                 infowindow.open(map,marker);
                 infoopened = infowindow;

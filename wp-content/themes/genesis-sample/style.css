@@ -1197,7 +1197,7 @@ img.alignright,
 }
 
 #nav-search{
-	/*display: none;*/
+	display: none;
 	padding: 30px 0;
 	background-color: #ff6400;
 }
