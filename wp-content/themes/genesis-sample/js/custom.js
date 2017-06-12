@@ -2,13 +2,12 @@ $(function() {
 
     //* load more button
     $("article").slice(0, 6).show();
-    $(".load-more").on('click', function () {
+    $(".load-more-top, .load-more-bottom").on('click', function () {
         $("article:hidden").slice(0).slideDown();
         return false;
     });
 
     // Animation menu search site
-
      $( "#menu-item-241" ).click(function() {
          $( "#nav-search" ).slideToggle( "slow", function() {
          });
