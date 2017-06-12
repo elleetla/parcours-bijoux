@@ -24,7 +24,7 @@ function return_button(){
     $return_page = get_site_url().'/categorie/'.$return_categorie;
     $imageURL = get_stylesheet_directory_uri().'/images/fleche_retour.svg';
     echo '<div class="return">';
-    echo '<div><button onclick="location.href=\''.$return_page.'\';" class"float-left"><img class="fleche-retour" src="'.$imageURL.'"/>Retour</button></div>';
+    echo '<div><button onclick="location.href=\''.$return_page.'\';" class"float-left"><img class="fleche-retour" src="'.$imageURL.'"/><span>Retour</span></button></div>';
     echo '</div>';
 }
 

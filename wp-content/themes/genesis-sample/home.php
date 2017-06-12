@@ -64,8 +64,7 @@ function elleetla_geolocation()
                     $the_query->the_post();
                     $address = get_field('google_maps');
                     ?>
-                    <div class="linkage marker" id="p<?= get_the_ID() ?>" data-lat="<?= $address['lat'] ?>"
-                         data-lng="<?= $address['lng'] ?>">
+                    <div class="linkage marker" id="p<?= get_the_ID() ?>" data-lat="<?= $address['lat'] ?>" data-lng="<?= $address['lng'] ?>">
 
                         <span class="cat-places"><?= get_the_term_list(get_the_ID(), 'categorie') ?></span>
                         <h3 class="title"><?= get_the_title() ?></h3>

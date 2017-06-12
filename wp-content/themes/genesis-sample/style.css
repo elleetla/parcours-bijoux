@@ -2048,6 +2048,11 @@ article{
 	padding:0;
 }
 
+.return span{
+	vertical-align: top;
+}
+
+
 img.fleche-retour{
 	display: inline-block;
 	width: 60px;
