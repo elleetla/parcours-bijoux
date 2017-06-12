@@ -92,4 +92,6 @@ function elleetla_geolocation()
 
 add_action('genesis_after_header','elleetla_geolocation',20);
 
+the_content();
+
 genesis();
