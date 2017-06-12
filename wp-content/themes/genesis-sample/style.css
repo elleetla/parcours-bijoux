@@ -284,17 +284,13 @@ span.cat-places {
 	font-size: 15px;
 	border: 2px solid #ff6400;
 	border-radius: 4px;
-	padding: 8px 90px;
+	padding: 8px 60px;
+	display: inline-block;
 }
 
 .linkage .readmore:hover{
 	color: #ffffff;
 	background-color: #ff6400;
-	text-transform: uppercase;
-	font-size: 15px;
-	border: 2px solid #ff6400;
-	border-radius: 4px;
-	padding: 8px 90px;
 }
 
 .linkage, .linkage:hover, .readmore, .readmore:hover{
@@ -304,6 +300,10 @@ span.cat-places {
 	-o-transition: all 0.35s ease-in-out 0s;
 }
 
+.address p {
+	margin-bottom: 20px;
+}
+
 h3.title {
 	text-transform: uppercase;
 	color: #ff6400 !important;
@@ -311,7 +311,7 @@ h3.title {
 	font-size:25px;
 	line-height: 1.1 ;
 	font-family: 'BrandonGrotesque-Regular', Helvetica Neue, Helvetica, Arial, sans-serif;
-	margin: 20px 0;
+	margin: 10px 0 10px 0;
 }
 
 #newdiv {
@@ -1413,6 +1413,7 @@ img.alignright,
 #filter-map {
 	padding: 30px 0px;
 	background-color: #e6e6e6;
+	padding: 30px 0px 10px 0;
 }
 
 .searchandfilter ul li {
@@ -1485,7 +1486,21 @@ select.postform{
 input.search-filter-reset {
 	background-color: transparent;
 	color: #606060;
-	font-weight: bold;
+	width: auto;
+	font-family: 'BrandonGrotesque-Bold';
+	float: right;
+}
+
+.searchandfilter ul .sf-field-reset{
+	padding: 10px 0 0 0 !important;
+}
+
+input.search-filter-reset{
+	padding: 0px !important;
+}
+
+input.search-filter-reset:hover{
+	background: inherit;
 }
 
 input[type=submit]{
