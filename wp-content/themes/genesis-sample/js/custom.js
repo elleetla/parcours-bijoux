@@ -2,13 +2,12 @@ $(function() {
 
     //* load more button
     $("article").slice(0, 6).show();
-    $(".load-more").on('click', function () {
+    $(".load-more-top, .load-more-bottom").on('click', function () {
         $("article:hidden").slice(0).slideDown();
         return false;
     });
 
     // Animation menu search site
-
      $( "#menu-item-241" ).click(function() {
          $( "#nav-search" ).slideToggle( "slow", function() {
          });
@@ -18,14 +17,14 @@ $(function() {
     //* slider page categorie lieux
     $(".owl-carousel").owlCarousel({
         items:1,
-        //loop:true,
+        loop:true,
         center:true,
         nav:true,
         navText: ["<img src='/parcours-bijoux/wp-content/themes/genesis-sample/images/chevron_slider_gauche.svg'>","<img src='/parcours-bijoux/wp-content/themes/genesis-sample/images/chevron_slider_droit.svg'>"],
-        //autoplay:true,
-        //autoplayTimeout:5000,
-        //autoplayHoverPause:true,
-        //autoHeight:true
+        autoplay:true,
+        autoplayTimeout:5000,
+        autoplayHoverPause:true,
+        autoHeight:true
     });
 
     // Map
