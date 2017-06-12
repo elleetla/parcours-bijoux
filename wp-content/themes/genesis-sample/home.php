@@ -60,7 +60,9 @@ function elleetla_geolocation()
             $the_query = new WP_Query($args);
 
             if ($the_query->have_posts()) {
+                $i = 0;
                 while ($the_query->have_posts()) {
+                    $i++;
                     $the_query->the_post();
                     $address = get_field('google_maps');
                     ?>
@@ -70,8 +72,56 @@ function elleetla_geolocation()
                         <h3 class="title"><?= get_the_title() ?></h3>
 
                         <div class="address">
-                            <p><?= $address['address'] ?></p>
+                            <?php
+                            echo get_field('nom_lieu');
+                            if($i > 1) {
+                                $terms = get_the_terms($post->ID, 'arrondissement');
+                                foreach ($terms as $term) {
+                                    echo '<span> - ' . $term->name . '</span>';
+                                }
+                            }
+                            ?>
                         </div>
+
+                        <div class="date">
+                            <?= get_field('periode') ?>
+                        </div>
+
+                        <?php if($i == 1){ ?>
+                        <div class="caption-detail">
+
+                            <?php
+                            //display all artists
+                            /*
+                            $artistes = get_the_terms( $post->ID , 'artiste' );
+                            $count = count($artistes);
+                            $j = 1;
+                            echo "<div class='list-artistes'>";
+                            foreach ($artistes as $artiste){
+
+                                $separateur = ', ';
+                                if($j % 2 == 0){
+                                    $separateur = ","."<br>";
+                                }
+                                else if( $j == $count){
+                                    $separateur = '.';
+                                }
+
+                                echo $artiste->name. $separateur;
+
+                                $j ++;
+
+                            }
+                            */
+
+                            echo get_field('credits_lieux');
+                            ?>
+                        </div>
+
+                        <?php } ?>
+
+                        <?php the_content() ?>
+
 
                         <a class="readmore" href="<?= get_the_permalink() ?>">en savoir +</a>
                     </div>

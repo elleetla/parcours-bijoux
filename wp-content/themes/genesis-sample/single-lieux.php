@@ -51,6 +51,15 @@ function category_project(){
     echo '<span class="cat-places">'.get_the_term_list(get_the_ID(), 'categorie').'</span>';
 }
 
+
+//* Retrieve Short text/description
+//add_action('genesis_entry_content', 'short_text');
+//function short_text(){
+//    $short_text = get_field('short_text');
+//
+//    echo $short_text;
+//}
+
 //* Display all artists
 add_action('genesis_entry_content', 'artists_project',15);
 function artists_project(){
@@ -63,7 +72,7 @@ function artists_project(){
     foreach ($terms as $term){
 
         $separateur = ', ';
-        if($i % 2 == 0){
+        if($i % 2 == 0 && $i != $count ){
             $separateur = ","."<br>";
         }
         else if( $i == $count){
@@ -72,7 +81,7 @@ function artists_project(){
 
         echo $term->name. $separateur;
 
-        $i += 1;
+        $i++;
 
     }
     echo"</div>";

@@ -262,6 +262,24 @@ span.cat-places {
 	text-transform: uppercase;
 }
 
+.cat-places p{
+	color:#000000;
+}
+
+.address p{
+	display:inline;
+}
+
+.address span,
+.date{
+	color:#999999;
+}
+
+.date,
+.caption-detail .list-artistes{
+	margin-bottom:20px;
+}
+
 .linkage {
 	padding: 26px;
 	border-bottom: 1px solid #ebebeb;
@@ -303,6 +321,21 @@ span.cat-places {
 .address p {
 	margin-bottom: 20px;
 }
+
+.gm-style-iw .detail-short-description,
+.linkage .detail-left-row,
+.linkage .detail-right-row .detail-horaires,
+.linkage .detail-right-row .lieu-expo,
+.linkage .detail-right-row .detail-adresse,
+.linkage .detail-right-row .detail-tel,
+.linkage .detail-right-row .detail-metro{
+	display:none;
+}
+
+.linkage .detail-right-row{
+	width: 500px;
+}
+
 
 h3.title {
 	text-transform: uppercase;
@@ -2111,6 +2144,10 @@ h1.entry-title{
 
 
 /* Right Column */
+.entry-content .detail-short-description{
+	display:none;
+}
+
 /* Social icon */
 .social-share div{
 	display:inline-block;
