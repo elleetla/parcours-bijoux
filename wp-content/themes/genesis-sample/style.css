@@ -1422,9 +1422,9 @@ img.alignright,
 	width: 200px;
 	border-radius: 4px;
 	overflow: hidden;
-	background-color: #fff;
-
-	background: #fff url("http://www.scottgood.com/jsg/blog.nsf/images/arrowdown.gif") no-repeat 90% 50%;
+	background: url(images/fleche_select_menu.svg) #ffffff no-repeat;
+	background-size: 16px;
+	background-position: 92% 52%;
 }
 
 .searchandfilter li select {
