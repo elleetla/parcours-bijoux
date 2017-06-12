@@ -205,10 +205,14 @@ remove_action( 'genesis_before_loop', 'genesis_do_posts_page_heading' );
 
 //* Search functionalities
 // display search bar
-function search_exposition(){ ?>
+function search_exposition(){
+
+    $closeSearch = get_stylesheet_directory_uri().'/images/barre_header_dates.svg';
+    ?>
 
     <div id="nav-search">
         <div class="wrap"><?php get_search_form(); ?></div>
+        <span><img src="<?php echo $closeSearch; ?>" alt="Close search"></span>
     </div>
 
     <?php
