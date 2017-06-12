@@ -1409,88 +1409,17 @@ img.alignright,
 
 /* # Filter header
 ---------------------------------------------------------------------------------------------------- */
-/*
-#filter-expositions{
-	padding: 30px 0;
-	background-color: #e6e6e6;"
+
+.searchandfilter {
+	padding: 30px 0px;
+	background-color: #e6e6e6;
 }
 
-.filter-nav{
-	position: relative;
-	text-transform: uppercase;
-	float: left;
-}
-
-.filter-nav > li a {
-	padding: 12px 20px;
-	background-color: #ffffff;
-	width: 210px;
-	border-radius: 4px;
-	display: inline-block;
-	font-size: 15px;
-	position: relative;
-	cursor: pointer;
-	float: left;
-	margin-right: 24px;
-}
-
-.filter-nav .dropdown{
-	position: absolute;
-	z-index: 11;
-	background-color: #ffffff;
-	width: 210px;
-	top: 44px;
-	left: 0;
-	display: none;
-}
-
-.filter-nav li a{
-	display: block;
-}
-
-.filter-nav:hover .dropdown{
-	display: block;
-}
-ul.dropdown{
-
-	max-height:300px;
-	overflow: hidden;
-	overflow-y: auto;
- }
-
-
-.dropdown{
-	padding: 0 0 10px 0;
-}
-
-.dropdown li{
-	color: #606060;
-	padding: 4px 20px;
-	font-size: 14px;
-}
-
-.dropdown li a{
-	display: block;
-}
-
-.dropdown li a:hover{
-	padding-left: 4px;
-}
-
-#filter-expositions button{
-	width: 344px;
-	float: left;
-	padding: 14px;
-	display: inline-block;
-}
-*/
-
-.searchandfilter li {
-	padding: 10px;
+.searchandfilter ul li {
+	padding: 0px !important;
 	margin: 0;
-	border: 1px solid #ccc;
 	width: 200px;
-	border-radius: 3px;
+	border-radius: 4px;
 	overflow: hidden;
 	background-color: #fff;
 
@@ -1498,9 +1427,11 @@ ul.dropdown{
 }
 
 .searchandfilter li select {
-	padding: 5px 8px;
+	padding: 12px 18px;
 	width: 100%;
 	border: none;
+	font-size: 15px;
+	color: #979797;
 	box-shadow: none;
 	background-color: transparent;
 	background-image: none;
@@ -1509,8 +1440,19 @@ ul.dropdown{
 	appearance: none;
 }
 
-.select-style select:focus {
+.select-style select:focus, .select-style select:active {
 	outline: none;
+}
+
+.sf-field-submit input {
+	width: 100%;
+	padding: 12px 18px !important;
+	font-size: 15px !important;
+}
+
+li.sf-field-submit {
+	width: 378px !important;
+	margin-right: 0px !important;
 }
 
 .sf-field-submit{
@@ -1519,7 +1461,7 @@ ul.dropdown{
 
 form#search-filter-form-503 li{
 	display:inline-block;
-	margin-right:30px;
+	margin-right:25px;
 }
 
 select.postform{
