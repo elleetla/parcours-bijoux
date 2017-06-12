@@ -1340,7 +1340,7 @@ img.alignright,
 /* Display outline on focus */
 :focus {
 	color: #333;
-	outline: #ccc solid 1px;
+	outline: inherit;
 }
 
 
@@ -1410,7 +1410,7 @@ img.alignright,
 /* # Filter header
 ---------------------------------------------------------------------------------------------------- */
 
-.searchandfilter {
+#filter-map {
 	padding: 30px 0px;
 	background-color: #e6e6e6;
 }
@@ -1453,6 +1453,20 @@ img.alignright,
 li.sf-field-submit {
 	width: 378px !important;
 	margin-right: 0px !important;
+}
+
+li.sf-field-reset {
+	background: none !important;
+	width: 100% !important;
+}
+
+.sf-field-reset input {
+	width: 100%;
+	padding: 12px 0px !important;
+	text-align: right;
+	display: inline-block;
+	font-size: 15px !important;
+	font-weight: bold;
 }
 
 .sf-field-submit{

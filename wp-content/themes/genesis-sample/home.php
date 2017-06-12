@@ -15,7 +15,15 @@ function attr_site_inner( $attr ) {
 // function search filter
 function filter_expositions()
 {
+    echo '<div id="filter-map">';
+
+    echo '<div class="wrap">';
+
     echo do_shortcode('[searchandfilter id="503"]');
+
+    echo '</div>';
+
+    echo '</div>';
 }
 add_action('genesis_after_header', 'filter_expositions', 15);
 
