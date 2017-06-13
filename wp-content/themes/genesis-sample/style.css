@@ -270,13 +270,13 @@ span.cat-places {
 	display:inline;
 }
 
-.address span,
-.date{
+#lieu-grey .address p,
+#lieu-grey .address,
+#lieu-grey .date{
 	color:#999999;
 }
 
-.date,
-.caption-detail .list-artistes{
+{
 	margin-bottom:20px;
 }
 
@@ -296,14 +296,56 @@ span.cat-places {
 	line-height: 1.2;
 }
 
-.linkage .readmore{
+
+
+.address p,
+.date,
+.linkage .list-artistes,
+#list-credit,
+.readmore{
+	margin-bottom: 20px;
+}
+
+.gm-style-iw .detail-short-description, /* short text in info windows (map)*/
+.linkage .detail-left-row,/* left row displayed in list of posts in home page */
+.linkage .detail-right-row .intervalle-date,
+.linkage .detail-right-row .detail-horaires,
+.linkage .detail-right-row .lieu-expo,
+.linkage .detail-right-row .detail-adresse,
+.linkage .detail-right-row .detail-tel,
+.linkage .detail-right-row .detail-metro{
+	display:none;
+}
+
+.linkage .address p,
+.linkage .date,
+.linkage .detail-right-row .detail-vernissage p,
+.linkage .detail-right-row .detail-short-description p{
+	color:#000000;
+}
+
+
+.linkage .detail-right-row{
+	width: auto;
+}
+
+#list-credit{
+	color:#bebebe;
+}
+
+
+.linkage .readmore,
+.linkage .readmore.p1{
 	color: #ff6400;
 	text-transform: uppercase;
 	font-size: 15px;
-	border: 2px solid #ff6400;
 	border-radius: 4px;
-	padding: 8px 60px;
 	display: inline-block;
+}
+
+.linkage .readmore.p1{
+	border: 2px solid #ff6400;
+	padding: 8px 90px;
 }
 
 .linkage .readmore:hover{
@@ -318,24 +360,9 @@ span.cat-places {
 	-o-transition: all 0.35s ease-in-out 0s;
 }
 
-.address p {
-	margin-bottom: 20px;
+.linkage .social-share div{
+	left:0;
 }
-
-.gm-style-iw .detail-short-description,
-.linkage .detail-left-row,
-.linkage .detail-right-row .detail-horaires,
-.linkage .detail-right-row .lieu-expo,
-.linkage .detail-right-row .detail-adresse,
-.linkage .detail-right-row .detail-tel,
-.linkage .detail-right-row .detail-metro{
-	display:none;
-}
-
-.linkage .detail-right-row{
-	width: 500px;
-}
-
 
 h3.title {
 	text-transform: uppercase;
@@ -2148,6 +2175,12 @@ h1.entry-title{
 	display:none;
 }
 
+.detail-short-description{
+	font-size:18px;
+	line-height: 1.2;
+	font-family: 'BrandonGrotesque-Regular', Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
 /* Social icon */
 .social-share div{
 	display:inline-block;
@@ -2157,7 +2190,6 @@ h1.entry-title{
 }
 .social-share div img{
 	width:16px;
-	height: 16px;
 }
 
 /* Tags */
@@ -2183,11 +2215,13 @@ h1.entry-title{
 	font-size:18px;
 	font-weight:bold;
 }
-.detail-vernissage{
+
+.detail-vernissage
+{
 	font-size:13px;
-	font-family: 'BrandonGrotesque-Regular', Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
+.detail-vernissage,
 .detail-horaires,
 .detail-adresse,
 .detail-tel,

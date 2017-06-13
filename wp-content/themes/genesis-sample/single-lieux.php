@@ -51,15 +51,6 @@ function category_project(){
     echo '<span class="cat-places">'.get_the_term_list(get_the_ID(), 'categorie').'</span>';
 }
 
-
-//* Retrieve Short text/description
-//add_action('genesis_entry_content', 'short_text');
-//function short_text(){
-//    $short_text = get_field('short_text');
-//
-//    echo $short_text;
-//}
-
 //* Display all artists
 add_action('genesis_entry_content', 'artists_project',15);
 function artists_project(){
@@ -123,11 +114,11 @@ function social_sharing_buttons($content) {
         // Add sharing button at the end of page/page content
         $content .= '<!-- Crunchify.com social sharing. Get your copy here: http://crunchify.me/1VIxAsz -->';
         $content .= '<div class="social-share">';
-        $content .= '<div><a class="link facebook" href="'.$facebookURL.'" target="_blank"><img src="'.$icon_url.'/2017/05/facebook_logo.png'.'"/></a></div>';
-        $content .= '<div><a class="link twitter" href="'. $twitterURL .'" target="_blank"><img src="'.$icon_url.'/2017/05/twitter_logo.png'.'"/></a></div>';
-        $content .= '<div><a class="link googleplus" href="'.$googleURL.'" target="_blank"><img src="'.$icon_url.'/2017/05/G_logo.png'.'"/></a></div>';
-        $content .= '<div><a class="link pinterest" href="'.$pinterestURL.'" data-pin-custom="true" target="_blank"><img src="'.$icon_url.'/2017/05/pinterest_logo.png'.'"/></a></div>';
-        $content .= '<div><a class="link mail" href="'.$mailURL.'" ><img src="'.$icon_url.'/2017/05/mail_icon.png'.'"/></a></div>';
+        $content .= '<div><a class="link facebook" href="'.$facebookURL.'" target="_blank"><img src="'.$icon_url.'/2017/06/facebook.png'.'"/></a></div>';
+        $content .= '<div><a class="link twitter" href="'. $twitterURL .'" target="_blank"><img src="'.$icon_url.'/2017/06/twitter.png'.'"/></a></div>';
+        $content .= '<div><a class="link googleplus" href="'.$googleURL.'" target="_blank"><img src="'.$icon_url.'/2017/06/google.png'.'"/></a></div>';
+        $content .= '<div><a class="link pinterest" href="'.$pinterestURL.'" data-pin-custom="true" target="_blank"><img src="'.$icon_url.'/2017/06/pinterest_logo.png'.'"/></a></div>';
+        $content .= '<div><a class="link mail" href="'.$mailURL.'" ><img src="'.$icon_url.'/2017/06/mail.png'.'"/></a></div>';
         $content .= '</div>';
 
         return $content;

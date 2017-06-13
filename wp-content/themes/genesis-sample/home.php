@@ -71,32 +71,31 @@ function elleetla_geolocation()
                         <span class="cat-places"><?= get_the_term_list(get_the_ID(), 'categorie') ?></span>
                         <h3 class="title"><?= get_the_title() ?></h3>
 
-                        <div class="address">
-                            <?php
-                            echo get_field('nom_lieu');
-                            if($i > 1) {
+                        <?php
+                        if($i == 1 && sizeof($_GET) > 0){
+                            echo '<div id="lieu-grey">';
+                            echo '<div class="address">';
+                            if($i > 1 && sizeof($_GET) == 0) {
+                                echo get_field('nom_lieu');
                                 $terms = get_the_terms($post->ID, 'arrondissement');
                                 foreach ($terms as $term) {
                                     echo '<span> - ' . $term->name . '</span>';
                                 }
                             }
-                            ?>
-                        </div>
+                            echo '</div>'; // ./address
 
-                        <div class="date">
-                            <?= get_field('periode') ?>
-                        </div>
+                            echo '<div class="date">'.get_field('periode').'</div>'; // ./date
 
-                        <?php if($i == 1){ ?>
-                        <div class="caption-detail">
+                            echo '</div>'; // ./lieu-grey
 
-                            <?php
+                            //* Display post content info
+                            the_content();
                             //display all artists
-                            /*
+
                             $artistes = get_the_terms( $post->ID , 'artiste' );
                             $count = count($artistes);
                             $j = 1;
-                            echo "<div class='list-artistes'>";
+                            echo '<div class="list-artistes">';
                             foreach ($artistes as $artiste){
 
                                 $separateur = ', ';
@@ -112,18 +111,56 @@ function elleetla_geolocation()
                                 $j ++;
 
                             }
-                            */
-
-                            echo get_field('credits_lieux');
-                            ?>
-                        </div>
-
-                        <?php } ?>
-
-                        <?php the_content() ?>
+                            echo '</div>'; // ./list-artistes
 
 
-                        <a class="readmore" href="<?= get_the_permalink() ?>">en savoir +</a>
+                            echo '<div id="list-credit"> © crédits : '.get_field('credits_lieux').'</div>'; // ./list-credit
+
+                            echo '<a class="readmore p1" href="<?= get_the_permalink() ?>">en savoir +</a>'; // ./readmmore
+
+                            //* Social Media sharing buttons
+                            // Get current page URL
+                            $post_url = urlencode(get_permalink());
+
+                            // Get current page title
+                            $post_title = str_replace( ' ', '%20', get_the_title());
+
+                            // Get the email address to send the mail
+                            $address_mail = get_field('email');
+
+                            // Get url of icon image in media bibliography (=> http://localhost:8888/parcours-bijoux/wp-content/uploads)
+                            $folder_social_icon = wp_upload_dir();
+                            $icon_url = $folder_social_icon['baseurl'];
+
+                            // Construct sharing URL without using any script
+                            $facebookURL = 'https://www.facebook.com/sharer/sharer.php?u='.$post_url;
+                            $twitterURL = 'https://twitter.com/intent/tweet?text='.$post_title.'&amp;url='.$post_url.'&amp;via=ParcoursBijoux';
+                            $googleURL = 'https://plus.google.com/share?url='.$post_url;
+                            $pinterestURL = 'https://pinterest.com/pin/create/button/?url='.$post_url.'&amp;description='.$post_title;
+                            $mailURL = 'mailto:?subject= Parcours Bijoux - '.$post_title;
+
+                            // Add sharing button at the end of page/page content
+                            echo '<div class="social-share">';
+                            echo '<div><a class="link facebook" href="'.$facebookURL.'" target="_blank"><img src="'.$icon_url.'/2017/06/facebook.png'.'"/></a></div>';
+                            echo '<div><a class="link twitter" href="'. $twitterURL .'" target="_blank"><img src="'.$icon_url.'/2017/06/twitter.png'.'"/></a></div>';
+                            echo '<div><a class="link googleplus" href="'.$googleURL.'" target="_blank"><img src="'.$icon_url.'/2017/06/google.png'.'"/></a></div>';
+                            echo '<div><a class="link pinterest" href="'.$pinterestURL.'" data-pin-custom="true" target="_blank"><img src="'.$icon_url.'/2017/06/pinterest_logo.png'.'"/></a></div>';
+                            echo '<div><a class="link mail" href="'.$mailURL.'" ><img src="'.$icon_url.'/2017/06/mail.png'.'"/></a></div>';
+                            echo '</div>';
+                        }
+
+                        else{
+                            echo '<div id="lieu-black">';
+
+                            echo '<div class="address">'.get_field('nom_lieu').'</div>'; // ./address
+                            echo '<div class="date">'.get_field('periode').'</div>'; // ./date
+
+                            echo '</div>'; // ./lieu-black
+
+                            echo '<a class="readmore" href="<?= get_the_permalink() ?>">en savoir +</a>';
+                        }
+
+                        ?>
                     </div>
 
                     <?php
