@@ -239,6 +239,18 @@ input:-ms-input-placeholder {
 	font-style: normal;
 }
 
+@font-face {
+	font-family: 'BrandonGrotesque-Black';
+	src: url('fonts/BrandonGrotesque-Black/BrandonGrotesque-Black.eot');
+	src: url('fonts/BrandonGrotesque-Black/BrandonGrotesque-Black.woff2') format('woff2'),
+	url('fonts/BrandonGrotesque-Black/BrandonGrotesque-Black.woff') format('woff'),
+	url('fonts/BrandonGrotesque-Black/BrandonGrotesque-Black.ttf') format('truetype'),
+	url('fonts/BrandonGrotesque-Black/BrandonGrotesque-Black.svg#BrandonGrotesque-Black') format('svg'),
+	url('fonts/BrandonGrotesque-Black/BrandonGrotesque-Black.eot?#iefix') format('embedded-opentype');
+	font-weight: normal;
+	font-style: normal;
+}
+
 /* test map */
 
 .locations{
@@ -1552,20 +1564,18 @@ select.postform{
 	text-transform: uppercase;
 }
 
-input.search-filter-reset {
-	background-color: transparent;
-	color: #606060;
-	width: auto;
-	font-family: 'BrandonGrotesque-Bold';
-	float: right;
-}
 
 .searchandfilter ul .sf-field-reset{
 	padding: 10px 0 0 0 !important;
 }
 
-input.search-filter-reset{
-	padding: 0px !important;
+input.search-filter-reset {
+	background-color: transparent;
+	color: #606060;
+	font-family: 'BrandonGrotesque-Black', Helvetica Neue, Helvetica, Arial, sans-serif !important;
+	float: right;
+	width: inherit;
+	padding: 10px 0 !important;
 }
 
 input.search-filter-reset:hover{
@@ -1574,7 +1584,7 @@ input.search-filter-reset:hover{
 
 input[type=submit]{
 	font-size:20px;
-	font-family: 'BrandonGrotesque-Regular', Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-family: 'BrandonGrotesque-Medium', Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 /* ## Title Area
@@ -2338,7 +2348,7 @@ h1.entry-title{
 }
 
 .site-footer p {
-	margin-bottom: 0;
+	margin-top: 20px;
 }
 
 #footer a{
