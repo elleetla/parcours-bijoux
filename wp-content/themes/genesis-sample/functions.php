@@ -156,13 +156,15 @@ function ohouais_custom_mentions_footer() {
     $siteURL = get_site_url();
     $folder_social_icon = wp_upload_dir();
     $icon_url = $folder_social_icon['baseurl'];
-    echo'<p>&copy; Copyright 2017 Nom du site &middot; Création : <a href="#" target="_blank" href="http://wordpress.org/">Ohouais</a></p><br>';
+
     echo '<div id="footer">';
     echo '<a href="'.$siteURL.'/contact'.'">contact</a>';
     echo '<a href="'.$siteURL.'/a-propos'.'">à propos</a>';
     echo '<a href="'.$siteURL.'/partenaires'.'">partenaires</a>';
     echo '<a id="site_fb" href="https://www.facebook.com/"><img src="'.$icon_url.'/2017/05/facebook-white.png'.'"></a>';
     echo '</div>';
+
+    echo'<p>&copy; Copyright 2017 Nom du site &middot; Création : <a href="#" target="_blank" href="http://wordpress.org/">Ohouais</a></p><br>';
 
 }
 

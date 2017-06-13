@@ -116,7 +116,7 @@ function elleetla_geolocation()
 
                             echo '<div id="list-credit"> © crédits : '.get_field('credits_lieux').'</div>'; // ./list-credit
 
-                            echo '<a class="readmore p1" href="<?= get_the_permalink() ?>">en savoir +</a>'; // ./readmmore
+                            echo '<a class="readmore p1" href="'.get_the_permalink().'">en savoir +</a>'; // ./readmmore
 
                             //* Social Media sharing buttons
                             // Get current page URL
@@ -157,7 +157,7 @@ function elleetla_geolocation()
 
                             echo '</div>'; // ./lieu-black
 
-                            echo '<a class="readmore" href="<?= get_the_permalink() ?>">en savoir +</a>';
+                            echo '<a class="readmore" href="'.get_the_permalink().'">en savoir +</a>'; // ./readmmore
                         }
 
                         ?>
