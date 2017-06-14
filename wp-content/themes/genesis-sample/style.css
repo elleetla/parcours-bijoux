@@ -292,7 +292,8 @@ span.cat-places {
 	margin-bottom:20px;
 }
 
-.linkage {
+
+.linkage #list-content{
 	padding: 26px;
 	border-bottom: 1px solid #ebebeb;
 }
@@ -307,8 +308,6 @@ span.cat-places {
 	color: #999999;
 	line-height: 1.2;
 }
-
-
 
 .address p,
 .date,
@@ -861,7 +860,6 @@ th:first-child {
 
 /* categorie page */
 .categorie-content{
-	margin:55px 387px 52px;
 	background-color: transparent ;
 }
 
@@ -897,7 +895,7 @@ th:first-child {
 
 .content {
 	float: right;
-	width: 880px;
+	width: 1180px;
 }
 
 .content-sidebar .content,
@@ -2092,7 +2090,9 @@ div.owl-next{
 ---------------------------------------------------------------------------------------------------- */
 /* Load More */
 article{
-	display:none;
+	display:inline-block;
+	width:363px;
+	margin-right:30px;
 }
 
 .load-more-top,

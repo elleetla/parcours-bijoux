@@ -12,7 +12,7 @@
 remove_action( 'genesis_after_header', 'genesis_breadcrumb_args' );
 
 //* Display picture of the slider and its title
-add_action( 'genesis_after_header', 'slider_project', 10 );
+add_action( 'genesis_after_header', 'slider_page', 10 );
 
 //* Display a return button
 add_action('genesis_before_entry','return_button');
@@ -42,6 +42,34 @@ function image_project(){
     if( !empty($image) ): ?>
         <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
     <?php endif;
+
+}
+
+//* Display picture of the slider
+add_action('genesis_entry_header','slider_post');
+function slider_post() {
+
+    echo '<div class="owl-carousel owl-theme">';
+    if( have_rows('slider_post') ):
+
+        while( have_rows('slider_post')) : the_row();
+
+            //variables that contain field
+            $imageSlider = get_sub_field('image_slide_post');
+
+            echo '<div class="item">';
+
+            echo '<img src="'.$imageSlider['url'].'" alt="'.$imageSlider['alt'].'"/>';
+
+            echo '</div>'; // ./item
+
+
+        endwhile;
+
+    endif;
+
+    echo '</div><!-- ./owl-carousel -->';
+
 
 }
 
@@ -80,7 +108,7 @@ function artists_project(){
 }
 
 //* Display credits of the project
-add_action('genesis_entry_footer', 'credits_project');
+add_action('genesis_entry_content', 'credits_project', 16);
 function credits_project(){
     $creditsPerson = get_field('credits_lieux');
 
@@ -117,7 +145,7 @@ function social_sharing_buttons($content) {
         $content .= '<div><a class="link facebook" href="'.$facebookURL.'" target="_blank"><img src="'.$icon_url.'/2017/06/facebook.png'.'"/></a></div>';
         $content .= '<div><a class="link twitter" href="'. $twitterURL .'" target="_blank"><img src="'.$icon_url.'/2017/06/twitter.png'.'"/></a></div>';
         $content .= '<div><a class="link googleplus" href="'.$googleURL.'" target="_blank"><img src="'.$icon_url.'/2017/06/google.png'.'"/></a></div>';
-        $content .= '<div><a class="link pinterest" href="'.$pinterestURL.'" data-pin-custom="true" target="_blank"><img src="'.$icon_url.'/2017/06/pinterest_logo.png'.'"/></a></div>';
+        $content .= '<div><a class="link pinterest" href="'.$pinterestURL.'" data-pin-custom="true" target="_blank"><img src="'.$icon_url.'/2017/06/pinterest.png'.'"/></a></div>';
         $content .= '<div><a class="link mail" href="'.$mailURL.'" ><img src="'.$icon_url.'/2017/06/mail.png'.'"/></a></div>';
         $content .= '</div>';
 

@@ -68,11 +68,19 @@ function elleetla_geolocation()
                     ?>
                     <div class="linkage marker" id="p<?= get_the_ID() ?>" data-lat="<?= $address['lat'] ?>" data-lng="<?= $address['lng'] ?>">
 
-                        <span class="cat-places"><?= get_the_term_list(get_the_ID(), 'categorie') ?></span>
-                        <h3 class="title"><?= get_the_title() ?></h3>
+
+
 
                         <?php
                         if($i == 1 && sizeof($_GET) > 0){
+                            $image = get_field('image_map');
+                            echo '<img src="'.$image['url'].'" alt="'.$image['alt'].'" />';
+
+                            echo '<div id="list-content">';
+
+                            echo '<span class="cat-places"'.get_the_term_list(get_the_ID(), 'categorie').'</span>';
+                            echo '<h3 class="title">'.get_the_title().'</h3>';
+
                             echo '<div id="lieu-grey">';
                             echo '<div class="address">';
                             if($i > 1 && sizeof($_GET) == 0) {
@@ -99,7 +107,7 @@ function elleetla_geolocation()
                             foreach ($artistes as $artiste){
 
                                 $separateur = ', ';
-                                if($j % 2 == 0){
+                                if($j % 2 == 0 && $j != $count){
                                     $separateur = ","."<br>";
                                 }
                                 else if( $j == $count){
@@ -144,12 +152,18 @@ function elleetla_geolocation()
                             echo '<div><a class="link facebook" href="'.$facebookURL.'" target="_blank"><img src="'.$icon_url.'/2017/06/facebook.png'.'"/></a></div>';
                             echo '<div><a class="link twitter" href="'. $twitterURL .'" target="_blank"><img src="'.$icon_url.'/2017/06/twitter.png'.'"/></a></div>';
                             echo '<div><a class="link googleplus" href="'.$googleURL.'" target="_blank"><img src="'.$icon_url.'/2017/06/google.png'.'"/></a></div>';
-                            echo '<div><a class="link pinterest" href="'.$pinterestURL.'" data-pin-custom="true" target="_blank"><img src="'.$icon_url.'/2017/06/pinterest_logo.png'.'"/></a></div>';
+                            echo '<div><a class="link pinterest" href="'.$pinterestURL.'" data-pin-custom="true" target="_blank"><img src="'.$icon_url.'/2017/06/pinterest.png'.'"/></a></div>';
                             echo '<div><a class="link mail" href="'.$mailURL.'" ><img src="'.$icon_url.'/2017/06/mail.png'.'"/></a></div>';
-                            echo '</div>';
+                            echo '</div>'; // ./social-share
+
+                            echo '</div>'; // ./list-content
                         }
 
                         else{
+                            echo '<div id="list-content">';
+                            echo '<span class="cat-places"'.get_the_term_list(get_the_ID(), 'categorie').'</span>';
+                            echo '<h3 class="title">'.get_the_title().'</h3>';
+
                             echo '<div id="lieu-black">';
 
                             echo '<div class="address">'.get_field('nom_lieu').'</div>'; // ./address
@@ -158,6 +172,7 @@ function elleetla_geolocation()
                             echo '</div>'; // ./lieu-black
 
                             echo '<a class="readmore" href="'.get_the_permalink().'">en savoir +</a>'; // ./readmmore
+                            echo '</div>'; // ./list-content
                         }
 
                         ?>

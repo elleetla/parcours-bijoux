@@ -264,7 +264,7 @@ function remove_post_info($post_info){
 }
 
 //* Display picture of the slider, its category and title
-function slider_project() {
+function slider_page() {
 
     echo '<div class="owl-carousel owl-theme">';
 
@@ -280,16 +280,14 @@ function slider_project() {
 
 ?>
 
-            <div class="item">
-                <img class="img-responsive" src="<?php
-                $slider = get_field('slider');
-                echo $slider['url'] ?>"/>
+    <div class="item">
+        <img class="img-responsive" src="<?php $slider = get_field('slider'); echo $slider['url'] ?>" alt="<?php echo $slider['alt'] ?>"/>
 
-                <div class="caption-slider">
-                    <h4><?php echo get_the_term_list(get_the_ID(), 'categorie'); ?></h4>
-                    <h1><?php the_title();?></h1>
-                </div>
-            </div>
+        <div class="caption-slider">
+            <h4><?php echo get_the_term_list(get_the_ID(), 'categorie'); ?></h4>
+            <h1><?php the_title();?></h1>
+        </div>
+    </div>
 
 
 <?php

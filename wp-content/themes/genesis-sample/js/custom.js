@@ -1,11 +1,12 @@
 $(function() {
 
     //* load more button
-    $("article").slice(0, 6).show();
+    $("article:gt(5)").hide(); //hide posts greater than 5 == display the first 6 post
     $(".load-more-top, .load-more-bottom").on('click', function () {
-        $("article:hidden").slice(0).slideDown();
+        $("article:hidden").show();
         return false;
     });
+
 
     // Animation menu search site
      $( "#menu-item-241" ).click(function() {

@@ -7,7 +7,7 @@
  */
 
 //* Display picture of the slider, its category and title
-add_action( 'genesis_after_header', 'slider_project', 10 );
+add_action( 'genesis_after_header', 'slider_page', 10 );
 
 //* Removes Title and Description on Archive, Taxonomy, Category, Tag
 remove_action( 'genesis_before_loop', 'genesis_do_taxonomy_title_description', 15 );
