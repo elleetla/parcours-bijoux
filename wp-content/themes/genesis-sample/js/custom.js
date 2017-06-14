@@ -2,17 +2,20 @@ $(function() {
 
     //* load more button
     $("article:gt(5)").hide(); //hide posts greater than 5 == display the first 6 post
-    $(".load-more-top, .load-more-bottom").on('click', function () {
+    $("#load-more-top, #load-more-bottom").on('click', function () {
         $("article:hidden").show();
         return false;
     });
 
-
     // Animation menu search site
      $( "#menu-item-241" ).click(function() {
-         $( "#nav-search" ).slideToggle( "slow", function() {
-         });
+         $( "#nav-search" ).slideToggle( "slow", function() {});
      });
+
+    $( "#button-contact" ).click(function() {
+        $( "#contact" ).slideToggle( "slow", function() {});
+        return false;
+    });
 
 
     //* slider page categorie lieux

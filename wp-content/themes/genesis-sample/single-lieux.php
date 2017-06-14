@@ -34,19 +34,8 @@ function attr_post_class( $attr ) {
     return add_class( $attr, 'detail-content' );
 }
 
-//* Display the image
-add_action('genesis_entry_header', 'image_project', 5);
-function image_project(){
-    $image = get_field('image_lieux');
-
-    if( !empty($image) ): ?>
-        <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-    <?php endif;
-
-}
-
 //* Display picture of the slider
-add_action('genesis_entry_header','slider_post');
+add_action('genesis_entry_header','slider_post', 1);
 function slider_post() {
 
     echo '<div class="owl-carousel owl-theme">';
@@ -95,7 +84,7 @@ function artists_project(){
             $separateur = ","."<br>";
         }
         else if( $i == $count){
-            $separateur = '.';
+            $separateur = '';
         }
 
         echo $term->name. $separateur;

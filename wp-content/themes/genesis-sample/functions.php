@@ -153,18 +153,48 @@ remove_action( 'genesis_footer', 'genesis_do_footer' );
 add_action( 'genesis_footer', 'ohouais_custom_mentions_footer' );
 function ohouais_custom_mentions_footer() {
 
-    $siteURL = get_site_url();
+    /*$siteURL = get_site_url();
     $folder_social_icon = wp_upload_dir();
     $icon_url = $folder_social_icon['baseurl'];
 
     echo '<div id="footer">';
-    echo '<a href="'.$siteURL.'/contact'.'">contact</a>';
+    echo '<a href="#" id="button-contact">contact</a>';
     echo '<a href="'.$siteURL.'/a-propos'.'">à propos</a>';
     echo '<a href="'.$siteURL.'/partenaires'.'">partenaires</a>';
-    echo '<a id="site_fb" href="https://www.facebook.com/"><img src="'.$icon_url.'/2017/05/facebook-white.png'.'"></a>';
+    echo '<a id="site_fb" href="https://www.facebook.com/"><img src="'.$icon_url.'/2017/06/facebook_blanc.png'.'"></a>';
     echo '</div>';
 
-    echo'<p>&copy; Copyright 2017 Nom du site &middot; Création : <a href="#" target="_blank" href="http://wordpress.org/">Ohouais</a></p><br>';
+    echo'<p>&copy; Copyright 2017 Nom du site &middot; Création : <a href="#" target="_blank" href="http://wordpress.org/">Ohouais</a></p><br>';*/
+
+
+
+    $siteURL = get_site_url();
+    $folder_social_icon = wp_upload_dir();
+    $icon_url = $folder_social_icon['baseurl'];
+    ?>
+
+    <div id="footer">
+        <a href="#" id="button-contact">contact</a>
+        <a href="<?php echo $siteURL.'/a-propos'?>">à propos</a>
+        <a href="<?php echo $siteURL.'/partenaires'?>">partenaires</a>
+        <a id="site_fb" href="https://www.facebook.com/Parcours-Bijoux-1377799542300463/?ref=br_tf"><img src="<?php echo $icon_url.'/2017/06/facebook_blanc.png'?>"></a>
+    </div>
+
+    <div id="contact">
+
+        <div id="contact1" style="display:inline-block">
+            <a href="http://www.parcoursbijoux.com/">www.parcoursbijoux.com</a>
+        </div>
+
+        <div id="contact2" style="display:inline-block">
+            <p>Séverine Hyvernat • <a href="mailto:severine@re-active.fr">severine@re-active.fr</a> • + 33 1 40 22 63 19 • + 33 6 47 36 67 27</p>
+        </div>
+
+    </div>
+
+    <p>&copy; Copyright 2017 Nom du site &middot; Création : <a href="#" target="_blank" href="http://wordpress.org/">Ohouais</a></p>
+
+    <?php
 
 }
 

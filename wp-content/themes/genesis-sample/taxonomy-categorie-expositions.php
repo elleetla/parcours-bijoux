@@ -39,13 +39,13 @@ add_action('genesis_before_loop', 'random');
 //Load More button
 add_action('genesis_before_loop', 'load_more_top');
 function load_more_top () {
-    echo '<a class="load-more-top" href="#">+ voir tous les événements +</a>';
+    echo '<a id="load-more-top" href="#">+ voir tous les événements +</a>';
 
 }
 
 add_action('genesis_after_loop', 'load_more_bottom');
 function load_more_bottom () {
-    echo '<a class="load-more-bottom" href="#">+ voir tous les événements +</a>';
+    echo '<a id="load-more-bottom" href="#">+ voir tous les événements +</a>';
 
 }
 

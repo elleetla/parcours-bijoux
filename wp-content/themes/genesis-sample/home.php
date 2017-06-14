@@ -81,20 +81,13 @@ function elleetla_geolocation()
                             echo '<span class="cat-places"'.get_the_term_list(get_the_ID(), 'categorie').'</span>';
                             echo '<h3 class="title">'.get_the_title().'</h3>';
 
-                            echo '<div id="lieu-grey">';
-                            echo '<div class="address">';
-                            if($i > 1 && sizeof($_GET) == 0) {
-                                echo get_field('nom_lieu');
-                                $terms = get_the_terms($post->ID, 'arrondissement');
-                                foreach ($terms as $term) {
-                                    echo '<span> - ' . $term->name . '</span>';
-                                }
-                            }
-                            echo '</div>'; // ./address
+                            echo '<div id="lieu-black">';
+
+                            echo '<div class="address">'.get_field('nom_lieu').'</div>'; // ./address
 
                             echo '<div class="date">'.get_field('periode').'</div>'; // ./date
 
-                            echo '</div>'; // ./lieu-grey
+                            echo '</div>'; // ./lieu-black
 
                             //* Display post content info
                             the_content();
@@ -111,7 +104,7 @@ function elleetla_geolocation()
                                     $separateur = ","."<br>";
                                 }
                                 else if( $j == $count){
-                                    $separateur = '.';
+                                    $separateur = '';
                                 }
 
                                 echo $artiste->name. $separateur;
@@ -122,9 +115,9 @@ function elleetla_geolocation()
                             echo '</div>'; // ./list-artistes
 
 
-                            echo '<div id="list-credit"> © crédits : '.get_field('credits_lieux').'</div>'; // ./list-credit
+                            echo '<div class="post-credit"> © crédits : '.get_field('credits_lieux').'</div>'; // ./list-credit
 
-                            echo '<a class="readmore p1" href="'.get_the_permalink().'">en savoir +</a>'; // ./readmmore
+                            echo '<a class="readmore" href="'.get_the_permalink().'">en savoir +</a>'; // ./readmmore
 
                             //* Social Media sharing buttons
                             // Get current page URL
@@ -160,18 +153,31 @@ function elleetla_geolocation()
                         }
 
                         else{
+                            if($i ==2){
+                                echo '<div id="list-proximite">à proximité</div>';
+                            }
                             echo '<div id="list-content">';
+
                             echo '<span class="cat-places"'.get_the_term_list(get_the_ID(), 'categorie').'</span>';
-                            echo '<h3 class="title">'.get_the_title().'</h3>';
+                            echo '<h3 class="title" style="color:#000000">'.get_the_title().'</h3>';
 
-                            echo '<div id="lieu-black">';
 
-                            echo '<div class="address">'.get_field('nom_lieu').'</div>'; // ./address
+                            echo '<div id="lieu-grey">';
+                            echo '<div class="address">';
+
+                            echo get_field('nom_lieu');
+                            $terms = get_the_terms($post->ID, 'arrondissement');
+                            foreach ($terms as $term) {
+                                echo '<span> - ' . $term->name . '</span>';
+                            }
+                            echo '</div>'; // ./address
+
                             echo '<div class="date">'.get_field('periode').'</div>'; // ./date
 
                             echo '</div>'; // ./lieu-black
 
                             echo '<a class="readmore" href="'.get_the_permalink().'">en savoir +</a>'; // ./readmmore
+
                             echo '</div>'; // ./list-content
                         }
 
