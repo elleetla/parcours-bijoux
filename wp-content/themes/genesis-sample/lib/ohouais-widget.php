@@ -22,7 +22,7 @@ genesis_register_sidebar(array(
 
 function ohouais_slider_after_header()
 {
-    if (is_front_page() || is_active_sidebar()) {
+    if (is_front_page() ) {
         genesis_widget_area('home-slider', array(
             'before' => '<div class="shop-slider widget-area full">',
             'after' => '</div>',
@@ -34,7 +34,7 @@ add_action('genesis_after_header', 'ohouais_slider_after_header',20);
 
 function ohouais_preheader()
 {
-    if (is_front_page() || is_active_sidebar()) {
+    if (is_front_page()) {
         genesis_widget_area('socials-header', array(
             'before' => '<div class="socials-header widget-area full">',
             'after' => '</div>',

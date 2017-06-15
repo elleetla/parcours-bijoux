@@ -36,6 +36,7 @@ function elleetla_geolocation()
             <?php
             $args = [
                 'post_type' => 'lieux',
+                'orderby'   => 'rand'
             ];
 
             if (sizeof($_GET) > 0) {
@@ -67,9 +68,6 @@ function elleetla_geolocation()
                     $address = get_field('google_maps');
                     ?>
                     <div class="linkage marker" id="p<?= get_the_ID() ?>" data-lat="<?= $address['lat'] ?>" data-lng="<?= $address['lng'] ?>">
-
-
-
 
                         <?php
                         if($i == 1 && sizeof($_GET) > 0){
@@ -153,7 +151,7 @@ function elleetla_geolocation()
                         }
 
                         else{
-                            if($i ==2){
+                            if($i == 2 && sizeof($_GET) > 0){
                                 echo '<div id="list-proximite">à proximité</div>';
                             }
                             echo '<div id="list-content">';
@@ -200,6 +198,27 @@ function elleetla_geolocation()
 
 add_action('genesis_after_header','elleetla_geolocation',20);
 
-the_content();
+//the_content();
+
+
+remove_action( 'genesis_loop', 'genesis_do_loop' );
+add_action('genesis_loop','home_description');
+function home_description(){?>
+    <p id="title-description">Un événement entièrement dédié au bijou</p>
+    <p id="home-text"> Le Parcours Bijoux sera constitué d’une cinquantaine de manifestations autour du bijou
+        qui se dérouleront à l’automne 2017 à Paris : expositions, performances, conférences …
+        Le vernissage des évènements devra avoir lieu entre le 25 Septembre et le 15 novembre 2017.
+        Le Parcours Bijoux est ouvert aux créateurs de bijoux, plasticiens ou photographes menant une réflexion sur le corps et la parure,
+        joailliers, experts ou historiens, désireux de faire connaître la richesse de cet incontournable élément de parure.
+        Chaque participant bénéficiera d’une totale autonomie dans le montage de son projet.
+        Les participants seront par conséquent entièrement responsables de l’avancement et du financement de leur projet. <br>
+    <p id="organisateur">Le Parcours Bijoux 2017 est organisé par l'association <span id="d1-bijou-a-lautre">D'un bijou à l'autre</span></p>
+    </p>
+    <img src="<?php $folder_social_icon = wp_upload_dir();
+    $icon_url = $folder_social_icon['baseurl'];
+    echo $icon_url.'/2017/06/dun_bijou_a_lautre.png';
+    ?>">
+<?php
+}
 
 genesis();

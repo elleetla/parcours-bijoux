@@ -883,10 +883,31 @@ th:first-child {
 
 /* home page */
 .home-description{
-	padding:82px 485px 52px;
+	padding:82px 15% 52px;
 	margin:0;
 	max-width:100% !important;
 	background-color: #ffffff;
+}
+
+.home-description #title-description{
+	color:#ff6400;
+	font-size: 40px;
+	font-family: 'BrandonGrotesque-Light', Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+.home-description #home-text,
+.home-description #organisateur{
+	font-size: 20px;
+	font-family: 'BrandonGrotesque-Regular', Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+.home-description #d1-bijou-a-lautre{
+	color:#ff6400;
+	font-family: 'BrandonGrotesque-Medium', Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+.home-description img{
+	width:100px;
 }
 
 /* categorie page */
@@ -2120,10 +2141,11 @@ div.owl-next{
 /* # Categories Content
 ---------------------------------------------------------------------------------------------------- */
 /* Load More */
-article{
+.categorie-content article{
 	display:inline-block;
 	width:363px;
 	margin-right:30px;
+	vertical-align: top;
 }
 
 #load-more-top,
@@ -2188,6 +2210,7 @@ h1.entry-title{
 	font-size: 25px;
 	line-height: 1.1;
 	font-family: 'BrandonGrotesque-Regular', Helvetica Neue, Helvetica, Arial, sans-serif;
+	margin: 30px 0;
 }
 
 .detail-pays {
@@ -2298,8 +2321,7 @@ h1.entry-title{
 	margin:0 0 24px 0!important;
 }
 
-.detail-website a:visited,
-.s1{
+.detail-website a:visited{
 	margin-bottom:20px !important;
 	color:#ff6400 !important;
 }
@@ -2341,6 +2363,7 @@ h1.entry-title{
 .caption-project p{
 	margin-bottom: 0;
 	line-height: 1.2;
+	color:#000000;
 }
 
 
@@ -2407,9 +2430,29 @@ h1.entry-title{
 	margin-left:470px;
 	/* margin-left:40%;*/
 }
+#contact,
+#presse-parcours-bijoux,
+#presse-comite{
+	margin: 20px 90px 20px 0;
+}
 
-#contact{
-	display:none;
+#contacts div,
+#contacts div div{
+	display:inline-block;
+	color:#ffffff;
+}
+
+#contact,
+#presse-comite{
+	vertical-align: top;
+}
+
+#contacts p{
+	margin:0;
+}
+
+#contacts a{
+	color:#ffffff;
 }
 
 /* # Media Queries
