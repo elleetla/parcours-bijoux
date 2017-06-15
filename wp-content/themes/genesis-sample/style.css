@@ -2226,7 +2226,6 @@ h1.entry-title{
 .list-artistes{
 	font-size:15px;
 	font-weight:bold;
-	margin-top:-29px;
 }
 
 .post-credit{
@@ -2321,7 +2320,7 @@ h1.entry-title{
 	margin:0 0 24px 0!important;
 }
 
-.detail-website a:visited{
+.detail-website a {
 	margin-bottom:20px !important;
 	color:#ff6400 !important;
 }
@@ -2338,6 +2337,10 @@ h1.entry-title{
 }
 .row{
 	margin:0 40px 26px;
+}
+
+.row div {
+	vertical-align: top;
 }
 
 .all.col-lg-3.col-md-3.col-sm-6.col-xs-12.portfolio-item{
@@ -2430,21 +2433,15 @@ h1.entry-title{
 	margin-left:470px;
 	/* margin-left:40%;*/
 }
-#contact,
-#presse-parcours-bijoux,
-#presse-comite{
-	margin: 20px 90px 20px 0;
+
+#contacts{
+	display:none;
 }
 
 #contacts div,
 #contacts div div{
 	display:inline-block;
 	color:#ffffff;
-}
-
-#contact,
-#presse-comite{
-	vertical-align: top;
 }
 
 #contacts p{
@@ -2454,6 +2451,18 @@ h1.entry-title{
 #contacts a{
 	color:#ffffff;
 }
+
+#contact,
+#presse-comite{
+	vertical-align: top;
+}
+
+#contact,
+#presse-parcours-bijoux,
+#presse-comite{
+	margin: 20px 90px 20px 0;
+}
+
 
 /* # Media Queries
 ---------------------------------------------------------------------------------------------------- */

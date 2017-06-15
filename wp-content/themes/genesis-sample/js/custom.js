@@ -1,11 +1,25 @@
 $(function() {
 
     //* load more button
-    $("article:gt(5)").hide(); //hide posts greater than 5 == display the first 6 post
+    $(".content-6 article:gt(5)").hide(); //hide posts greater than 5 == display the first 6 post
     $("#load-more-top, #load-more-bottom").on('click', function () {
         $("article:hidden").show();
         return false;
+
+        /*jQuery.post(
+            ajaxurl,
+            {
+                'action': 'see_all',
+            },
+            function(response){
+                $('#genesis-content').append(response);
+            }
+        );
+
+        return false;*/
     });
+
+
 
     // Animation menu search site
      $( "#menu-item-241" ).click(function() {
@@ -13,7 +27,7 @@ $(function() {
      });
 
     $( "#button-contact" ).click(function() {
-        $( "#contact" ).slideToggle( "slow", function() {});
+        $( "#contacts" ).slideToggle( "slow", function() {});
         return false;
     });
 
@@ -159,7 +173,7 @@ $(function() {
         // var
         var latlng = new google.maps.LatLng( $marker.attr('data-lat'), $marker.attr('data-lng') );
 
-        var image = new google.maps.MarkerImage("http://localhost:8888/parcours-bijoux/wp-content/themes/genesis-sample/images/picto-test.png", null, null, null, new google.maps.Size(25,30));
+        var image = new google.maps.MarkerImage("http://demo.elle-et-la.com/parcours-bijoux/wp-content/themes/genesis-sample/images/picto-test.png", null, null, null, new google.maps.Size(25,30));
 
         // create marker
         var marker = new google.maps.Marker({
