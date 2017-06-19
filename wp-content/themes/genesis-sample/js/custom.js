@@ -2,9 +2,17 @@ $(function() {
 
     //* load more button
     $(".content-6 article:gt(5)").hide(); //hide posts greater than 5 == display the first 6 post
+
     $("#load-more-top, #load-more-bottom").on('click', function () {
-        $("article:hidden").show();
-        return false;
+        jQuery.post(
+            ajaxurl,
+            {
+                'action': 'mon_action'
+            },
+            function (response) {
+                $('.content-6').html(response);
+            }
+        );
     });
 
 

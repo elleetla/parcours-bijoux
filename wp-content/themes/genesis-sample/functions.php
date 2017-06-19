@@ -62,9 +62,14 @@ function genesis_sample_enqueue_scripts_styles() {
     wp_enqueue_script( 'genesis-sample-owl-carousel-js', get_stylesheet_directory_uri() . '/js/owl.carousel.min.js', array( 'jquery' ), '1.0.0', true );
     wp_enqueue_script( 'google-maps-api', '//maps.googleapis.com/maps/api/js?key=AIzaSyAo2vFww4DDQ5-LpuOKj0CAQiW19GddIks', array(), '', true );
 
-    /*wp_enqueue_script( 'script', get_template_directory_uri().'/js/script.js', array('jquery'), '1.0', true );
+    wp_enqueue_script( 'script', get_template_directory_uri().'/js/script.js', array('jquery'), '1.0', true );
     // pass Ajax Url to script.js
-    wp_localize_script('script', 'ajaxurl', admin_url( 'admin-ajax.php' ) );*/
+    wp_localize_script('script', 'ajaxurl', admin_url( 'admin-ajax.php' ) );
+/*
+    wp_localize_script( 'ohouais-script', 'ajax_posts', array(
+        'ajaxurl' => admin_url( 'admin-ajax.php' ),
+        'noposts' => __('No older posts found', 'ohouais'),
+    ));*/
 
     $output = array(
 		'mainMenu' => __( 'Menu', 'genesis-sample' ),
@@ -363,4 +368,47 @@ function post_content(){?>
 function random () {
     global $query_string;
     query_posts($query_string . "&orderby=rand");
+}
+
+
+//* Load more function
+add_action( 'wp_ajax_mon_action', 'mon_action' );
+add_action( 'wp_ajax_nopriv_mon_action', 'mon_action' );
+function mon_action() {
+
+    $args = array(
+        'post_type'     => 'lieux',
+        'orderby'       => 'rand'
+    );
+
+    $ajax_query = new WP_Query($args);
+
+    if ( $ajax_query->have_posts() ) : while ( $ajax_query->have_posts() ) : $ajax_query->the_post();?>
+        <div class="all col-lg-3 col-md-3 col-sm-6 col-xs-12 portfolio-item <?php // echo $tax ?>">
+            <div class="bloc-project">
+
+                <a href=" <?php the_permalink(); ?>">
+                    <img class="img-responsive" src="<?php
+                    $thumbnailURL = wp_get_attachment_image_src(get_post_thumbnail_id ( $post->ID ), 'slider-image');
+                    echo $thumbnailURL[0]; ?>" />
+                </a>
+
+                <div class="caption-project">
+                    <span class="cat-places"><?php echo get_the_term_list(get_the_ID(), 'categorie'); ?></span>
+
+                    <a href=" <?php the_permalink(); ?>">
+                        <h3 class="title"><?php the_title();?></h3>
+                        <?php echo get_field('nom_lieu'); ?>
+                        <p><?php echo get_field('periode'); ?></p>
+                    </a>
+
+                </div>
+
+            </div><!-- ./bloc-project -->
+        </div><!-- ./all col-lg-3 -->
+    <?php
+    endwhile;
+    endif;
+
+    die();
 }

@@ -2145,6 +2145,9 @@ div.owl-next{
 	display:inline-block;
 	width:363px;
 	margin-right:30px;
+}
+
+.all.col-lg-3.col-md-3.col-sm-6.col-xs-12.portfolio-item{
 	vertical-align: top;
 }
 
@@ -2171,8 +2174,10 @@ div.owl-next{
 }
 
 
-/* # Post Content
----------------------------------------------------------------------------------------------------- */
+
+
+	/* # Post Content
+    ---------------------------------------------------------------------------------------------------- */
 
 /* Return button */
 .return button{
