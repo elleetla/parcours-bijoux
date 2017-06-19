@@ -5,18 +5,6 @@ $(function() {
     $("#load-more-top, #load-more-bottom").on('click', function () {
         $("article:hidden").show();
         return false;
-
-        /*jQuery.post(
-            ajaxurl,
-            {
-                'action': 'see_all',
-            },
-            function(response){
-                $('#genesis-content').append(response);
-            }
-        );
-
-        return false;*/
     });
 
 

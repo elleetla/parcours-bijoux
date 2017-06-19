@@ -339,7 +339,7 @@ function post_content(){?>
 
             <a href=" <?php the_permalink(); ?>">
                 <img class="img-responsive" src="<?php
-                $thumbnailURL = wp_get_attachment_image_src(get_post_thumbnail_id ( $post_ID ), 'slider-image');
+                $thumbnailURL = wp_get_attachment_image_src(get_post_thumbnail_id ( $post->ID ), 'slider-image');
                 echo $thumbnailURL[0]; ?>" />
             </a>
 
@@ -364,54 +364,3 @@ function random () {
     global $query_string;
     query_posts($query_string . "&orderby=rand");
 }
-
-
-
-//* load more
-/*add_action( 'wp_ajax_see_all', 'see_all' );
-add_action( 'wp_ajax_nopriv_see_all', 'see_all' );
-
-function mon_action() {
-
-    global $post;
-
-    $args = array(
-        'post_type' =>'lieux'
-    );
-
-    $ajax_query = new WP_Query($args);
-
-    if ($ajax_query -> have_posts()) :
-        while ($ajax_query -> have_posts()) :
-            $ajax_query -> the_post();
-
-    */?><!--
-            <div class="all col-lg-3 col-md-3 col-sm-6 col-xs-12 portfolio-item <?php /*// echo $tax */?>">
-                <div class="bloc-project">
-
-                    <a href=" <?php /*the_permalink(); */?>">
-                        <img class="img-responsive" src="<?php
-/*                        $thumbnailURL = wp_get_attachment_image_src(get_post_thumbnail_id ( $post_ID ), 'slider-image');
-                        echo $thumbnailURL[0]; */?>" />
-                    </a>
-
-                    <div class="caption-project">
-                        <span class="cat-places"><?php /*echo get_the_term_list(get_the_ID(), 'categorie'); */?></span>
-
-                        <a href=" <?php /*the_permalink(); */?>">
-                            <h3 class="title"><?php /*the_title();*/?></h3>
-                            <?php /*echo get_field('nom_lieu'); */?>
-                            <p><?php /*echo get_field('periode'); */?></p>
-                        </a>
-
-                    </div>
-
-                </div><!-- ./bloc-project -->
-            </div><!-- ./all col-lg-3 -->
-<?php
-/*
-    endwhile;
-    endif;
-
-    die();
-}*/
