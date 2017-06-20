@@ -1605,7 +1605,8 @@ li.sf-field-reset {
 	padding: 0px !important;
 }
 
-form#search-filter-form-503 li{
+form#search-filter-form-503 li,
+form#search-filter-form-646 li{
 	display:inline-block;
 	margin-right:25px;
 }
@@ -2240,6 +2241,10 @@ h1.entry-title{
 	margin-bottom:20px;
 }
 
+/* list of artists & credit */
+.content-left{
+	float:left;
+}
 
 /* Right Column */
 .entry-content .detail-short-description{
@@ -2269,19 +2274,25 @@ h1.entry-title{
 }
 
 /* Tags */
-.entry-meta{
+.tags-post{
 	width: 425px;
 	padding:0 !important;
 	position: relative;
 	left: 51%;
 }
-.entry-tags a{
+.tags-post a{
 	background-color:#f5f5f5;
 	padding: 10px;
 	border-radius: 5px;
 	line-height: 3.7;
 	font-size:11px;
 	text-transform: uppercase;
+	display:inline;
+}
+
+/* Social icon & tags */
+.content-right{
+	display:inline-block;
 }
 
 .detail-pays,

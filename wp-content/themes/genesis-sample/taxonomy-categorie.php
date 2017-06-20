@@ -9,6 +9,12 @@
 //* Display picture of the slider, its category and title
 add_action( 'genesis_after_header', 'slider_page', 10 );
 
+add_action('genesis_after_header','filter_categorie');
+function filter_categorie(){
+    echo do_shortcode('[searchandfilter id="646"]');
+
+}
+
 //* Removes Title and Description on Archive, Taxonomy, Category, Tag
 remove_action( 'genesis_before_loop', 'genesis_do_taxonomy_title_description', 15 );
 
@@ -41,6 +47,7 @@ add_action('genesis_entry_content', 'post_content');
 
 //* Display posts randomly
 add_action('genesis_before_loop', 'random');
+
 
 //Load More buttons
 add_action('genesis_before_loop', 'load_more_top');

@@ -68,42 +68,6 @@ function category_project(){
     echo '<span class="cat-places">'.get_the_term_list(get_the_ID(), 'categorie').'</span>';
 }
 
-//* Display all artists
-add_action('genesis_entry_content', 'artists_project',15);
-function artists_project(){
-
-    //display all artists
-    $terms = get_the_terms( $post->ID , 'artiste' );
-    $count = count($terms);
-    $i = 1;
-    echo "<div class='list-artistes'>";
-    foreach ($terms as $term){
-
-        $separateur = ', ';
-        if($i % 2 == 0 && $i != $count ){
-            $separateur = ","."<br>";
-        }
-        else if( $i == $count){
-            $separateur = '';
-        }
-
-        echo $term->name. $separateur;
-
-        $i++;
-
-    }
-    echo"</div>";
-
-}
-
-//* Display credits of the project
-add_action('genesis_entry_content', 'credits_project', 16);
-function credits_project(){
-    $creditsPerson = get_field('credits_lieux');
-
-    echo '<div class="post-credit">&copy; crédits : '.$creditsPerson.'</div>';
-}
-
 function social_sharing_buttons($content) {
     global $post;
     if(is_singular() || is_home()){
@@ -130,13 +94,14 @@ function social_sharing_buttons($content) {
 
         // Add sharing button at the end of page/page content
         $content .= '<!-- Crunchify.com social sharing. Get your copy here: http://crunchify.me/1VIxAsz -->';
-        $content .= '<div class="social-share">';
+        $content .= '<div class="content-right">'; //content-right - div going on tag div
+        $content .= '<div class="social-share">'; //social-share
         $content .= '<div><a class="link facebook" href="'.$facebookURL.'" target="_blank"><img src="'.$icon_url.'/2017/06/facebook.png'.'"/></a></div>';
         $content .= '<div><a class="link twitter" href="'. $twitterURL .'" target="_blank"><img src="'.$icon_url.'/2017/06/twitter.png'.'"/></a></div>';
         $content .= '<div><a class="link googleplus" href="'.$googleURL.'" target="_blank"><img src="'.$icon_url.'/2017/06/google.png'.'"/></a></div>';
         $content .= '<div><a class="link pinterest" href="'.$pinterestURL.'" data-pin-custom="true" target="_blank"><img src="'.$icon_url.'/2017/06/pinterest.png'.'"/></a></div>';
         $content .= '<div><a class="link mail" href="'.$mailURL.'" ><img src="'.$icon_url.'/2017/06/mail.png'.'"/></a></div>';
-        $content .= '</div>';
+        $content .= '</div>'; // ./social-share
 
         return $content;
     }else{
@@ -145,6 +110,53 @@ function social_sharing_buttons($content) {
     }
 };
 add_filter( 'the_content', 'social_sharing_buttons');
+
+//* Tags
+// remove automatic tags
+remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
+// display tags
+add_action( 'genesis_entry_content', 'list_tags_with_count',10);
+function list_tags_with_count() {
+    echo the_terms( $post->ID, 'post_tag', '<div class="tags-post">', ' ', '</div><!-- ./tags-post--></div><!-- ./content-right in function social_sharing_buttons()-->' );
+//    var_dump( get_the_tags());
+}
+
+
+//* Display list of artists and credit
+add_action('genesis_entry_content', 'artists_credit');
+function artists_credit(){
+
+    echo '<div class="content-left">';
+    //display all artists
+    $terms = get_the_terms( $post->ID , 'artiste' );
+    $count = count($terms);
+    $i = 1;
+    echo "<div class='list-artistes'>";
+    foreach ($terms as $term){
+
+        $separateur = ', ';
+        if($i % 2 == 0 && $i != $count ){
+            $separateur = ","."<br>";
+        }
+        else if( $i == $count){
+            $separateur = '';
+        }
+
+        echo $term->name. $separateur;
+
+        $i++;
+
+    }
+    echo '</div>'; // ./list-artistes
+
+    //display credit
+    $creditsPerson = get_field('credits_lieux');
+    echo '<div class="post-credit">&copy; crédits : '.$creditsPerson.'</div>';
+
+    echo '</div>'; // ./content-left
+
+}
+
 
 //display post "A proximité"
 function proposition_post(){?>

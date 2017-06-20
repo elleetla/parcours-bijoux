@@ -13,6 +13,7 @@ $(function() {
                 $('.content-6').html(response);
             }
         );
+        ('.search-filter-form-646').show();
     });
 
 

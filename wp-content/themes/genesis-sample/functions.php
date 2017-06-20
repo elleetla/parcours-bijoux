@@ -241,6 +241,12 @@ add_action( 'genesis_after_header', 'genesis_do_breadcrumbs',15 );
 // title page
 remove_action( 'genesis_before_loop', 'genesis_do_posts_page_heading' );
 
+// general function to add a class
+function add_class( $attr, $class ) {
+    $attr['class'] .= ' ' . sanitize_html_class( $class );
+    return $attr;
+}
+
 
 //* Search functionalities
 // display search bar
@@ -285,11 +291,6 @@ function b3m_genesis_search_button_text( $text ) {
 
 }
 
-// general function to add a class
-function add_class( $attr, $class ) {
-    $attr['class'] .= ' ' . sanitize_html_class( $class );
-    return $attr;
-}
 
 
 /* in posts */
@@ -363,6 +364,14 @@ function post_content(){?>
     </div><!-- ./all col-lg-3 -->
 <?php
 }
+
+//* Tags research - add lieux posts to the tag research
+function tags_research( $query ) {
+    if ( $query->is_tag() && $query->is_main_query() ) {
+        $query->set( 'post_type', array( 'post', 'lieux' ) );
+    }
+}
+add_action( 'pre_get_posts', 'tags_research' );
 
 //* Display posts randomly
 function random () {
