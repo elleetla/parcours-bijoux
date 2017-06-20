@@ -1502,6 +1502,10 @@ img.alignright,
 	font-size: 30px;
 }
 
+#header-date p{
+	display:inline-block;
+}
+
 #header-description{
 	float: right;
 	display:inline;
@@ -2462,6 +2466,7 @@ h1.entry-title{
 
 #contacts p{
 	margin:0;
+	line-height: 1.5;
 }
 
 #contacts a{
@@ -2844,6 +2849,79 @@ h1.entry-title{
 	li.sf-field-submit {
 		width: 200px !important;
 	}
+
+	/* header */
+	#header-date img{
+		width: 234px !important;
+		margin-top: -25px !important;
+	}
+
+	#header-description{
+		float:none !important;
+	}
+
+
+	/* footer */
+	#footer a{
+		display:block;
+		margin: 0 0 20px;
+	}
+
+
+	/* home page */
+	input.search-filter-reset{
+		text-align: center;
+	}
+
+	#title-description{
+		line-height: 1.2;
+	}
+
+	#d1-bijou-a-lautre{
+		margin-bottom:20px;
+	}
+
+
+	/* categorie pages */
+	.load-more{
+		margin:0 auto 20px !important;
+		text-align:center;
+	}
+
+	.categorie-content article{
+		padding:0;
+	}
+
+	/* detail pages */
+	.content article{
+		width:inherit;
+		margin:0;
+	}
+
+	#last-projects .row{
+		margin:0;
+	}
+
+	p#a-proximite{
+		text-align:center;
+		margin: 20px 0;
+	}
+
+	div.all.col-lg-3.col-md-3.col-sm-6.col-xs-12.portfolio-item {
+		width:inherit !important;
+		margin-right:0 !important;
+	}
+
+	/* page partenaires */
+	.wpb_text_column.wpb_content_element{
+		margin:0;
+	}
+
+	.wpb_text_column.wpb_content_element.detail-website{
+		margin-bottom: 50px !important;
+	}
+
+
 
 }
 

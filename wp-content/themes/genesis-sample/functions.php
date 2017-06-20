@@ -170,13 +170,13 @@ function ohouais_custom_mentions_footer() {
         <a href="<?php echo $siteURL.'/a-propos'?>">à propos</a>
         <a href="<?php echo $siteURL.'/partenaires'?>">partenaires</a>
         <a id="site_fb" href="https://www.facebook.com/Parcours-Bijoux-1377799542300463/?ref=br_tf" target="_blank"><img src="<?php echo $icon_url.'/2017/06/facebook_blanc.png'?>"></a>
-    </div>
+    </div><!-- ./footer -->
 
     <div id="contacts">
 
         <div id="contact">
             <a href="mailto:contact@parcoursbijoux2017.com">contact@parcoursbijoux2017.com</a>
-        </div>
+        </div><!-- ./contact -->
 
         <div id="contact-presse">
             <div id="presse-parcours-bijoux">
@@ -186,7 +186,7 @@ function ohouais_custom_mentions_footer() {
                 <a href="mailto:severine@re-active.fr">severine@re-active.fr</a>
                 <p>+ 33 1 40 22 63 19</p>
                 <p>+ 33 6 47 36 67 27</p>
-            </div>
+            </div><!-- ./press-parcours-bijoux -->
 
             <div id="presse-comite">
                 <p>Comité Francéclat</p>
@@ -194,10 +194,10 @@ function ohouais_custom_mentions_footer() {
                 <p>Morgane Rasle</p>
                 <a href="mailto:mrasle@douzal.com">mrasle@douzal.com</a>
                 <p>+ 33 1 53 05 50 00</p>
-            </div>
-        </div>
+            </div><!-- ./presse-comite -->
+        </div><!-- ./contact-presse -->
 
-    </div>
+    </div><!-- ./contacts -->
 
     <p>&copy; Copyright 2017</p>
 
@@ -224,7 +224,7 @@ function info_header(){
     $trait = get_stylesheet_directory_uri().'/images/barre_header_dates.svg';
     ?>
 
-    <div id="header-date">25 sept <img id="trait" src="<?php echo $trait; ?>"/> 30 nov 2017</div>
+    <div id="header-date"><p>25 sept</p><img id="trait" src="<?php echo $trait; ?>"/><p>30 nov 2017</p></div>
     <div id="header-description">
         <p id="comtemporains">Bijoux contemporains</p>
         <p id="parcours-expo">parcours d'expositions</p>

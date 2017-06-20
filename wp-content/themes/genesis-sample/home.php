@@ -213,14 +213,13 @@ function home_description(){?>
         joailliers, experts ou historiens, désireux de faire connaître la richesse de cet incontournable élément de parure.
         Chaque participant bénéficiera d’une totale autonomie dans le montage de son projet.
         Les participants seront par conséquent entièrement responsables de l’avancement et du financement de leur projet.
-        <br>
-
-        <p id="organisateur">Le Parcours Bijoux 2017 est organisé par l'association
-            <a href="http://dunbijoualautre.com/" id="d1-bijou-a-lautre" target="_blank">D'un bijou à l'autre</a>
-        </p>
     </p>
 
-    <img src="<?php $folder_social_icon = wp_upload_dir();
+    <p id="organisateur">Le Parcours Bijoux 2017 est organisé par l'association
+        <a href="http://dunbijoualautre.com/" id="d1-bijou-a-lautre" target="_blank">D'un bijou à l'autre</a>
+    </p>
+
+    <img id="d1-bijou-a-lautre" src="<?php $folder_social_icon = wp_upload_dir();
     $icon_url = $folder_social_icon['baseurl'];
     echo $icon_url.'/2017/06/dun_bijou_a_lautre.png';
     ?>">
