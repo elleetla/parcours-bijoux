@@ -1521,9 +1521,19 @@
 			e.preventDefault();
 			
 			var searchFormID = typeof($(this).attr("data-search-form-id"))!="undefined" ? $(this).attr("data-search-form-id") : "";
-			
-			var $linked = $("#search-filter-form-"+searchFormID).searchFilterForm({action: "reset"});
-			
+
+			//original code line of the plugin
+			// var $linked = $("#search-filter-form-"+searchFormID).searchFilterForm({action: "reset"});
+
+			//custom code line to deal with multi language website (Polylang plugin)
+            var html = document.getElementsByTagName("html")[0].getAttribute("lang");
+            if(html == "en-GB"){
+                var $linked = $("#").searchFilterForm({action: "reset"});
+            }
+            else{
+                var $linked = $("#search-filter-form-"+searchFormID).searchFilterForm({action: "reset"});
+            }
+
 			return false;
 			
 		});

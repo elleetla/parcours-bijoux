@@ -12,7 +12,7 @@
 remove_action( 'genesis_after_header', 'genesis_breadcrumb_args' );
 
 //* Display picture of the slider and its title
-add_action( 'genesis_after_header', 'slider_page', 10 );
+//add_action( 'genesis_after_header', 'slider_page', 10 );
 
 //* Display a return button
 add_action('genesis_before_entry','return_button');
@@ -118,7 +118,6 @@ remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
 add_action( 'genesis_entry_content', 'list_tags_with_count',10);
 function list_tags_with_count() {
     echo the_terms( $post->ID, 'post_tag', '<div class="tags-post">', ' ', '</div><!-- ./tags-post--></div><!-- ./content-right in function social_sharing_buttons()-->' );
-//    var_dump( get_the_tags());
 }
 
 
@@ -134,15 +133,15 @@ function artists_credit(){
     echo "<div class='list-artistes'>";
     foreach ($terms as $term){
 
-        $separateur = ', ';
+        $separateur = ',';
         if($i % 2 == 0 && $i != $count ){
-            $separateur = ","."<br>";
+            $separateur = ',';
         }
         else if( $i == $count){
             $separateur = '';
         }
 
-        echo $term->name. $separateur;
+        echo '<span class="artiste">'.$term->name. $separateur.'</span>';
 
         $i++;
 
@@ -151,14 +150,21 @@ function artists_credit(){
 
     //display credit
     $creditsPerson = get_field('credits_lieux');
-    echo '<div class="post-credit">&copy; crédits : '.$creditsPerson.'</div>';
+
+    if(pll_current_language() =='en'){
+
+        echo '<div class="post-credit">&copy; credits : '.$creditsPerson.'</div>';
+    }
+    else{
+        echo '<div class="post-credit">&copy; crédits : '.$creditsPerson.'</div>';
+    }
 
     echo '</div>'; // ./content-left
 
 }
 
 
-//display post "A proximité"
+//display post "A proximité" / "Around"
 function proposition_post(){?>
 
 <section id="last-projects">
@@ -166,7 +172,14 @@ function proposition_post(){?>
         <div class="row">
 
             <div class="col-lg-12">
-                <p id="a-proximite">à promixité</p>
+                <?php
+                if(pll_current_language() =='en'){
+                    echo '<p id="a-proximite">around</p>';
+                }
+                else{
+                    echo '<p id="a-proximite">à promixité</p>';
+                }
+                ?>
             </div>
 
             <?php
@@ -176,17 +189,6 @@ function proposition_post(){?>
             if ( $terms != null ){
                 foreach( $terms as $term ) {
                     $cat[] = $term->slug ;
-
-                    /*for each term, define taxonomy parameters
-                    if($cat[0] == "design"){
-                        $tax = array(
-                            array(
-                                'taxonomy' => 'categorie',
-                                'field'    => 'slug',
-                                'terms'    => array( 'design' ),
-                            )
-                        );
-                    }*/
                 }
             }
 
@@ -216,7 +218,14 @@ function proposition_post(){?>
                             <a href=" <?php the_permalink(); ?>">
                                 <h3 class="title"><?php the_title();?></h3>
                                 <?php echo get_field('nom_lieu'); ?>
-                                <p><?php echo get_field('periode'); ?></p>
+                                <p><?php
+                                    if(pll_current_language() =='en'){
+                                        echo get_field('time_period');
+                                    }
+                                    else{
+                                        echo get_field('periode');
+                                    }
+                                ?></p>
                             </a>
 
                         </div>

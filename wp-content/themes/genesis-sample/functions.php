@@ -166,9 +166,22 @@ function ohouais_custom_mentions_footer() {
     ?>
 
     <div id="footer">
-        <a href="#" id="button-contact">contact</a>
-        <a href="<?php echo $siteURL.'/a-propos'?>">à propos</a>
-        <a href="<?php echo $siteURL.'/partenaires'?>">partenaires</a>
+    <?php
+        if(pll_current_language() =='en'){
+            ?>
+            <a href="#" id="button-contact">contact</a>
+            <a href="<?php echo $siteURL.'/about'?>">about</a>
+            <a href="<?php echo $siteURL.'/partnership'?>">partnership</a>
+            <?php
+        }
+        else{
+            ?>
+            <a href="#" id="button-contact">contact</a>
+            <a href="<?php echo $siteURL.'/a-propos'?>">à propos</a>
+            <a href="<?php echo $siteURL.'/partenaires'?>">partenaires</a>
+            <?php
+        }
+    ?>
         <a id="site_fb" href="https://www.facebook.com/Parcours-Bijoux-1377799542300463/?ref=br_tf" target="_blank"><img src="<?php echo $icon_url.'/2017/06/facebook_blanc.png'?>"></a>
     </div><!-- ./footer -->
 
@@ -222,16 +235,28 @@ if(get_field('header_fixe_transparent')){
 add_action('genesis_header_right', 'info_header');
 function info_header(){
     $trait = get_stylesheet_directory_uri().'/images/barre_header_dates.svg';
-    ?>
 
-    <div id="header-date"><p>25 sept</p><img id="trait" src="<?php echo $trait; ?>"/><p>30 nov 2017</p></div>
-    <div id="header-description">
-        <p id="comtemporains">Bijoux contemporains</p>
-        <p id="parcours-expo">parcours d'expositions</p>
-        <p id="paris">paris</p>
-    </div>
+    if(pll_current_language() =='en'){
+        ?>
+            <div id="header-date"><p>25 sept</p><img id="trait" src="<?php echo $trait; ?>"/><p>30 nov 2017</p></div>
+            <div id="header-description">
+                <p id="comtemporains">Contemporary jewelry</p>
+                <p id="parcours-expo">exhibition tour</p>
+                <p id="paris">paris</p>
+            </div>
+        <?php
+    }
+    else{
+        ?>
+            <div id="header-date"><p>25 sept</p><img id="trait" src="<?php echo $trait; ?>"/><p>30 nov 2017</p></div>
+            <div id="header-description">
+                <p id="comtemporains">Bijoux contemporains</p>
+                <p id="parcours-expo">parcours d'expositions</p>
+                <p id="paris">paris</p>
+            </div>
+        <?php
+    }
 
-    <?php
 }
 
 //* Customize the breadcrumbs genesis
@@ -252,12 +277,12 @@ function add_class( $attr, $class ) {
 // display search bar
 function search_exposition(){
 
-    $closeSearch = get_stylesheet_directory_uri().'/images/barre_header_dates.svg';
+    $closeSearch = get_stylesheet_directory_uri().'/images/close.svg';
     ?>
 
     <div id="nav-search">
         <div class="wrap"><?php get_search_form(); ?></div>
-        <span><img src="<?php echo $closeSearch; ?>" alt="Close search"></span>
+        <a><img id="close-search" src="<?php echo $closeSearch; ?>" alt="Close search"></a>
     </div>
 
     <?php
@@ -302,6 +327,7 @@ function remove_post_info($post_info){
 }
 
 //* Display picture of the slider, its category and title
+/*
 function slider_page() {
 
     echo '<div class="owl-carousel owl-theme">';
@@ -337,6 +363,7 @@ function slider_page() {
 
 
 }
+*/
 
 //* Display post content
 function post_content(){?>
@@ -355,7 +382,14 @@ function post_content(){?>
                 <a href=" <?php the_permalink(); ?>">
                     <h3 class="title"><?php the_title();?></h3>
                     <?php echo get_field('nom_lieu'); ?>
-                    <p><?php echo get_field('periode'); ?></p>
+                    <p><?php
+                        if(pll_current_language() =='en'){
+                            echo get_field('time_period');
+                        }
+                        else{
+                            echo get_field('periode');
+                        }
+                        ?></p>
                 </a>
 
             </div>
@@ -379,7 +413,7 @@ function random () {
     query_posts($query_string . "&orderby=rand");
 }
 
-
+/*
 //* Load more function
 add_action( 'wp_ajax_mon_action', 'mon_action' );
 add_action( 'wp_ajax_nopriv_mon_action', 'mon_action' );
@@ -408,7 +442,14 @@ function mon_action() {
                     <a href=" <?php the_permalink(); ?>">
                         <h3 class="title"><?php the_title();?></h3>
                         <?php echo get_field('nom_lieu'); ?>
-                        <p><?php echo get_field('periode'); ?></p>
+                        <p><?php
+                            if(pll_current_language() =='en'){
+                                echo get_field('time_period');
+                            }
+                            else{
+                                echo get_field('periode');
+                            }
+                        ?></p>
                     </a>
 
                 </div>
@@ -421,3 +462,18 @@ function mon_action() {
 
     die();
 }
+
+//conditions langues
+<?php
+        if(pll_current_language() =='en'){
+            ?>
+
+            <?php
+        }
+        else{
+            ?>
+
+            <?php
+        }
+     ?>
+*/

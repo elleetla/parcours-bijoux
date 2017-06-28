@@ -1,5 +1,8 @@
 <?php
 /**
+ *
+ * Template Name: Page d'accueil
+ *
  * Created by PhpStorm.
  * User: juliengrelet
  * Date: 08/01/2017
@@ -83,10 +86,18 @@ function elleetla_geolocation()
 
                             echo '<div class="address">'.get_field('nom_lieu').'</div>'; // ./address
 
-                            echo '<div class="date">'.get_field('periode').'</div>'; // ./date
+                            echo '<div class="date">';
+                            if(pll_current_language() =='en'){
+                                echo get_field('time_period');
+                            }
+                            else{
+                                echo get_field('periode');
+                            }
+                            echo '</div>'; // ./date
 
                             echo '</div>'; // ./lieu-black
 
+                            /*
                             //* Display post content info
                             the_content();
                             //display all artists
@@ -114,9 +125,18 @@ function elleetla_geolocation()
 
 
                             echo '<div class="post-credit"> © crédits : '.get_field('credits_lieux').'</div>'; // ./list-credit
+                            */
 
-                            echo '<a class="readmore" href="'.get_the_permalink().'">en savoir +</a>'; // ./readmmore
+                            echo '<a class="readmore" href="'.get_the_permalink().'">';
+                            if(pll_current_language() =='en'){
+                                echo 'more infos';
+                            }
+                            else{
+                                echo 'en savoir +';
+                            }
+                            echo '</a>'; // ./readmmore
 
+                            /*
                             //* Social Media sharing buttons
                             // Get current page URL
                             $post_url = urlencode(get_permalink());
@@ -146,13 +166,19 @@ function elleetla_geolocation()
                             echo '<div><a class="link pinterest" href="'.$pinterestURL.'" data-pin-custom="true" target="_blank"><img src="'.$icon_url.'/2017/06/pinterest.png'.'"/></a></div>';
                             echo '<div><a class="link mail" href="'.$mailURL.'" ><img src="'.$icon_url.'/2017/06/mail.png'.'"/></a></div>';
                             echo '</div>'; // ./social-share
+                            */
 
                             echo '</div>'; // ./list-content
                         }
 
                         else{
                             if($i == 2 && sizeof($_GET) > 0){
-                                echo '<div id="list-proximite">à proximité</div>';
+                                if(pll_current_language() =='en'){
+                                    echo '<div id="list-proximite">around</div>';
+                                }
+                                else{
+                                    echo '<div id="list-proximite">à proximité</div>';
+                                }
                             }
                             echo '<div id="list-content">';
 
@@ -161,8 +187,8 @@ function elleetla_geolocation()
 
 
                             echo '<div id="lieu-grey">';
-                            echo '<div class="address">';
 
+                            echo '<div class="address">';
                             echo get_field('nom_lieu');
                             $terms = get_the_terms($post->ID, 'arrondissement');
                             foreach ($terms as $term) {
@@ -170,11 +196,25 @@ function elleetla_geolocation()
                             }
                             echo '</div>'; // ./address
 
-                            echo '<div class="date">'.get_field('periode').'</div>'; // ./date
+                            echo '<div class="date">';
+                            if(pll_current_language() =='en'){
+                                echo get_field('time_period');
+                            }
+                            else{
+                                echo get_field('periode');
+                            }
+                            echo '</div>'; // ./date
 
-                            echo '</div>'; // ./lieu-black
+                            echo '</div>'; // ./lieu-grey
 
-                            echo '<a class="readmore" href="'.get_the_permalink().'">en savoir +</a>'; // ./readmmore
+                            echo '<a class="readmore" href="'.get_the_permalink().'">';
+                            if(pll_current_language() =='en'){
+                                echo 'more infos';
+                            }
+                            else{
+                                echo 'en savoir +';
+                            }
+                            echo '</a>'; // ./readmmore
 
                             echo '</div>'; // ./list-content
                         }
@@ -198,33 +238,7 @@ function elleetla_geolocation()
 
 add_action('genesis_after_header','elleetla_geolocation',20);
 
-//the_content();
-
-
-remove_action( 'genesis_loop', 'genesis_do_loop' );
-add_action('genesis_loop','home_description');
-function home_description(){?>
-    <p id="title-description">Un événement entièrement dédié au bijou</p>
-
-    <p id="home-text"> Le Parcours Bijoux sera constitué d’une cinquantaine de manifestations autour du bijou
-        qui se dérouleront à l’automne 2017 à Paris : expositions, performances, conférences …
-        Le vernissage des évènements devra avoir lieu entre le 25 Septembre et le 15 novembre 2017.
-        Le Parcours Bijoux est ouvert aux créateurs de bijoux, plasticiens ou photographes menant une réflexion sur le corps et la parure,
-        joailliers, experts ou historiens, désireux de faire connaître la richesse de cet incontournable élément de parure.
-        Chaque participant bénéficiera d’une totale autonomie dans le montage de son projet.
-        Les participants seront par conséquent entièrement responsables de l’avancement et du financement de leur projet.
-    </p>
-
-    <p id="organisateur">Le Parcours Bijoux 2017 est organisé par l'association
-        <a href="http://dunbijoualautre.com/" id="d1-bijou-a-lautre" target="_blank">D'un bijou à l'autre</a>
-    </p>
-
-    <img id="d1-bijou-a-lautre" src="<?php $folder_social_icon = wp_upload_dir();
-    $icon_url = $folder_social_icon['baseurl'];
-    echo $icon_url.'/2017/06/dun_bijou_a_lautre.png';
-    ?>">
-
-<?php
-}
+//* Remove title content
+remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
 
 genesis();

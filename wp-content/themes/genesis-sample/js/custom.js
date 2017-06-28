@@ -1,5 +1,25 @@
 $(function() {
 
+    //* filter label for English homepage
+    var html = document.getElementsByTagName("html")[0].getAttribute("lang");
+    if(html == "en-GB"){
+        $( ".sf-field-taxonomy-categorie option.sf-item-0" ).html( "events" );
+        $( ".sf-field-taxonomy-arrondissement option.sf-item-0" ).html( "places" );
+        $( ".sf-field-taxonomy-artiste option.sf-item-0" ).html( "artists" );
+        $( ".search-filter-reset" ).val( "reset" );
+
+        /* CAUTION
+        to set the link for resetting the English filter,
+        http://demo.elle-et-la.com/parcours-bijoux/wp-content/plugins/search-filter-pro/public/assets/js/search-filter-build.js?ver=1.4.3
+        at line 1525 was modified
+        original code line became custom code line to deal with multi language website (Polylang plugin)*/
+        $(".search-filter-reset").on("click",function(){
+            // window.location.href='http://localhost:8888/parcours-bijoux/en/'; //link for localhost
+            window.location.href='http://demo.elle-et-la.com/parcours-bijoux/en/'; //link for online website
+        });
+    }
+
+
     //* load more button
     $(".content-6 article:gt(5)").hide(); //hide posts greater than 5 == display the first 6 post
 
@@ -13,16 +33,21 @@ $(function() {
                 $('.content-6').html(response);
             }
         );
-        ('.search-filter-form-646').show();
+        // ('.search-filter-form-646').show();
     });
 
 
 
-    // Animation menu search site
+    //* animation/display menu search
      $( "#menu-item-241" ).click(function() {
          $( "#nav-search" ).slideToggle( "slow", function() {});
      });
 
+    $( "#close-search" ).click(function() {
+        $( "#nav-search" ).slideUp( "slow", function() {});
+    });
+
+    //* animation/display div contact
     $( "#button-contact" ).click(function() {
         $( "#contacts" ).slideToggle( "slow", function() {});
         return false;
