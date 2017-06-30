@@ -19,24 +19,6 @@ $(function() {
         });
     }
 
-/*
-    //!* load more button
-    $(".content-6 article:gt(5)").hide(); //hide posts greater than 5 == display the first 6 post
-
-    $("#load-more-top, #load-more-bottom").on('click', function () {
-        jQuery.post(
-            ajaxurl,
-            {
-                'action': 'mon_action'
-            },
-            function (response) {
-                $('.content-6').html(response);
-            }
-        );
-        // ('.search-filter-form-646').show();
-    });
-*/
-
     function loadmore() {
         jQuery.post(
             ajaxurl,
@@ -44,21 +26,31 @@ $(function() {
                 'action': 'mon_action'
             },
             function (response) {
-                $('.home-description .content').html(response);
+                $('.home-content .content').html(response);
             }
         );
         return false;
     }
 
+    function isScrolledIntoView($element){
+        var $window = $(window);
+
+        var docViewTop = $window.scrollTop();
+        var docViewBottom = docViewTop + $window.height();
+
+        var elemTop = $element.offset().top;
+        var elemBottom = elemTop + $element.height();
+
+        return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+    }
+
     var one_time =true;
     $(window).scroll(function(){
-        if  ($(window).scrollTop() == $(document).height() - $(window).height()){
+        if(isScrolledIntoView($('.home-content'))){
             if(one_time){
                 loadmore();
-               one_time = false;
+                one_time = false;
             }
-
-
         }
     });
 

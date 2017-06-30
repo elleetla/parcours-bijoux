@@ -12,7 +12,7 @@
 // Add custom class to site-inner (description in home page)
 add_filter( 'genesis_attr_site-inner', 'attr_site_inner' );
 function attr_site_inner( $attr ) {
-    return add_class( $attr, 'home-description' );
+    return add_class( $attr, 'home-content' );
 }
 
 // function search filter
