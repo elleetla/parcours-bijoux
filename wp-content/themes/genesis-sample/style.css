@@ -889,28 +889,6 @@ th:first-child {
 	background-color: #ffffff;
 }
 
-.home-description .title-description{
-	color:#ff6400;
-	font-size: 40px;
-	font-family: 'BrandonGrotesque-Light', Helvetica Neue, Helvetica, Arial, sans-serif;
-}
-
-.home-description .home-text,
-.home-description .organisateur{
-	font-size: 20px;
-	font-family: 'BrandonGrotesque-Regular', Helvetica Neue, Helvetica, Arial, sans-serif;
-}
-
-.home-description .d1-bijou-a-lautre{
-	display:inline-block;
-	color:#ff6400;
-	font-family: 'BrandonGrotesque-Medium', Helvetica Neue, Helvetica, Arial, sans-serif;
-}
-
-.home-description img{
-	width:100px;
-}
-
 /* categorie page */
 .categorie-content{
 	background-color: transparent ;
@@ -923,6 +901,30 @@ th:first-child {
 .landing-page .site-inner {
 	max-width: 800px;
 }
+
+/* Page Partenaires */
+.a-propos-title{
+	color:#ff6400;
+	font-size: 40px;
+	font-family: 'BrandonGrotesque-Light', Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+.a-propos-text,
+.a-propos-organisateur{
+	font-size: 20px;
+	font-family: 'BrandonGrotesque-Regular', Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+.d1-bijou-a-lautre{
+	display:inline-block !important;
+	color:#ff6400;
+	font-family: 'BrandonGrotesque-Medium', Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+#d1-bijou-a-lautre{
+	width:100px;
+}
+
 
 /* ## Column Widths and Positions
 --------------------------------------------- */
@@ -1479,9 +1481,9 @@ img.alignright,
 ---------------------------------------------------------------------------------------------------- */
 
 .site-header {
-	background-color: #fff;
+	background-image: linear-gradient(#ff6400, #f29400);
 	padding:20px 0px;
-	color:#ff6400;
+	color:#ffffff;
 }
 
 .site-header-active .site-header {
@@ -2205,8 +2207,9 @@ div.owl-next{
 	background-color:transparent;
 	color:#ff6400;
 	font-size:20px;
-	margin-left:40px;
-	padding:60px 0 0;
+	padding: 0;
+	margin: 60px 0 0 40px;
+
 }
 
 .return span{
@@ -3014,7 +3017,7 @@ h1.entry-title{
 		margin-right:0 !important;
 	}
 
-	/* page partenaires */
+	/* Page Partenaires */
 	.wpb_text_column.wpb_content_element{
 		margin:0;
 	}

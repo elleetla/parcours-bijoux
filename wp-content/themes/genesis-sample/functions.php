@@ -234,7 +234,7 @@ if(get_field('header_fixe_transparent')){
 
 add_action('genesis_header_right', 'info_header');
 function info_header(){
-    $trait = get_stylesheet_directory_uri().'/images/barre_header_dates.svg';
+    $trait = get_stylesheet_directory_uri().'/images/barre_header_dates_white.svg';
 
     if(pll_current_language() =='en'){
         ?>
@@ -413,7 +413,7 @@ function random () {
     query_posts($query_string . "&orderby=rand");
 }
 
-/*
+
 //* Load more function
 add_action( 'wp_ajax_mon_action', 'mon_action' );
 add_action( 'wp_ajax_nopriv_mon_action', 'mon_action' );
@@ -421,7 +421,7 @@ function mon_action() {
 
     $args = array(
         'post_type'     => 'lieux',
-        'orderby'       => 'rand'
+        'orderby'       => 'rand',
     );
 
     $ajax_query = new WP_Query($args);
@@ -442,6 +442,7 @@ function mon_action() {
                     <a href=" <?php the_permalink(); ?>">
                         <h3 class="title"><?php the_title();?></h3>
                         <?php echo get_field('nom_lieu'); ?>
+
                         <p><?php
                             if(pll_current_language() =='en'){
                                 echo get_field('time_period');
@@ -462,7 +463,7 @@ function mon_action() {
 
     die();
 }
-
+/*
 //conditions langues
 <?php
         if(pll_current_language() =='en'){

@@ -19,8 +19,8 @@ $(function() {
         });
     }
 
-
-    //* load more button
+/*
+    //!* load more button
     $(".content-6 article:gt(5)").hide(); //hide posts greater than 5 == display the first 6 post
 
     $("#load-more-top, #load-more-bottom").on('click', function () {
@@ -35,7 +35,32 @@ $(function() {
         );
         // ('.search-filter-form-646').show();
     });
+*/
 
+    function loadmore() {
+        jQuery.post(
+            ajaxurl,
+            {
+                'action': 'mon_action'
+            },
+            function (response) {
+                $('.home-description .content').html(response);
+            }
+        );
+        return false;
+    }
+
+    var one_time =true;
+    $(window).scroll(function(){
+        if  ($(window).scrollTop() == $(document).height() - $(window).height()){
+            if(one_time){
+                loadmore();
+               one_time = false;
+            }
+
+
+        }
+    });
 
 
     //* animation/display menu search

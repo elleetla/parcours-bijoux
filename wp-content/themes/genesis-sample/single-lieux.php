@@ -16,16 +16,37 @@ remove_action( 'genesis_after_header', 'genesis_breadcrumb_args' );
 
 //* Display a return button
 add_action('genesis_before_entry','return_button');
-function return_button(){
+function return_button(){/*
     $categories = get_the_terms( $post->ID, 'categorie' );
     foreach( $categories as $category ) {
         $return_categorie  = $category->slug;
     }
-    $return_page = get_site_url().'/categorie/'.$return_categorie;
+    $return_page = get_site_url().'/categorie/'.$return_categorie;*/
+
+    $return_page = get_site_url();
     $imageURL = get_stylesheet_directory_uri().'/images/fleche_retour.svg';
-    echo '<div class="return">';
-    echo '<div><button onclick="location.href=\''.$return_page.'\';" class"float-left"><img class="fleche-retour" src="'.$imageURL.'"/><span>Retour</span></button></div>';
-    echo '</div>';
+
+    ?>
+        <div class="return">
+            <button onclick='location.href="<?php
+            if(pll_current_language() =='en'){
+                echo $return_page.'/en/';
+            }
+            else{
+                echo $return_page;
+            }?>"' class"float-left">
+                <img class="fleche-retour" src="<?php echo $imageURL ?>"/>
+                <span><?php
+                        if(pll_current_language() =='en'){
+                            echo 'back to the map';
+                        }
+                        else{
+                            echo 'retour à la carte';
+                        }
+                ?></span>
+            </button>
+        </div><!-- ./return -->
+    <?php
 }
 
 //* Add custom classes to posts article

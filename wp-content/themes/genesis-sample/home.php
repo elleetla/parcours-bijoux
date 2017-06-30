@@ -16,6 +16,7 @@ function attr_site_inner( $attr ) {
 }
 
 // function search filter
+add_action('genesis_after_header', 'filter_expositions', 15);
 function filter_expositions()
 {
     echo '<div id="filter-map">';
@@ -28,8 +29,9 @@ function filter_expositions()
 
     echo '</div>';
 }
-add_action('genesis_after_header', 'filter_expositions', 15);
 
+
+add_action('genesis_after_header','elleetla_geolocation',20);
 function elleetla_geolocation()
 {
     ?>
@@ -236,9 +238,8 @@ function elleetla_geolocation()
 
 //add_action( 'wp_enqueue_scripts', 'io_enqueue_locations' );
 
-add_action('genesis_after_header','elleetla_geolocation',20);
-
 //* Remove title content
 remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
+
 
 genesis();
