@@ -272,6 +272,7 @@ input:-ms-input-placeholder {
 span.cat-places {
 	font-size: 13px;
 	text-transform: uppercase;
+	margin-top: 15px;
 }
 
 .cat-places p{
@@ -309,7 +310,6 @@ span.cat-places {
 }
 
 .linkage p,
-.linkage span,
 .linkage .date{
 	margin-bottom: 10px;
 	font-size: 18px;
@@ -431,6 +431,14 @@ h3.title {
 	z-index: 10;
 	overflow-x: hidden;
 	overflow:scroll;
+}
+
+/* Map : InfoWindows */
+.gm-style-iw .cat-places,
+.gm-style-iw .address,
+.gm-style-iw .date,
+.gm-style-iw .readmore{
+	display:none;
 }
 
 /* # Defaults
@@ -886,7 +894,6 @@ th:first-child {
 	padding:82px 15% 52px;
 	margin:0;
 	max-width:100% !important;
-	background-color: #ffffff;
 }
 
 /* categorie page */
@@ -907,6 +914,7 @@ th:first-child {
 	color:#ff6400;
 	font-size: 40px;
 	font-family: 'BrandonGrotesque-Light', Helvetica Neue, Helvetica, Arial, sans-serif;
+	line-height: 1.2;
 }
 
 .a-propos-text,
@@ -1500,9 +1508,10 @@ img.alignright,
 
 #header-date{
 	float: left;
-	display:inline;
+	display:inline-block;
 	text-transform: uppercase;
 	font-size: 30px;
+	line-height: 35px;
 }
 
 #header-date p{
@@ -1511,7 +1520,7 @@ img.alignright,
 
 #header-description{
 	float: right;
-	display:inline;
+	display:inline-block;
 	margin-top:-6px;
 	text-transform: uppercase;
 }
@@ -1768,7 +1777,8 @@ a.search-filter-reset {
 	padding: 32px 82px 32px 0;
 }
 
-#menu-item-241{
+#menu-item-241,
+#menu-item-1008 {
 	float: right;
 	background-image: url("images/loupe.svg");
 	background-size: 40%;
@@ -1776,14 +1786,16 @@ a.search-filter-reset {
 	background-repeat: no-repeat;
 }
 
-#menu-item-241 a{
+#menu-item-241 a,
+#menu-item-1008 a {
 	padding-left: 54px;
 	padding-right: 0px;
 	margin: 8px 0;
 
 }
 
-#menu-item-241 span{
+#menu-item-241 span,
+#menu-item-1008 span {
 	display:none;
 
 }
@@ -2103,34 +2115,38 @@ p.entry-meta {
 /* # Slider
 ---------------------------------------------------------------------------------------------------- */
 /* place the caption*/
-.caption-slider{
+/*.caption-slider{
 	position:absolute;
 	display:block;
 	right:25%;
 	bottom:50%;
+}*/
+
+.owl-carousel{
+	margin-bottom:15px;
 }
 
 /* place the navigation button */
-div.owl-prev{
+.owl-prev,
+.owl-next{
 	width:40px;
 	position:absolute;
-	left: 5%;
-	bottom:50%;
+	bottom:40%;
 	background:transparent !important;
 }
 
-div.owl-next{
-	width:40px;
-	position:absolute;
+.owl-prev{
+	left: 5%;
+}
+
+.owl-next{
 	right: 5%;
-	bottom:50%;
-	background:transparent !important;
 }
 
 /* style the caption */
-.owl-carousel div a, .owl-carousel div h1{
+/*.owl-carousel div a, .owl-carousel div h1{
 	color: #ffffff;
-}
+}*/
 
 /* dots */
 .owl-dots {
@@ -2239,7 +2255,7 @@ h1.entry-title{
 	font-size: 25px;
 	line-height: 1.1;
 	font-family: 'BrandonGrotesque-Regular', Helvetica Neue, Helvetica, Arial, sans-serif;
-	margin: 30px 0;
+	margin: 15px 0;
 }
 
 .detail-pays {
@@ -2285,10 +2301,6 @@ h1.entry-title{
 	line-height: 1.2;
 	font-family: 'BrandonGrotesque-Regular', Helvetica Neue, Helvetica, Arial, sans-serif;
 	margin-bottom:20px;
-}
-
-.detail-website{
-	margin-bottom:20px !important;
 }
 
 /* Social icon */
@@ -2363,8 +2375,11 @@ h1.entry-title{
 	margin:0 0 24px 0!important;
 }
 
-.detail-website a {
+
+.detail-website{
 	margin-bottom:20px !important;
+}
+.detail-website a {
 	color:#ff6400 !important;
 }
 
@@ -2414,13 +2429,13 @@ h1.entry-title{
 
 /* # Partenaires
 ---------------------------------------------------------------------------------------------------- */
-#mines-paristech{
-	display:inline !important;
+a#maito-mines-paristech {
+	display: inline;
 }
 
-#institut-metiersdart a {
+/*#institut-metiersdart a {
 	margin-bottom: 13px !important;
-}
+}*/
 
 
 
@@ -2482,6 +2497,10 @@ h1.entry-title{
 
 }
 
+#contacts a{
+	text-transform: none;
+}
+
 #footer #site_fb{
 	float: right;
 }
@@ -2537,8 +2556,9 @@ h1.entry-title{
 		width: 920px;
 	}
 
-	.content,
-	.site-header .widget-area {
+	.content
+	/*,.site-header .widget-area */
+	{
 		width: 800px;
 	}
 
@@ -2583,8 +2603,9 @@ h1.entry-title{
 		width: 740px;
 	}
 
-	.content,
-	.site-header .widget-area {
+	.content
+	/*, 	.site-header .widget-area */
+	{
 		width: 620px;
 	}
 
@@ -2602,6 +2623,18 @@ h1.entry-title{
 
 	.footer-widgets-1 {
 		margin-right: 30px;
+	}
+
+	/* Header */
+	.header-widget-area{
+		text-align:center !important;
+		float:none !important;
+	}
+	#header-date{
+		float:none;
+	}
+	#header-description{
+		float:none;
 	}
 
 }
@@ -2801,6 +2834,21 @@ h1.entry-title{
 		margin: 0 auto 40px;
 	}
 
+	/* Header */
+	#header-date {
+		margin-right: 15px;
+		margin-top:25px;
+	}
+
+	#header-description{
+		float:right !important;
+	}
+}
+
+@media only screen and (max-width: 930px) {
+	/* Header */
+
+	
 }
 
 @media only screen and (max-width: 860px) {
@@ -2891,13 +2939,18 @@ h1.entry-title{
 		margin-left: 5%;
 	}
 
-	#header-date p, #header-date img {
+	#header-date p{
+		margin-bottom:15px;
+	}
+
+	#header-date img {
 		margin-bottom: 0;
 	}
 
 	#header-date img{
 		width: 234px !important;
-		margin-top: -15px !important;
+		display:block;
+		margin: 0 auto 15px!important;
 	}
 
 	#header-description{
@@ -2945,8 +2998,26 @@ h1.entry-title{
 		margin: 0 0 20px;
 	}
 
-	#contact, #presse-parcours-bijoux, #presse-comite {
+	/*#contact, #presse-parcours-bijoux, #presse-comite*/
+	#footer a {
 		margin: 15px 30px 15px 0;
+	}
+
+	#footer a,
+	#copyright,
+	div#contacts
+	{
+		text-align:center
+	}
+
+	#contacts div{
+		width:100%;
+		display:block;
+		margin: 15px auto;
+	}
+
+	#contact{
+		margin: 10px auto;
 	}
 
 
@@ -2983,16 +3054,25 @@ h1.entry-title{
 
 
 	/* categorie pages */
-	.load-more{
+	/*.load-more{
 		margin:0 auto 20px !important;
 		text-align:center;
 	}
 
 	.categorie-content article{
 		padding:0;
-	}
+	}*/
 
 	/* detail pages */
+	.return button{
+		margin-left:0;
+		margin-bottom: 30px;
+	}
+
+	.owl-theme .owl-nav [class*='owl-'] {
+		margin-bottom: -10px;
+	}
+
 	.content article{
 		width:inherit;
 		margin:0;
@@ -3000,7 +3080,7 @@ h1.entry-title{
 
 	.content-left,
 	.tags-post{
-		width:auto !important;
+		width:327px !important;
 	}
 
 	#last-projects .row{
@@ -3026,11 +3106,9 @@ h1.entry-title{
 		margin-bottom: 50px !important;
 	}*/
 
-	#mines-paristech{
-		display:inline-block !important;
+	a#maito-mines-paristech {
+		display: inline-block !important;
 	}
-
-
 
 }
 

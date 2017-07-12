@@ -75,6 +75,7 @@ function elleetla_geolocation()
                     <div class="linkage marker" id="p<?= get_the_ID() ?>" data-lat="<?= $address['lat'] ?>" data-lng="<?= $address['lng'] ?>">
 
                         <?php
+
                         if($i == 1 && sizeof($_GET) > 0){
                             $image = get_field('image_map');
                             echo '<img src="'.$image['url'].'" alt="'.$image['alt'].'" />';
@@ -182,6 +183,10 @@ function elleetla_geolocation()
                                     echo '<div id="list-proximite">à proximité</div>';
                                 }
                             }
+
+                            $image = get_field('image_map');
+                            echo '<img src="'.$image['url'].'" alt="'.$image['alt'].'" style="display:none" />';
+
                             echo '<div id="list-content">';
 
                             echo '<span class="cat-places"'.get_the_term_list(get_the_ID(), 'categorie').'</span>';

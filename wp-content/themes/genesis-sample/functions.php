@@ -170,6 +170,33 @@ function ohouais_custom_mentions_footer() {
         if(pll_current_language() =='en'){
             ?>
             <a href="#" id="button-contact">contact</a>
+            <div id="contacts">
+
+                <div id="contact">
+                    <a href="mailto:contact@parcoursbijoux2017.com">contact@parcoursbijoux2017.com</a>
+                </div><!-- ./contact -->
+
+                <div id="contact-presse">
+                    <div id="presse-parcours-bijoux">
+                        <p>Parcours Bijoux</p>
+                        <p>Re-active</p>
+                        <p>Séverine Hyvernat</p>
+                        <a href="mailto:severine@re-active.fr">severine@re-active.fr</a>
+                        <p>+ 33 1 40 22 63 19</p>
+                        <p>+ 33 6 47 36 67 27</p>
+                    </div><!-- ./press-parcours-bijoux -->
+
+                    <div id="presse-comite">
+                        <p>Comité Francéclat</p>
+                        <p>Douzal</p>
+                        <p>Morgane Rasle</p>
+                        <a href="mailto:mrasle@douzal.com">mrasle@douzal.com</a>
+                        <p>+ 33 1 53 05 50 00</p>
+                    </div><!-- ./presse-comite -->
+                </div><!-- ./contact-presse -->
+
+            </div><!-- ./contacts -->
+
             <a href="<?php echo $siteURL.'/about'?>">about</a>
             <a href="<?php echo $siteURL.'/partnership'?>">partnership</a>
             <?php
@@ -177,6 +204,32 @@ function ohouais_custom_mentions_footer() {
         else{
             ?>
             <a href="#" id="button-contact">contact</a>
+            <div id="contacts">
+
+                <div id="contact">
+                    <a href="mailto:contact@parcoursbijoux2017.com">contact@parcoursbijoux2017.com</a>
+                </div><!-- ./contact -->
+
+                <div id="contact-presse">
+                    <div id="presse-parcours-bijoux">
+                        <p>Parcours Bijoux</p>
+                        <p>Re-active</p>
+                        <p>Séverine Hyvernat</p>
+                        <a href="mailto:severine@re-active.fr">severine@re-active.fr</a>
+                        <p>+ 33 1 40 22 63 19</p>
+                        <p>+ 33 6 47 36 67 27</p>
+                    </div><!-- ./press-parcours-bijoux -->
+
+                    <div id="presse-comite">
+                        <p>Comité Francéclat</p>
+                        <p>Douzal</p>
+                        <p>Morgane Rasle</p>
+                        <a href="mailto:mrasle@douzal.com">mrasle@douzal.com</a>
+                        <p>+ 33 1 53 05 50 00</p>
+                    </div><!-- ./presse-comite -->
+                </div><!-- ./contact-presse -->
+
+            </div><!-- ./contacts -->
             <a href="<?php echo $siteURL.'/a-propos'?>">à propos</a>
             <a href="<?php echo $siteURL.'/partenaires'?>">partenaires</a>
             <?php
@@ -212,7 +265,7 @@ function ohouais_custom_mentions_footer() {
 
     </div><!-- ./contacts -->
 
-    <p>&copy; Copyright 2017</p>
+    <p id="copyright">&copy; Copyright 2017</p>
 
     <?php
 
@@ -422,6 +475,7 @@ function mon_action() {
     $args = array(
         'post_type'     => 'lieux',
         'orderby'       => 'rand',
+        'post_status'   => 'publish'
     );
 
     $ajax_query = new WP_Query($args);
