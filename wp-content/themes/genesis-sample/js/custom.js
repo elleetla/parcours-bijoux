@@ -1,5 +1,24 @@
 $(function() {
 
+    //* animation/display menu search
+    $( "#menu-item-241, #menu-item-1008" ).click(function() {
+        $( "#nav-search" ).slideToggle( "slow", function() {});
+        return false;
+    });
+
+    //* animation/close menu search
+    $( "#close-search" ).click(function() {
+        $( "#nav-search" ).slideUp( "slow", function() {});
+        return false;
+    });
+
+    //* animation/display div contact
+    $( "#button-contact" ).click(function() {
+        $( "#contacts" ).slideToggle( "slow", function() {});
+        return false;
+    });
+
+
     //* filter label for English homepage
     var html = document.getElementsByTagName("html")[0].getAttribute("lang");
     if(html == "en-GB"){
@@ -19,6 +38,8 @@ $(function() {
         });
     }
 
+
+    //* load all posts
     function loadmore() {
         jQuery.post(
             ajaxurl,
@@ -26,12 +47,14 @@ $(function() {
                 'action': 'mon_action'
             },
             function (response) {
-                $('.home-content .content').html(response);
+
+                $('.home-content .content').append(response);
             }
         );
         return false;
     }
 
+    //* function check if element is into view
     function isScrolledIntoView($element){
         var $window = $(window);
 
@@ -44,13 +67,14 @@ $(function() {
         return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
     }
 
+    //* load all posts if orange banner 'TOUS LES ÉVÉNEMENTS' is into view
     var one_time =true;
     $(window).scroll(function(){
         /* load all posts when #filter-map appears on screen
         waiting period too long for #home-content
         */
 
-        if(isScrolledIntoView($('#filter-map'))){
+        if(isScrolledIntoView($('#all-events'))){
             if(one_time){
                 loadmore();
                 one_time = false;
@@ -59,26 +83,28 @@ $(function() {
     });
 
 
-    //* animation/display menu search
-     $( "#menu-item-241, #menu-item-1008" ).click(function() {
-         $( "#nav-search" ).slideToggle( "slow", function() {});
-             return false;
-     }
-     );
+    //* button return to the top of the page
+    var duration = 500;
+    jQuery(window).scroll(function() {
+        if (jQuery(this).scrollTop() > 1500) {
+            // Si un défillement de 100 pixels ou plus.
+            // Ajoute le bouton
+            jQuery('#return-top').fadeIn(duration);
+        } else {
+            // Sinon enlève le bouton
+            jQuery('#return-top').fadeOut(duration);
+        }
+    });
 
-    $( "#close-search" ).click(function() {
-        $( "#nav-search" ).slideUp( "slow", function() {});
+    $('#return-top').click(function(event) {
+        // Un clic provoque le retour en haut animé.
+        event.preventDefault();
+        $('html, body').animate({scrollTop: 0}, duration);
         return false;
     });
 
-    //* animation/display div contact
-    $( "#button-contact" ).click(function() {
-        $( "#contacts" ).slideToggle( "slow", function() {});
-        return false;
-    });
 
-
-    //* slider page categorie lieux
+    //* slider (in detail pages)
     $(".owl-carousel").owlCarousel({
         items:1,
         loop:true,
@@ -91,7 +117,7 @@ $(function() {
         autoHeight:true
     });
 
-    // Map
+    //* Map
 
     var mapParcoursBijoux = [
         {
@@ -318,7 +344,7 @@ $(function() {
 
     }
 
-// Call it
+    //* Call it
 
     $('.acf-map').each(function(){
 

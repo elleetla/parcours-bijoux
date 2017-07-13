@@ -192,7 +192,7 @@ function proposition_post(){?>
     <div class="container">
         <div class="row">
 
-            <div class="col-lg-12">
+            <div class="proximite-banner">
                 <?php
                 if(pll_current_language() =='en'){
                     echo '<p id="a-proximite">around</p>';
@@ -225,7 +225,7 @@ function proposition_post(){?>
 
                 ?>
 
-                <div class="all col-lg-3 col-md-3 col-sm-6 col-xs-12 portfolio-item <?php // echo $tax ?>">
+                <div class="thumbnail <?php // echo $tax ?>">
                     <div class="bloc-project">
                         <a href=" <?php the_permalink(); ?>">
                             <img class="img-responsive" src="<?php

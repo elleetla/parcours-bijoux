@@ -245,6 +245,18 @@ function elleetla_geolocation()
 
 //* Remove title content
 remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
+add_action('genesis_after_header','all_posts_title', 30);
+function all_posts_title(){
+    echo '<p id="all-events"> tous les événements </p>';
+}
+
+add_action('genesis_before_footer','return_top_page');
+function return_top_page(){
+    echo '<div>';
+    echo '<a id="return-top" class="return-top-invisible" href="#"><img src="'.get_stylesheet_directory_uri().'/images/return-top.png"></a>';
+    echo '</div>';
+}
+
 
 
 genesis();

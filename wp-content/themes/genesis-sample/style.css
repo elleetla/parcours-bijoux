@@ -251,7 +251,7 @@ input:-ms-input-placeholder {
 	font-style: normal;
 }
 
-/* test map */
+/* Map */
 
 .locations{
 	padding: 0;
@@ -891,13 +891,13 @@ th:first-child {
 
 /* home page */
 .home-content{
-	padding:82px 15% 52px;
+	padding:30px 15% 30px;
 	margin:0;
 	max-width:100% !important;
 }
 
 /* categorie page */
-.categorie-content{
+/*.categorie-content{
 	background-color: transparent ;
 }
 
@@ -907,32 +907,7 @@ th:first-child {
 
 .landing-page .site-inner {
 	max-width: 800px;
-}
-
-/* Page Partenaires */
-.a-propos-title{
-	color:#ff6400;
-	font-size: 40px;
-	font-family: 'BrandonGrotesque-Light', Helvetica Neue, Helvetica, Arial, sans-serif;
-	line-height: 1.2;
-}
-
-.a-propos-text,
-.a-propos-organisateur{
-	font-size: 20px;
-	font-family: 'BrandonGrotesque-Regular', Helvetica Neue, Helvetica, Arial, sans-serif;
-}
-
-.d1-bijou-a-lautre{
-	display:inline-block !important;
-	color:#ff6400;
-	font-family: 'BrandonGrotesque-Medium', Helvetica Neue, Helvetica, Arial, sans-serif;
-}
-
-#d1-bijou-a-lautre{
-	width:100px;
-}
-
+}*/
 
 /* ## Column Widths and Positions
 --------------------------------------------- */
@@ -1056,6 +1031,10 @@ th:first-child {
 	margin-left: 0;
 }
 
+.last {
+	clear: both;
+	margin-right: 0;
+}
 
 /* # Common Classes
 ---------------------------------------------------------------------------------------------------- */
@@ -1559,7 +1538,6 @@ img.alignright,
 	display: inline;
 	float: right;
 	margin-top: -33px;
-	margin-right:7%;
 }
 
 
@@ -1646,6 +1624,7 @@ li.sf-field-reset {
 	background: none !important;
 	width: 100% !important;
 	display:inline !important;
+	margin-right:0 !important;
 }
 
 .searchandfilter ul .sf-field-reset{
@@ -1657,8 +1636,9 @@ input.search-filter-reset {
 	color: #606060;
 	font-family: 'BrandonGrotesque-Black', Helvetica Neue, Helvetica, Arial, sans-serif !important;
 	float: right;
-	width: inherit;
-	padding: 10px 0 !important;
+	margin-right: 16%;
+	width: auto;
+	padding: 10px 20px !important;
 }
 
 input.search-filter-reset:hover{
@@ -1774,28 +1754,29 @@ a.search-filter-reset {
 	text-decoration: none;
 	display: block;
 	text-transform: uppercase;
-	padding: 32px 82px 32px 0;
+	padding: 20px 82px 20px 0;
 }
 
-#menu-item-241,
-#menu-item-1008 {
+#menu-item-241 /* button in localhost */,
+#menu-item-1008 /* button online site */ {
 	float: right;
+	margin-right: 80%;
 	background-image: url("images/loupe.svg");
 	background-size: 40%;
 	background-position: right;
 	background-repeat: no-repeat;
 }
 
-#menu-item-241 a,
-#menu-item-1008 a {
+#menu-item-241 a /* button in localhost */,
+#menu-item-1008 a  /* button online site t*/{
 	padding-left: 54px;
 	padding-right: 0px;
 	margin: 8px 0;
 
 }
 
-#menu-item-241 span,
-#menu-item-1008 span {
+#menu-item-241 span  /* button in localhost */,
+#menu-item-1008 span /* button online site */{
 	display:none;
 
 }
@@ -2176,20 +2157,65 @@ p.entry-meta {
 }
 
 
-
-/* # Categories Content
+/* # Home Content
 ---------------------------------------------------------------------------------------------------- */
-/* Load More */
+.post-594{
+	display:none;
+}
+
+#all-events {
+	text-align: center;
+	padding: 20px 0;
+	margin-bottom:20px;
+	font-size:25px;
+	color: #ffffff ;
+	background-color: #ff6400;
+	text-transform: uppercase;
+	font-family: 'BrandonGrotesque-Regular', Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
 .categorie-content article{
 	display:inline-block;
 	width:363px;
 	margin-right:30px;
 }
 
-.all.col-lg-3.col-md-3.col-sm-6.col-xs-12.portfolio-item{
-	vertical-align: top;
+/*.all.col-lg-3.col-md-3.col-sm-6.col-xs-12.portfolio-item,
+.one-third,
+.one-fourth,
+.three-fourths,*/
+.thumbnail{
+	vertical-align:top;
+	display: inline-block;
+	background-color: #fff;
+	margin: auto 15px 15px 0 !important;
+	width: 31%;
+	/*float:none;*/
 }
 
+#return-top {
+	position: fixed;
+	bottom: 140px;
+	right: 50px;
+}
+
+#return-top img {
+	width:40px;
+}
+/*
+#return-top.return-top-invisible{
+	opacity:0;
+	transition:all ease-in 0.5s;
+}
+
+#return-top.return-top-visible{
+	opacity:1;
+}*/
+
+/* # Categories Content
+---------------------------------------------------------------------------------------------------- */
+/* Load More */
+/*
 #load-more-top,
 #load-more-bottom{
 	margin: 0 41%;
@@ -2211,6 +2237,7 @@ p.entry-meta {
 	margin-top:44px;
 	margin-bottom:52px;
 }
+*/
 
 
 
@@ -2224,7 +2251,7 @@ p.entry-meta {
 	color:#ff6400;
 	font-size:20px;
 	padding: 0;
-	margin: 60px 0 0 40px;
+	margin: 30px 0 0 40px;
 
 }
 
@@ -2242,7 +2269,7 @@ img.fleche-retour{
 /* Main content */
 /* Left Column */
 .detail-content{
-	margin: 50px 40px 37px;
+	margin: 30px 40px 37px;
 	padding: 76px 70px 57px;
 	width: 1146px;
 	background-color: #ffffff;
@@ -2401,18 +2428,9 @@ h1.entry-title{
 	vertical-align: top;
 }
 
-.all.col-lg-3.col-md-3.col-sm-6.col-xs-12.portfolio-item{
-	display: inline-block;
-	background-color: #fff;
-	margin-right:24px;
-	margin-bottom:28px;
-	width: 363px;
-}
-
 .img-responsive{
 	display: block;
-	width: auto;
-	height: auto;
+	width: 100%;
 	margin: 0 auto;
 }
 
@@ -2429,14 +2447,36 @@ h1.entry-title{
 
 /* # Partenaires
 ---------------------------------------------------------------------------------------------------- */
-a#maito-mines-paristech {
+/*a#maito-mines-paristech {
 	display: inline;
-}
+}*/
 
 /*#institut-metiersdart a {
 	margin-bottom: 13px !important;
 }*/
 
+.a-propos-title{
+	color:#ff6400;
+	font-size: 40px;
+	font-family: 'BrandonGrotesque-Light', Helvetica Neue, Helvetica, Arial, sans-serif;
+	line-height: 1.2;
+}
+
+.a-propos-text,
+.a-propos-organisateur{
+	font-size: 20px;
+	font-family: 'BrandonGrotesque-Regular', Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+.d1-bijou-a-lautre{
+	display:inline-block !important;
+	color:#ff6400;
+	font-family: 'BrandonGrotesque-Medium', Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+#d1-bijou-a-lautre{
+	width:100px;
+}
 
 
 /* # Footer Widgets
@@ -2587,8 +2627,26 @@ a#maito-mines-paristech {
 		margin-right: 0px !important;
 	}
 
-}
+	.row{
+		margin: 0;
+	}
 
+	/* home */
+	/* menu */
+	input.search-filter-reset {
+		margin-right:0;
+	}
+
+	.site-inner {
+		padding: 0 10% 0;
+	}
+
+	/* detail page */
+	.content article {
+		width: inherit;
+		margin: 0 0 20px;
+	}
+}
 
 @media only screen and (max-width: 1200px) {
 
@@ -2637,6 +2695,16 @@ a#maito-mines-paristech {
 		float:none;
 	}
 
+	/* Footer */
+	#contact, #presse-parcours-bijoux, #presse-comite {
+		margin-right: 80px;
+	}
+
+	/* home */
+	.site-inner {
+		padding: 0 10% 0;
+	}
+
 }
 
 @media only screen and (max-width: 1023px) {
@@ -2646,6 +2714,9 @@ a#maito-mines-paristech {
 		max-width: 800px;
 	}
 
+	.site-inner {
+		padding: 0 5% 0;
+	}
 	.content,
 	.content-sidebar-sidebar .content,
 	.content-sidebar-sidebar .content-sidebar-wrap,
@@ -2677,7 +2748,6 @@ a#maito-mines-paristech {
 		float: none;
 	}
 
-	.genesis-nav-menu,
 	.site-description,
 	.site-header .title-area,
 	.site-header .widget-area,
@@ -2768,14 +2838,14 @@ a#maito-mines-paristech {
 		content: "\f142";
 	}
 
-	.js .nav-primary .genesis-nav-menu .menu-item,
+	/*.js .nav-primary .genesis-nav-menu .menu-item,
 	.js .site-header .genesis-nav-menu .menu-item {
 		display: block;
 		float: none;
 		margin: 1px 0;
 		position: relative;
 		text-align: left;
-	}
+	}*/
 
 	.js .genesis-nav-menu .menu-item:hover {
 		position: relative;
@@ -2843,12 +2913,11 @@ a#maito-mines-paristech {
 	#header-description{
 		float:right !important;
 	}
-}
 
-@media only screen and (max-width: 930px) {
-	/* Header */
-
-	
+	/* Footer */
+	#contact, #presse-parcours-bijoux, #presse-comite {
+		margin-right: 28px;
+	}
 }
 
 @media only screen and (max-width: 860px) {
@@ -2863,7 +2932,7 @@ a#maito-mines-paristech {
 	}
 
 	.site-inner {
-		padding: 5% 5% 0;
+		padding: 0 5% 0;
 	}
 
 	.wrap {
@@ -2921,18 +2990,6 @@ a#maito-mines-paristech {
 		height: 500px;
 	}
 
-	.searchandfilter ul li {
-		width: 100%;
-	}
-
-	.searchandfilter ul li {
-		width: 100%;
-		background-position: 96% 52%;
-	}
-
-	li.sf-field-submit {
-		width: 200px !important;
-	}
 
 	/* header */
 	.header-image .site-title > a {
@@ -2958,14 +3015,19 @@ a#maito-mines-paristech {
 	}
 
 	/* menu */
-	#menu-item-241 {
-		float:left !important;
+	nav#genesis-nav-primary li{
+		margin: 0 15%;
+	}
+
+	#menu-item-241 /* button in localhost */,
+	#menu-item-1008 { /* button online site */
 		margin-left:38%;
 	}
 
-	#menu-item-241 a {
+	/*#menu-item-241 a ,
+	#menu-item-1008 a{
 		margin-left: 50% !important;
-	}
+	}*/
 
 	.search-form input[type="submit"]{
 		margin-left:70px !important;
@@ -2999,9 +3061,9 @@ a#maito-mines-paristech {
 	}
 
 	/*#contact, #presse-parcours-bijoux, #presse-comite*/
-	#footer a {
+	/*#footer a {
 		margin: 15px 30px 15px 0;
-	}
+	}*/
 
 	#footer a,
 	#copyright,
@@ -3022,21 +3084,38 @@ a#maito-mines-paristech {
 
 
 	/* home page */
+	/* filtre */
+	.searchandfilter ul li {
+		width: 100%;
+		background-position: 96% 52%;
+	}
+
 	form#search-filter-form-503 li {
 		margin-bottom: 10px;
 	}
 
+	/*li.sf-field-submit {
+		width: 200px !important;
+	}
+
 	li.sf-field-submit{
 		width:100% !important;
-	}
+	}*/
 
 	input.search-filter-reset{
 		text-align: center;
+		width: inherit;
+		margin: 0;
 	}
 
 	a.readmore {
 		width: 100%;
 		text-align: center;
+	}
+
+	.thumbnail{
+		width:inherit !important;
+		margin-right:0 !important;
 	}
 
 	#footer #site_fb{
@@ -3065,17 +3144,11 @@ a#maito-mines-paristech {
 
 	/* detail pages */
 	.return button{
-		margin-left:0;
-		margin-bottom: 30px;
+		margin: 30px 0 30px
 	}
 
 	.owl-theme .owl-nav [class*='owl-'] {
 		margin-bottom: -10px;
-	}
-
-	.content article{
-		width:inherit;
-		margin:0;
 	}
 
 	.content-left,
@@ -3089,13 +3162,13 @@ a#maito-mines-paristech {
 
 	p#a-proximite{
 		text-align:center;
-		margin: 20px 0;
+		margin: 0 0 20px;
 	}
 
-	div.all.col-lg-3.col-md-3.col-sm-6.col-xs-12.portfolio-item {
+	/*div.all.col-lg-3.col-md-3.col-sm-6.col-xs-12.portfolio-item {
 		width:inherit !important;
 		margin-right:0 !important;
-	}
+	}*/
 
 	/* Page Partenaires */
 	.wpb_text_column.wpb_content_element{

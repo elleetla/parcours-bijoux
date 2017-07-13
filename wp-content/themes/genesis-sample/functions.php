@@ -169,7 +169,6 @@ function ohouais_custom_mentions_footer() {
     <?php
         if(pll_current_language() =='en'){
             ?>
-            <a href="#" id="button-contact">contact</a>
             <div id="contacts">
 
                 <div id="contact">
@@ -196,14 +195,14 @@ function ohouais_custom_mentions_footer() {
                 </div><!-- ./contact-presse -->
 
             </div><!-- ./contacts -->
-
+            
+            <a href="#" id="button-contact">contact</a>
             <a href="<?php echo $siteURL.'/about'?>">about</a>
             <a href="<?php echo $siteURL.'/partnership'?>">partnership</a>
             <?php
         }
         else{
             ?>
-            <a href="#" id="button-contact">contact</a>
             <div id="contacts">
 
                 <div id="contact">
@@ -230,6 +229,8 @@ function ohouais_custom_mentions_footer() {
                 </div><!-- ./contact-presse -->
 
             </div><!-- ./contacts -->
+
+            <a href="#" id="button-contact">contact</a>
             <a href="<?php echo $siteURL.'/a-propos'?>">à propos</a>
             <a href="<?php echo $siteURL.'/partenaires'?>">partenaires</a>
             <?php
@@ -237,33 +238,6 @@ function ohouais_custom_mentions_footer() {
     ?>
         <a id="site_fb" href="https://www.facebook.com/Parcours-Bijoux-1377799542300463/?ref=br_tf" target="_blank"><img src="<?php echo $icon_url.'/2017/06/facebook_blanc.png'?>"></a>
     </div><!-- ./footer -->
-
-    <div id="contacts">
-
-        <div id="contact">
-            <a href="mailto:contact@parcoursbijoux2017.com">contact@parcoursbijoux2017.com</a>
-        </div><!-- ./contact -->
-
-        <div id="contact-presse">
-            <div id="presse-parcours-bijoux">
-                <p>Parcours Bijoux</p>
-                <p>Re-active</p>
-                <p>Séverine Hyvernat</p>
-                <a href="mailto:severine@re-active.fr">severine@re-active.fr</a>
-                <p>+ 33 1 40 22 63 19</p>
-                <p>+ 33 6 47 36 67 27</p>
-            </div><!-- ./press-parcours-bijoux -->
-
-            <div id="presse-comite">
-                <p>Comité Francéclat</p>
-                <p>Douzal</p>
-                <p>Morgane Rasle</p>
-                <a href="mailto:mrasle@douzal.com">mrasle@douzal.com</a>
-                <p>+ 33 1 53 05 50 00</p>
-            </div><!-- ./presse-comite -->
-        </div><!-- ./contact-presse -->
-
-    </div><!-- ./contacts -->
 
     <p id="copyright">&copy; Copyright 2017</p>
 
@@ -334,8 +308,11 @@ function search_exposition(){
     ?>
 
     <div id="nav-search">
-        <div class="wrap"><?php get_search_form(); ?></div>
-        <a><img id="close-search" src="<?php echo $closeSearch; ?>" alt="Close search"></a>
+        <div class="wrap">
+            <?php get_search_form(); ?>
+            <a><img id="close-search" src="<?php echo $closeSearch; ?>" alt="Close search"></a>
+        </div>
+
     </div>
 
     <?php
@@ -419,8 +396,9 @@ function slider_page() {
 */
 
 //* Display post content
+/*
 function post_content(){?>
-    <div class="all col-lg-3 col-md-3 col-sm-6 col-xs-12 portfolio-item <?php // echo $tax ?>">
+    <div class="thumbnail <?php // echo $tax ?>">
         <div class="bloc-project">
 
             <a href=" <?php the_permalink(); ?>">
@@ -448,9 +426,10 @@ function post_content(){?>
             </div>
 
         </div><!-- ./bloc-project -->
-    </div><!-- ./all col-lg-3 -->
+    </div><!-- ./thumbnail -->
 <?php
 }
+*/
 
 //* Tags research - add lieux posts to the tag research
 function tags_research( $query ) {
@@ -481,7 +460,8 @@ function mon_action() {
     $ajax_query = new WP_Query($args);
 
     if ( $ajax_query->have_posts() ) : while ( $ajax_query->have_posts() ) : $ajax_query->the_post();?>
-        <div class="all col-lg-3 col-md-3 col-sm-6 col-xs-12 portfolio-item <?php // echo $tax ?>">
+<!--        <div class="all col-lg-3 col-md-3 col-sm-6 col-xs-12 portfolio-item --><?php //// echo $tax ?><!--">-->
+        <div class="thumbnail <?php // echo $tax ?>">
             <div class="bloc-project">
 
                 <a href=" <?php the_permalink(); ?>">
@@ -510,7 +490,7 @@ function mon_action() {
                 </div>
 
             </div><!-- ./bloc-project -->
-        </div><!-- ./all col-lg-3 -->
+        </div><!-- ./thumbnail -->
     <?php
     endwhile;
     endif;
