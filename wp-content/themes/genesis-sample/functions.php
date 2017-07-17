@@ -334,7 +334,12 @@ add_filter('pre_get_posts','searchfilter');
 add_filter( 'genesis_search_text', 'b3m_genesis_search_text' );
 function b3m_genesis_search_text( $text ) {
 
-    return esc_attr( 'Un lieu, une exposition, une date, un artiste ?' );
+    if(pll_current_language() =='en'){
+        return esc_attr( 'A place, an exposition, a date, an artist ?' );
+    }
+    else{
+        return esc_attr( 'Un lieu, une exposition, une date, un artiste ?' );
+    }
 
 }
 
@@ -342,7 +347,12 @@ function b3m_genesis_search_text( $text ) {
 add_filter( 'genesis_search_button_text', 'b3m_genesis_search_button_text' );
 function b3m_genesis_search_button_text( $text ) {
 
-    return esc_attr( 'rechercher' );
+    if(pll_current_language() =='en'){
+        return esc_attr( 'research' );
+    }
+    else{
+        return esc_attr( 'rechercher' );
+    }
 
 }
 

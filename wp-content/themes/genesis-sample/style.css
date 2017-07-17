@@ -330,24 +330,24 @@ span.cat-places {
 	margin-bottom: 20px;
 }
 
-.gm-style-iw #list-proximite,
+/*.gm-style-iw #list-proximite,
 .gm-style-iw #lieu-black{
 	display:none;
-}
-
+}*/
+/*
 .gm-style-iw .detail-pays,
 .gm-style-iw .intervalle-date,
 .gm-style-iw .lieu-expo,
 .gm-style-iw .list-artistes{
 	font-family: 'BrandonGrotesque-Medium', Helvetica Neue, Helvetica, Arial, sans-serif;
-}
+}*/
 
-.gm-style-iw .list-artistes{
+/*.gm-style-iw .list-artistes{
 	float:left;
-}
+}*/
 
-.gm-style-iw .detail-short-description, /* short text in info windows (map)*/
-.linkage .detail-left-row,/* left row displayed in list of posts in home page */
+/*.gm-style-iw .detail-short-description, !* short text in info windows (map)*!
+.linkage .detail-left-row,!* left row displayed in list of posts in home page *!
 .linkage .detail-right-row .intervalle-date,
 .linkage .detail-right-row .detail-horaires,
 .linkage .detail-right-row .lieu-expo,
@@ -355,23 +355,24 @@ span.cat-places {
 .linkage .detail-right-row .detail-tel,
 .linkage .detail-right-row .detail-metro{
 	display:none;
-}
+}*/
 
+
+/*.linkage .detail-right-row .detail-vernissage p,
+.linkage .detail-right-row .detail-short-description p,*/
 .linkage .address p,
-.linkage .date,
-.linkage .detail-right-row .detail-vernissage p,
-.linkage .detail-right-row .detail-short-description p{
+.linkage .date{
 	color:#000000;
 }
 
-
+/*
 .linkage .detail-right-row{
 	width: auto;
-}
+}*/
 
-#list-credit{
+/*#list-credit{
 	color:#bebebe;
-}
+}*/
 
 .linkage .readmore{
 	color: #ff6400;
@@ -395,9 +396,9 @@ span.cat-places {
 	-o-transition: all 0.35s ease-in-out 0s;
 }
 
-.linkage .social-share div{
+/*.linkage .social-share div{
 	left:0;
-}
+}*/
 
 .linkage #list-proximite{
 	background-color: #ff6400;
@@ -434,10 +435,13 @@ h3.title {
 }
 
 /* Map : InfoWindows */
+.gm-style-iw img,
 .gm-style-iw .cat-places,
 .gm-style-iw .address,
 .gm-style-iw .date,
-.gm-style-iw .readmore{
+.gm-style-iw .readmore,
+.gm-style-iw #list-proximite
+{
 	display:none;
 }
 
@@ -2159,7 +2163,7 @@ p.entry-meta {
 
 /* # Home Content
 ---------------------------------------------------------------------------------------------------- */
-.post-594{
+.display-none{
 	display:none;
 }
 
@@ -2195,13 +2199,13 @@ p.entry-meta {
 
 #return-top {
 	position: fixed;
-	bottom: 140px;
-	right: 50px;
+	bottom: 20px;
+	right: 20px;
 }
 
-#return-top img {
+/*#return-top img {
 	width:40px;
-}
+}*/
 /*
 #return-top.return-top-invisible{
 	opacity:0;

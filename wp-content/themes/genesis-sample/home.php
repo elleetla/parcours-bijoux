@@ -37,7 +37,7 @@ function elleetla_geolocation()
     ?>
     <div class="locations">
         <div class="acf-map"></div>
-        <div class="structure-places">
+        <div class="structure-places" id="list-events">
             <?php
             $args = [
                 'post_type' => 'lieux',
@@ -245,9 +245,23 @@ function elleetla_geolocation()
 
 //* Remove title content
 remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
+add_filter( 'genesis_attr_entry', 'attr_post_class' );
+function attr_post_class( $attr ) {
+    if( is_user_logged_in() ) {
+        return add_class($attr, 'display-none');
+    }
+}
+
 add_action('genesis_after_header','all_posts_title', 30);
 function all_posts_title(){
-    echo '<p id="all-events"> tous les événements </p>';
+
+        if(pll_current_language() =='en'){
+            echo '<p id="all-events"> all events </p>';
+        }
+        else{
+            echo '<p id="all-events"> tous les événements </p>';
+        }
+
 }
 
 add_action('genesis_before_footer','return_top_page');

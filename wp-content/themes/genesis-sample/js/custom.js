@@ -70,7 +70,7 @@ $(function() {
     //* load all posts if orange banner 'TOUS LES ÉVÉNEMENTS' is into view
     var one_time =true;
     $(window).scroll(function(){
-        /* load all posts when #filter-map appears on screen
+        /* load all posts when #all-events appears on screen
         waiting period too long for #home-content
         */
 
@@ -248,13 +248,14 @@ $(function() {
         // var
         var latlng = new google.maps.LatLng( $marker.attr('data-lat'), $marker.attr('data-lng') );
 
-        var image = "http://demo.elle-et-la.com/parcours-bijoux/wp-content/themes/genesis-sample/images/picto_map_noir.png";
+        var imageDefault = "http://demo.elle-et-la.com/parcours-bijoux/wp-content/themes/genesis-sample/images/picto_map_noir.png";
+        var imageSelected = "http://demo.elle-et-la.com/parcours-bijoux/wp-content/themes/genesis-sample/images/picto_map_orange.png";
 
         // create marker
         var marker = new google.maps.Marker({
             position    : latlng,
             map         : map,
-            icon        : image
+            icon        : imageDefault
         });
 
         // add to array
@@ -274,41 +275,71 @@ $(function() {
 
             // create info window
             var infowindow = new google.maps.InfoWindow({
-                content     : $marker.html() + index,
+                content     : $marker.html(),
             });
 
-            // show info window when marker is clicked
+            // when marker is clicked
             google.maps.event.addListener(marker, 'click', function() {
-                if (typeof( window.infoopened ) != 'undefined') infoopened.close();
+                if (typeof( window.infoopened ) != 'undefined') {
+                    infoopened.close();
+                }
                 infowindow.open(map,marker);
                 infoopened = infowindow;
-                // this.setIcon('http://demo.elle-et-la.com/parcours-bijoux/wp-content/themes/genesis-sample/images/picto_map_orange.png');
-                /*if(infowindow.open(map,marker)){
-                    $('div#lieu-grey').attr('id', 'lieu-black');
-                }*/
 
-                // alert($(".linkage").attr('id'));
-
-                var id_list_element_top = $(".linkage").attr('id');
-                var list_element_top = $(id_list_element_top).offset.top;
-                $('html, body').animate({
-                    scrollTop: list_element_top
-                },'slow');
-                return false;
-
-
-
+                //scroll to the event associated to the marker
+                var id_list_element_top =$marker.attr('id');
+                var topPos = document.getElementById(id_list_element_top).offsetTop;
+                document.getElementById('list-events').scrollTop = topPos;
             });
 
-            var selectedMarker;
+            google.maps.event.addListener(marker, 'click', function(){
+
+                // var id_list_element_top = $(".linkage").attr('id');
+                // alert(id_list_element_top);
+                // var topPos = document.getElementById('p436').offsetTop;
+                // document.getElementById('list-events').scrollTop = topPos-10;
+            })
+
+
+
+            /*var selectedMarker;
             google.maps.event.addListener(marker,'click',function() {
 
                 if (selectedMarker) {
-                    selectedMarker.setIcon('http://demo.elle-et-la.com/parcours-bijoux/wp-content/themes/genesis-sample/images/picto_map_noir.png');
+                    selectedMarker.setIcon(imageDefault);
+                    alert('hello');
                 }
-                marker.setIcon('http://demo.elle-et-la.com/parcours-bijoux/wp-content/themes/genesis-sample/images/picto_map_orange.png');
+                marker.setIcon(imageSelected);
                 selectedMarker = marker;
+            });*/
+
+            /*
+            $(document).on('mouseover', '#'+$marker.attr('id'), function(){
+                if (typeof( window.infoopened ) != 'undefined') infoopened.close();
+                infowindow.open(map,marker);
+                infoopened = infowindow;
+
+                marker.setIcon( 'http://maps.google.com/mapfiles/marker_yellow.png');
             });
+            // changement sur le mouseover
+            google.maps.event.addListener( marker, 'mouseover', function(){
+
+                if (typeof( window.infoopened ) != 'undefined') {
+                    infoopened.close();
+                }
+                infowindow.open(map,marker);
+                infoopened = infowindow;
+
+                if( !this.flagIcon){
+                    this.savIcon = this.getIcon();  // récupération de l'image via la méthode getIcon()
+                    this.flagIcon = true;
+                }
+                this.setIcon( 'http://maps.google.com/mapfiles/marker_yellow.png');
+            });
+            // restauration sur le mouseout
+            google.maps.event.addListener( marker, 'mouseout', function(){
+                this.setIcon( this.savIcon);
+            });*/
 
 
         }
