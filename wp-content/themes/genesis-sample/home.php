@@ -264,6 +264,16 @@ function all_posts_title(){
 
 }
 
+add_action('genesis_loop','timeline');
+function timeline(){
+    $folder_img = wp_upload_dir();
+    $img_url = $folder_img['baseurl'];
+    echo '<img src="'.$img_url.'/2017/07/vignette_timeline.png">';
+
+}
+
+
+//* Button return to the top of the page
 add_action('genesis_before_footer','return_top_page');
 function return_top_page(){
     echo '<div>';

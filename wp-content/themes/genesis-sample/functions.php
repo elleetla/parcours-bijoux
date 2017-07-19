@@ -166,80 +166,59 @@ function ohouais_custom_mentions_footer() {
     ?>
 
     <div id="footer">
-    <?php
-        if(pll_current_language() =='en'){
-            ?>
-            <div id="contacts">
+        <div id="contacts">
 
-                <div id="contact">
-                    <a href="mailto:contact@parcoursbijoux2017.com">contact@parcoursbijoux2017.com</a>
-                </div><!-- ./contact -->
+            <div id="contact">
+                <a href="mailto:contact@parcoursbijoux2017.com">contact@parcoursbijoux2017.com</a>
+            </div><!-- ./contact -->
 
-                <div id="contact-presse">
-                    <div id="presse-parcours-bijoux">
-                        <p>Parcours Bijoux</p>
-                        <p>Re-active</p>
-                        <p>Séverine Hyvernat</p>
-                        <a href="mailto:severine@re-active.fr">severine@re-active.fr</a>
-                        <p>+ 33 1 40 22 63 19</p>
-                        <p>+ 33 6 47 36 67 27</p>
-                    </div><!-- ./press-parcours-bijoux -->
+            <div id="contact-presse">
+                <div id="presse-parcours-bijoux">
+                    <p>Parcours Bijoux</p>
+                    <p>Re-active</p>
+                    <p>Séverine Hyvernat</p>
+                    <a href="mailto:severine@re-active.fr">severine@re-active.fr</a>
+                    <p>+ 33 1 40 22 63 19</p>
+                    <p>+ 33 6 47 36 67 27</p>
+                </div><!-- ./press-parcours-bijoux -->
 
-                    <div id="presse-comite">
-                        <p>Comité Francéclat</p>
-                        <p>Douzal</p>
-                        <p>Morgane Rasle</p>
-                        <a href="mailto:mrasle@douzal.com">mrasle@douzal.com</a>
-                        <p>+ 33 1 53 05 50 00</p>
-                    </div><!-- ./presse-comite -->
-                </div><!-- ./contact-presse -->
+                <div id="presse-comite">
+                    <p>Comité Francéclat</p>
+                    <p>Douzal</p>
+                    <p>Morgane Rasle</p>
+                    <a href="mailto:mrasle@douzal.com">mrasle@douzal.com</a>
+                    <p>+ 33 1 53 05 50 00</p>
+                </div><!-- ./presse-comite -->
+            </div><!-- ./contact-presse -->
 
-            </div><!-- ./contacts -->
-            
-            <a href="#" id="button-contact">contact</a>
-            <a href="<?php echo $siteURL.'/about'?>">about</a>
-            <a href="<?php echo $siteURL.'/partnership'?>">partnership</a>
-            <?php
-        }
-        else{
-            ?>
-            <div id="contacts">
+        </div><!-- ./contacts -->
 
-                <div id="contact">
-                    <a href="mailto:contact@parcoursbijoux2017.com">contact@parcoursbijoux2017.com</a>
-                </div><!-- ./contact -->
+        <?php if(pll_current_language() =='en'){ ?>
 
-                <div id="contact-presse">
-                    <div id="presse-parcours-bijoux">
-                        <p>Parcours Bijoux</p>
-                        <p>Re-active</p>
-                        <p>Séverine Hyvernat</p>
-                        <a href="mailto:severine@re-active.fr">severine@re-active.fr</a>
-                        <p>+ 33 1 40 22 63 19</p>
-                        <p>+ 33 6 47 36 67 27</p>
-                    </div><!-- ./press-parcours-bijoux -->
+            <div id="footer-left">
+                <a href="#" id="button-contact">contact</a>
+                <a href="<?php echo $siteURL.'/about'?>">about</a>
+                <a href="<?php echo $siteURL.'/partnership'?>">partnership</a>
+            </div><!-- ./footer-left -->
 
-                    <div id="presse-comite">
-                        <p>Comité Francéclat</p>
-                        <p>Douzal</p>
-                        <p>Morgane Rasle</p>
-                        <a href="mailto:mrasle@douzal.com">mrasle@douzal.com</a>
-                        <p>+ 33 1 53 05 50 00</p>
-                    </div><!-- ./presse-comite -->
-                </div><!-- ./contact-presse -->
+        <?php }
+        else { ?>
 
-            </div><!-- ./contacts -->
+            <div id="footer-left">
+                <a href="#" id="button-contact">contact</a>
+                <a href="<?php echo $siteURL.'/a-propos'?>">à propos</a>
+                <a href="<?php echo $siteURL.'/partenaires'?>">partenaires</a>
+            </div><!-- ./footer-left -->
 
-            <a href="#" id="button-contact">contact</a>
-            <a href="<?php echo $siteURL.'/a-propos'?>">à propos</a>
-            <a href="<?php echo $siteURL.'/partenaires'?>">partenaires</a>
-            <?php
-        }
-    ?>
-        <a id="site_fb" href="https://www.facebook.com/Parcours-Bijoux-1377799542300463/?ref=br_tf" target="_blank"><img src="<?php echo $icon_url.'/2017/06/facebook_blanc.png'?>"></a>
+        <?php } ?>
+
+        <div id="footer-right">
+            <a id="site_fb" href="https://www.facebook.com/Parcours-Bijoux-1377799542300463/?ref=br_tf" target="_blank"><img src="<?php echo $icon_url.'/2017/07/facebook_blanc.png'?>"></a>
+            <a id="site_instagram" href="https://www.instagram.com/elleetla/" target="_blank"><img src="<?php echo $icon_url.'/2017/07/instagram_blanc.png'?>"></a>
+        </div><!-- ./footer-right -->
+
+        <p id="copyright">&copy; Copyright 2017</p>
     </div><!-- ./footer -->
-
-    <p id="copyright">&copy; Copyright 2017</p>
 
     <?php
 
@@ -330,6 +309,79 @@ function searchfilter($query) {
 }
 add_filter('pre_get_posts','searchfilter');
 
+// add custom fields to the search (https://adambalee.com/search-wordpress-by-custom-fields-without-a-plugin/)
+add_filter('posts_join', 'cf_search_join' );
+function cf_search_join( $join ) {
+global $wpdb;
+
+if ( is_search() ) {
+    $join .=' LEFT JOIN '.$wpdb->postmeta. ' ON '. $wpdb->posts . '.ID = ' . $wpdb->postmeta . '.post_id ';
+}
+
+return $join;
+}
+
+// modify the WordPress search query to include custom fields
+add_filter( 'posts_where', 'cf_search_where' );
+function cf_search_where( $where ) {
+    global $wpdb;
+
+    if ( is_search() ) {
+        $where = preg_replace(
+            "/\(\s*".$wpdb->posts.".post_title\s+LIKE\s*(\'[^\']+\')\s*\)/",
+            "(".$wpdb->posts.".post_title LIKE $1) OR (".$wpdb->postmeta.".meta_value LIKE $1)", $where );
+    }
+
+    return $where;
+}
+
+// add the DISTINCT keyword to the SQL query in order to prevent returning duplicates
+add_filter( 'posts_distinct', 'cf_search_distinct' );
+function cf_search_distinct( $where ) {
+    global $wpdb;
+
+    if ( is_search() ) {
+        return "DISTINCT";
+    }
+
+    return $where;
+}
+
+// add tag to the research
+add_filter( 'posts_search', 'add_tag_to_research');
+function add_tag_to_research( $search, &$wp_query ) {
+    global $wpdb;
+
+    if ( empty( $search ))
+        return $search;
+
+    $terms = $wp_query->query_vars[ 's' ];
+    $exploded = explode( ' ', $terms );
+    if( $exploded === FALSE || count( $exploded ) == 0 )
+        $exploded = array( 0 => $terms );
+
+    $search = '';
+    foreach( $exploded as $tag ) {
+        $search .= " AND (
+            (wp_posts.post_title LIKE '%$tag%')
+            OR (wp_posts.post_content LIKE '%$tag%')
+            OR EXISTS
+            (
+                SELECT * FROM wp_terms
+                INNER JOIN wp_term_taxonomy
+                    ON wp_term_taxonomy.term_id = wp_terms.term_id
+                INNER JOIN wp_term_relationships
+                    ON wp_term_relationships.term_taxonomy_id = wp_term_taxonomy.term_taxonomy_id
+                WHERE taxonomy = 'post_tag'
+                    AND object_id = wp_posts.ID
+                    AND wp_terms.name LIKE '%$tag%'
+            )
+        )";
+    }
+
+    return $search;
+}
+
 // modify search form input box
 add_filter( 'genesis_search_text', 'b3m_genesis_search_text' );
 function b3m_genesis_search_text( $text ) {
@@ -405,8 +457,7 @@ function slider_page() {
 }
 */
 
-//* Display post content
-/*
+//* Display thumbnail content
 function post_content(){?>
     <div class="thumbnail <?php // echo $tax ?>">
         <div class="bloc-project">
@@ -439,15 +490,15 @@ function post_content(){?>
     </div><!-- ./thumbnail -->
 <?php
 }
-*/
 
 //* Tags research - add lieux posts to the tag research
+add_action( 'pre_get_posts', 'tags_research' );
 function tags_research( $query ) {
     if ( $query->is_tag() && $query->is_main_query() ) {
         $query->set( 'post_type', array( 'post', 'lieux' ) );
     }
 }
-add_action( 'pre_get_posts', 'tags_research' );
+
 
 //* Display posts randomly
 function random () {

@@ -50,7 +50,7 @@ function return_button(){/*
 }
 
 //* Add custom classes to posts article
-add_filter( 'genesis_attr_entry', 'attr_post_class' );
+add_filter( 'genesis_attr_site-inner', 'attr_post_class' );
 function attr_post_class( $attr ) {
     return add_class( $attr, 'detail-content' );
 }

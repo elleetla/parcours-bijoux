@@ -1,3 +1,4 @@
+
 <?php
 /**
  * Created by PhpStorm.
@@ -6,7 +7,7 @@
  * Time: 12:30
  */
 
-
+/*
 //* Display picture of the slider, its category and title
 add_action( 'genesis_after_header', 'slider_page', 10 );
 

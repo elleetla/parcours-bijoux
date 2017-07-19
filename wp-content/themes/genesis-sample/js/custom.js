@@ -280,9 +280,7 @@ $(function() {
 
             // when marker is clicked
             google.maps.event.addListener(marker, 'click', function() {
-                if (typeof( window.infoopened ) != 'undefined') {
-                    infoopened.close();
-                }
+                if (typeof( window.infoopened ) != 'undefined') infoopened.close();
                 infowindow.open(map,marker);
                 infoopened = infowindow;
 
@@ -302,16 +300,18 @@ $(function() {
 
 
 
-            /*var selectedMarker;
+            var selectedMarker;
             google.maps.event.addListener(marker,'click',function() {
 
-                if (selectedMarker) {
+
+                if (selectedMarker && marker) {
                     selectedMarker.setIcon(imageDefault);
-                    alert('hello');
+                } else {
+
                 }
                 marker.setIcon(imageSelected);
-                selectedMarker = marker;
-            });*/
+                selectedMarker = marker
+            });
 
             /*
             $(document).on('mouseover', '#'+$marker.attr('id'), function(){

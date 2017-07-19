@@ -24,13 +24,21 @@ remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
 //* Add custom classes to posts article
 add_filter( 'genesis_attr_site-inner', 'attr__post_class' );
 function attr__post_class( $attr ) {
-    return add_class( $attr, 'categorie-content' );
+    return add_class( $attr, 'research-content' );
 }
 
-//* Display post content
+//* Display thumbnail content
 add_action('genesis_entry_content', 'post_content');
 
 //* Display posts randomly
 add_action('genesis_before_loop', 'random');
+
+//* Button return to the top of the page
+add_action('genesis_before_footer','return_top_page');
+function return_top_page(){
+    echo '<div>';
+    echo '<a id="return-top" class="return-top-invisible" href="#"><img src="'.get_stylesheet_directory_uri().'/images/return-top.png"></a>';
+    echo '</div>';
+}
 
 genesis();
