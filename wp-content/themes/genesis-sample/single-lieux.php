@@ -89,6 +89,9 @@ function category_project(){
     echo '<span class="cat-places">'.get_the_term_list(get_the_ID(), 'categorie').'</span>';
 }
 
+/* display Content & social sharing buttons (function to improve
+so that content & social display are separated) */
+add_filter( 'the_content', 'social_sharing_buttons');
 function social_sharing_buttons($content) {
     global $post;
     if(is_singular() || is_home()){
@@ -102,7 +105,7 @@ function social_sharing_buttons($content) {
         // Get the email address to send the mail
         $address_mail = get_field('email');
 
-        // Get url of icon image in media bibliography (=> http://localhost:8888/parcours-bijoux/wp-content/uploads)
+        // Get url of icon image in media bibliography
         $folder_social_icon = wp_upload_dir();
         $icon_url = $folder_social_icon['baseurl'];
 
@@ -130,7 +133,7 @@ function social_sharing_buttons($content) {
         return $content;
     }
 };
-add_filter( 'the_content', 'social_sharing_buttons');
+
 
 //* Tags
 // remove automatic tags

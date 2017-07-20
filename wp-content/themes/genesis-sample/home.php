@@ -268,8 +268,12 @@ add_action('genesis_loop','timeline');
 function timeline(){
     $folder_img = wp_upload_dir();
     $img_url = $folder_img['baseurl'];
-    echo '<img src="'.$img_url.'/2017/07/vignette_timeline.png">';
-
+    ?>
+        <a id="timeline">
+<!--            <img src=" --><?php //echo $img_url ?><!--/2017/07/vignette_timeline2.png">-->
+            <p>voir la timeline des événements</p>
+        </a>
+    <?php
 }
 
 

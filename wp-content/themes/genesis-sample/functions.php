@@ -242,26 +242,24 @@ add_action('genesis_header_right', 'info_header');
 function info_header(){
     $trait = get_stylesheet_directory_uri().'/images/barre_header_dates_white.svg';
 
+    echo '<div id="header-date"><p>25 sept</p><img id="trait" src="'.$trait.'"/><p>30 nov 2017</p></div>';
+    echo '<div id="header-description">';
+
     if(pll_current_language() =='en'){
         ?>
-            <div id="header-date"><p>25 sept</p><img id="trait" src="<?php echo $trait; ?>"/><p>30 nov 2017</p></div>
-            <div id="header-description">
-                <p id="comtemporains">Contemporary jewelry</p>
-                <p id="parcours-expo">exhibition tour</p>
-                <p id="paris">paris</p>
-            </div>
+            <p id="comtemporains">Contemporary jewelry</p>
+            <p id="parcours-expo">exhibition tour</p>
         <?php
     }
     else{
         ?>
-            <div id="header-date"><p>25 sept</p><img id="trait" src="<?php echo $trait; ?>"/><p>30 nov 2017</p></div>
-            <div id="header-description">
-                <p id="comtemporains">Bijoux contemporains</p>
-                <p id="parcours-expo">parcours d'expositions</p>
-                <p id="paris">paris</p>
-            </div>
+            <p id="comtemporains">Bijoux contemporains</p>
+            <p id="parcours-expo">parcours d'expositions</p>
         <?php
     }
+
+    echo ' <p id="paris">paris</p>';
+    echo '</div><!-- ./header-description -->';
 
 }
 
@@ -309,7 +307,9 @@ function searchfilter($query) {
 }
 add_filter('pre_get_posts','searchfilter');
 
-// add custom fields to the search (https://adambalee.com/search-wordpress-by-custom-fields-without-a-plugin/)
+
+
+// -- add custom fields to the search (https://adambalee.com/search-wordpress-by-custom-fields-without-a-plugin/) --
 add_filter('posts_join', 'cf_search_join' );
 function cf_search_join( $join ) {
 global $wpdb;
@@ -346,9 +346,45 @@ function cf_search_distinct( $where ) {
 
     return $where;
 }
+// -- add custom fields to the search (https://adambalee.com/search-wordpress-by-custom-fields-without-a-plugin/) --
+
+
+// search by EXACT words
+add_filter('posts_search', 'exact_search', 20, 2);
+function exact_search($search, $wp_query){
+
+    global $wpdb;
+
+    if(empty($search))
+        return $search;
+
+    $q = $wp_query->query_vars;
+    $n = !empty($q['exact']) ? '' : '%';
+
+    $search = $searchand = '';
+
+    foreach((array)$q['search_terms'] as $term) :
+
+        $term = esc_sql(like_escape($term));
+
+        $search .= "{$searchand}($wpdb->posts.post_title REGEXP '[[:<:]]{$term}[[:>:]]') OR ($wpdb->posts.post_content REGEXP '[[:<:]]{$term}[[:>:]]')";
+
+        $searchand = ' AND ';
+
+    endforeach;
+
+    if(!empty($search)) :
+        $search = " AND ({$search}) ";
+        if(!is_user_logged_in())
+            $search .= " AND ($wpdb->posts.post_password = '') ";
+    endif;
+
+    return $search;
+
+}
 
 // add tag to the research
-add_filter( 'posts_search', 'add_tag_to_research');
+add_filter( 'posts_search', 'add_tag_to_research', 500, 2);
 function add_tag_to_research( $search, &$wp_query ) {
     global $wpdb;
 
