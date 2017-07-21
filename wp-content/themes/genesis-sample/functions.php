@@ -214,7 +214,7 @@ function ohouais_custom_mentions_footer() {
 
         <div id="footer-right">
             <a id="site_fb" href="https://www.facebook.com/Parcours-Bijoux-1377799542300463/?ref=br_tf" target="_blank"><img src="<?php echo $icon_url.'/2017/07/facebook_blanc.png'?>"></a>
-            <a id="site_instagram" href="https://www.instagram.com/elleetla/" target="_blank"><img src="<?php echo $icon_url.'/2017/07/instagram_blanc.png'?>"></a>
+            <a id="site_instagram" href="https://www.instagram.com/parcoursbijoux/" target="_blank"><img src="<?php echo $icon_url.'/2017/07/instagram_blanc.png'?>"></a>
         </div><!-- ./footer-right -->
 
         <p id="copyright">&copy; Copyright 2017</p>

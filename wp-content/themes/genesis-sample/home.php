@@ -266,12 +266,26 @@ function all_posts_title(){
 
 add_action('genesis_loop','timeline');
 function timeline(){
-    $folder_img = wp_upload_dir();
-    $img_url = $folder_img['baseurl'];
+    $folder_doc = wp_upload_dir();
+    $doc_url = $folder_doc['baseurl'];
     ?>
-        <a id="timeline">
+        <a href="<?php echo $doc_url?>/2017/07/timeline.pdf" target="_blank" id="timeline" >
 <!--            <img src=" --><?php //echo $img_url ?><!--/2017/07/vignette_timeline2.png">-->
-            <p>voir la timeline des événements</p>
+            <div>
+                <?php
+                if(pll_current_language() =='en'){
+                    ?>
+                        <p>see events timeline</p>
+                    <?php
+                }
+                else{
+                    ?>
+                        <p>voir la timeline des événements</p>
+                    <?php
+                }
+                ?>
+
+            </div>
         </a>
     <?php
 }
