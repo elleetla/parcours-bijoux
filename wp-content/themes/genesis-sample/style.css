@@ -2165,15 +2165,31 @@ p.entry-meta {
 
 /* # Home Content
 ---------------------------------------------------------------------------------------------------- */
+#timeline {
+	display: block;
+}
+
 #timeline div{
 	text-align: center;
 	background:  url("http://demo.elle-et-la.com/parcours-bijoux/wp-content/uploads/2017/07/vignette_timeline.png") no-repeat center;
-	background-size: contain;
+	background-size: 100%;
 	color: #ff6400;
+	background-color: #ffffff;
 	text-transform: uppercase;
-	padding: 0;
-	margin: 0;
-	line-height: 200px;
+	padding: 60px 0;
+	margin: 0 0 15px 0;
+}
+
+#timeline img{
+	display:none;
+	height: 22px;
+	margin-right: 30px;
+	margin-bottom: -5px;
+}
+
+#timeline p {
+	margin: 0px;
+	display:inline;
 }
 
 .display-none{
@@ -2675,10 +2691,6 @@ h1.entry-title{
 		margin-right:0;
 	}
 
-	#timeline div{
-		line-height: 130px;
-	}
-
 	/* detail page */
 	.detail-content article {
 		width: inherit;
@@ -2744,11 +2756,6 @@ h1.entry-title{
 	/* Footer */
 	#contact, #presse-parcours-bijoux, #presse-comite {
 		margin-right: 80px;
-	}
-
-	/* home */
-	#timeline div{
-		line-height: 115px;
 	}
 
 	/* detail page */
@@ -2979,11 +2986,6 @@ h1.entry-title{
 		margin-right: 28px;
 	}
 
-	/* home */
-	#timeline div{
-		line-height: 110px;
-	}
-
 	/* détail page*/
 	.content-left{
 		width: 294px !important;
@@ -3194,10 +3196,17 @@ h1.entry-title{
 		margin: 0;
 	}
 
-	#timeline div{
-		line-height: 93px;
+	#timeline div {
+		padding: 20px;
+		margin-bottom:15px;
+		background-color: #ffffff;
+		background-image: none;
+		font-size: 14px;
 	}
 
+	#timeline img{
+		display:inline-block;
+	}
 
 	a.readmore {
 		width: 100%;

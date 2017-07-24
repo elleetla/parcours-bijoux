@@ -272,6 +272,7 @@ function timeline(){
         <a href="<?php echo $doc_url?>/2017/07/timeline.pdf" target="_blank" id="timeline" >
 <!--            <img src=" --><?php //echo $img_url ?><!--/2017/07/vignette_timeline2.png">-->
             <div>
+                <img src="http://localhost:8888/parcours-bijoux/wp-content/themes/genesis-sample/images/fleche_timeline_right.svg">
                 <?php
                 if(pll_current_language() =='en'){
                     ?>
@@ -280,7 +281,7 @@ function timeline(){
                 }
                 else{
                     ?>
-                        <p>voir la timeline des événements</p>
+                        <p id="timeline-text">voir la timeline des événements</p>
                     <?php
                 }
                 ?>
