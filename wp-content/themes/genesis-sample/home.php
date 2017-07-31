@@ -41,7 +41,10 @@ function elleetla_geolocation()
             <?php
             $args = [
                 'post_type' => 'lieux',
-                'orderby'   => 'rand'
+                'order' => 'DESC',
+                'orderby' => 'menu_order'
+
+//                'orderby'   => 'rand'
             ];
 
             if (sizeof($_GET) > 0) {
@@ -82,8 +85,20 @@ function elleetla_geolocation()
 
                             echo '<div id="list-content">';
 
-                            echo '<span class="cat-places"'.get_the_term_list(get_the_ID(), 'categorie').'</span>';
+                            echo '<span class="cat-places"'.get_the_term_list(get_the_ID(), 'categorie','',',').'</span>';
                             echo '<h3 class="title">'.get_the_title().'</h3>';
+
+                            //Display names of others events at the SAME place
+                            // check if the repeater field has rows of data
+                            if( have_rows('name-others-events') ){
+                                // loop through the rows of data
+                                while ( have_rows('name-others-events') ) : the_row();
+                                    // display a sub field value
+                                    echo '<h3 class="other-events-name">';
+                                    echo the_sub_field('name-event');
+                                    echo '</h3>';
+                                endwhile;
+                            }
 
                             echo '<div id="lieu-black">';
 
@@ -175,22 +190,30 @@ function elleetla_geolocation()
                         }
 
                         else{
-                            if($i == 2 && sizeof($_GET) > 0){
-                                if(pll_current_language() =='en'){
-                                    echo '<div id="list-proximite">around</div>';
-                                }
-                                else{
-                                    echo '<div id="list-proximite">à proximité</div>';
-                                }
-                            }
 
                             $image = get_field('image_map');
                             echo '<img src="'.$image['url'].'" alt="'.$image['alt'].'" style="display:none" />';
 
                             echo '<div id="list-content">';
 
-                            echo '<span class="cat-places"'.get_the_term_list(get_the_ID(), 'categorie').'</span>';
+                            echo '<span class="cat-places">';
+                            $list_categories = get_the_term_list( $post->ID, 'categorie', '', ', ', '' ) ;
+                            echo strip_tags($list_categories);
+                            echo '</span>';
+
                             echo '<h3 class="title" style="color:#000000">'.get_the_title().'</h3>';
+
+                            //Display names of others events at the SAME place
+                            // check if the repeater field has rows of data
+                            if( have_rows('name-others-events') ){
+                                // loop through the rows of data
+                                while ( have_rows('name-others-events') ) : the_row();
+                                    // display a sub field value
+                                    echo '<h3 class="other-events-name" style="color:#000000">';
+                                    echo the_sub_field('name-event');
+                                    echo '</h3>';
+                                endwhile;
+                            }
 
 
                             echo '<div id="lieu-grey">';
@@ -244,7 +267,7 @@ function elleetla_geolocation()
 //add_action( 'wp_enqueue_scripts', 'io_enqueue_locations' );
 
 //* Remove title content
-remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
+//remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
 add_filter( 'genesis_attr_entry', 'attr_post_class' );
 function attr_post_class( $attr ) {
     if( is_user_logged_in() ) {
@@ -272,7 +295,7 @@ function timeline(){
         <a href="<?php echo $doc_url?>/2017/07/timeline.pdf" target="_blank" id="timeline" >
 <!--            <img src=" --><?php //echo $img_url ?><!--/2017/07/vignette_timeline2.png">-->
             <div>
-                <img src="http://localhost:8888/parcours-bijoux/wp-content/themes/genesis-sample/images/fleche_timeline_right.svg">
+                <img src="http://demo.elle-et-la.com/parcours-bijoux/wp-content/themes/genesis-sample/images/fleche_timeline_right.svg">
                 <?php
                 if(pll_current_language() =='en'){
                     ?>
@@ -281,7 +304,7 @@ function timeline(){
                 }
                 else{
                     ?>
-                        <p id="timeline-text">voir la timeline des événements</p>
+                        <p>voir la timeline des événements</p>
                     <?php
                 }
                 ?>

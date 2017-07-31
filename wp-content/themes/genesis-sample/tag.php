@@ -35,7 +35,7 @@ add_action('init','random_add_rewrite');
 function random_add_rewrite() {
     global $wp;
     $wp->add_query_var('random');
-    echo var_dump($wp);
+//    echo var_dump($wp);
 }
 
 

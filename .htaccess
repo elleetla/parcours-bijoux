@@ -4,9 +4,9 @@
 RewriteEngine On
 RewriteBase /parcours-bijoux/
 RewriteRule ^index\.php$ - [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /parcours-bijoux/index.php [L]
+RewriteCond % {HTTP_HOST} ^ parcoursbijoux.com [NC, OR]
+RewriteCond % {HTTP_HOST} ^ www.parcoursbijoux.com [NC]
+(*). RewriteRule ^ $ https: //parcours-bijoux.com [L, R = 301, NC]
 </IfModule>
 
 # END WordPress

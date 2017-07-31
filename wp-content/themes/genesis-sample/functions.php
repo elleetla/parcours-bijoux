@@ -169,13 +169,18 @@ function ohouais_custom_mentions_footer() {
         <div id="contacts">
 
             <div id="contact">
-                <a href="mailto:contact@parcoursbijoux2017.com">contact@parcoursbijoux2017.com</a>
+                <p class="contact-title">Association D'un bijou à l'autre</p>
+                <p class="contact-title ctitle2">Organisateur du Parcours bijoux 2017</p>
+                <a href="mailto:dunbijou@gmail.com">dunbijou@gmail.com</a>
+                <a href="http://dunbijoualautre.com/">dunbijoualautre.com</a>
+                <a href="https://www.facebook.com/dunbijoualautre/">facebook.com/dunbijoualautre/</a>
             </div><!-- ./contact -->
 
             <div id="contact-presse">
+                <p class="contact-title ctitle2">Contacts presse</p>
                 <div id="presse-parcours-bijoux">
                     <p>Parcours Bijoux</p>
-                    <p>Re-active</p>
+                    <p>Agence Re-active</p>
                     <p>Séverine Hyvernat</p>
                     <a href="mailto:severine@re-active.fr">severine@re-active.fr</a>
                     <p>+ 33 1 40 22 63 19</p>
@@ -193,24 +198,15 @@ function ohouais_custom_mentions_footer() {
 
         </div><!-- ./contacts -->
 
-        <?php if(pll_current_language() =='en'){ ?>
-
-            <div id="footer-left">
-                <a href="#" id="button-contact">contact</a>
-                <a href="<?php echo $siteURL.'/about'?>">about</a>
-                <a href="<?php echo $siteURL.'/partnership'?>">partnership</a>
-            </div><!-- ./footer-left -->
-
-        <?php }
-        else { ?>
-
-            <div id="footer-left">
-                <a href="#" id="button-contact">contact</a>
-                <a href="<?php echo $siteURL.'/a-propos'?>">à propos</a>
-                <a href="<?php echo $siteURL.'/partenaires'?>">partenaires</a>
-            </div><!-- ./footer-left -->
-
-        <?php } ?>
+        <div id="footer-left">
+            <a href="#" id="button-contact">contact</a>
+            <?php if(pll_current_language() =='en'){ ?>
+                    <a href="<?php echo $siteURL.'/partnership'?>">partnership</a>
+            <?php }
+            else { ?>
+                    <a href="<?php echo $siteURL.'/partenaires'?>">partenaires</a>
+            <?php } ?>
+        </div><!-- ./footer-left -->
 
         <div id="footer-right">
             <a id="site_fb" href="https://www.facebook.com/Parcours-Bijoux-1377799542300463/?ref=br_tf" target="_blank"><img src="<?php echo $icon_url.'/2017/07/facebook_blanc.png'?>"></a>
@@ -247,14 +243,12 @@ function info_header(){
 
     if(pll_current_language() =='en'){
         ?>
-            <p id="comtemporains">Contemporary jewelry</p>
-            <p id="parcours-expo">exhibition tour</p>
+            <p id="comtemporains">Contemporary jewelry tour</p>
         <?php
     }
     else{
         ?>
-            <p id="comtemporains">Bijoux contemporains</p>
-            <p id="parcours-expo">parcours d'expositions</p>
+            <p id="comtemporains">Parcours de bijoux contemporains</p>
         <?php
     }
 
@@ -556,6 +550,7 @@ function mon_action() {
 
     $ajax_query = new WP_Query($args);
 
+    echo '<div class="row">';
     if ( $ajax_query->have_posts() ) : while ( $ajax_query->have_posts() ) : $ajax_query->the_post();?>
 <!--        <div class="all col-lg-3 col-md-3 col-sm-6 col-xs-12 portfolio-item --><?php //// echo $tax ?><!--">-->
         <div class="thumbnail <?php // echo $tax ?>">
@@ -591,6 +586,7 @@ function mon_action() {
     <?php
     endwhile;
     endif;
+    echo '</div>'; // ./row
 
     die();
 }

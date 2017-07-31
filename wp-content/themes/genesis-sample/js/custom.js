@@ -300,7 +300,7 @@ $(function() {
 
 
 
-            var selectedMarker;
+            /*var selectedMarker;
             google.maps.event.addListener(marker,'click',function() {
 
 
@@ -311,7 +311,7 @@ $(function() {
                 }
                 marker.setIcon(imageSelected);
                 selectedMarker = marker
-            });
+            });*/
 
             /*
             $(document).on('mouseover', '#'+$marker.attr('id'), function(){
@@ -361,7 +361,7 @@ $(function() {
         });
 
         // only 1 marker?
-        if( map.markers.length == 1 )
+        if( map.markers.length == 1)
         {
             // set center of map
             map.setCenter( bounds.getCenter() );

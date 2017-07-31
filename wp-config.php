@@ -84,6 +84,9 @@ $table_prefix  = 'wp_';
  */
 define('WP_DEBUG', false);
 
+/* Force toutes les connexions et toutes les sessions d'administration à se produire sur l'adresse SSL */
+define ( 'FORCE_SSL_ADMIN' , true);
+
 /* Empêche la MAJ automatique du wordpress */
 define( 'WP_AUTO_UPDATE_CORE', false );
 

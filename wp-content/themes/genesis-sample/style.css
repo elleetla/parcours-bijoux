@@ -279,6 +279,10 @@ span.cat-places {
 	color:#000000;
 }
 
+.cat-places a {
+	display:block;
+}
+
 #lieu-black{
 	line-height:1.1;
 	margin-bottom:20px;
@@ -309,6 +313,10 @@ span.cat-places {
 	background-color: #f8f8f8;
 }
 
+.linkage .other-events-name{
+	display:none;
+}
+
 .linkage p,
 .linkage .date{
 	margin-bottom: 10px;
@@ -318,17 +326,17 @@ span.cat-places {
 	display:inline;
 }
 
-.linkage #list-title{
+/*.linkage #list-title{
 	color:#000000;
-}
+}*/
 
-.address p,
+/*.address p,
 .date,
 .linkage .list-artistes,
 #list-credit,
 .readmore{
 	margin-bottom: 20px;
-}
+}*/
 
 /*.gm-style-iw #list-proximite,
 .gm-style-iw #lieu-black{
@@ -407,7 +415,8 @@ span.cat-places {
 	padding: 22px 0 22px 26px;
 }
 
-h3.title {
+h3.title,
+.other-events-name{
 	color:#ff6400;
 	text-transform: uppercase;
 	cursor: pointer;
@@ -894,13 +903,24 @@ th:first-child {
 }
 
 /* home page + research page */
-.home-content,
+.research-content,
+.categorie-content{
+	padding:15px 0;
+}
+
+
+.research-content .content-sidebar-wrap,
+.categorie-content .content-sidebar-wrap{
+	margin: 0 -15px 20px;
+}
+
+/*.home-content,
 .research-content,
 .categorie-content{
 	padding:30px 15% 30px;
 	margin:0;
 	max-width:100% !important;
-}
+}*/
 
 /* categorie page */
 /*.categorie-content{ //categorie-content become research-content
@@ -1084,8 +1104,8 @@ th:first-child {
 	background-color: #fff;
 	font-size: 18px;
 	font-size: 1.8rem;
-	margin-bottom: 40px;
 	padding: 60px;
+	margin: 0 15px 15px;
 }
 
 .archive-description p:last-child,
@@ -1507,26 +1527,30 @@ img.alignright,
 	float: right;
 	display:inline-block;
 	margin-top:-6px;
-	text-transform: uppercase;
+	font-size: 26px;
+
 }
 
 #header-description p{
-	margin-bottom: 0;
-	font-size: 17px;
+	margin-bottom: -5px;
+	width: 200px;
+	line-height: 1;
 }
 
 #comtemporains{
 	text-transform: none;
 	font-weight:normal;
-	font-size: 26px !important;
+	padding-bottom: 10px;
 }
 
-#parcours-expo{
+/*#parcours-expo{
 	font-family: 'BrandonGrotesque-Regular', Helvetica Neue, Helvetica, Arial, sans-serif;
-}
+}*/
 
 #paris{
 	font-weight:600;
+	font-size: 17px;
+	text-transform: uppercase;
 }
 
 #trait{
@@ -1766,7 +1790,7 @@ a.search-filter-reset {
 #menu-item-241 /* button in localhost */,
 #menu-item-1008 /* button online site */ {
 	float: right;
-	margin-right: 80%;
+	margin-right: 70%;
 	background-image: url("images/loupe.svg");
 	background-size: 40%;
 	background-position: right;
@@ -2214,10 +2238,13 @@ p.entry-meta {
 .thumbnail{
 	vertical-align:top;
 	display: inline-block;
-	background-color: #fff;
-	margin: auto 15px 15px 0 !important;
-	width: 31%;
+	padding: 0 15px;
+	width: 33%;
+	margin-bottom:15px;
 	/*float:none;*/
+}
+.bloc-project{
+	background-color: #fff;
 }
 
 #return-top {
@@ -2271,13 +2298,16 @@ p.entry-meta {
 .research-content article,
 .categorie-content article{
 	display:inline-block;
-	width:31%;
+	width:33.2%;
+	padding:0 15px;
+	/*margin-bottom:15px;*/
 	/*margin: auto 15px 15px 0 ;*/
 }
 
 .research-content .thumbnail,
 .categorie-content .thumbnail{
-	width:auto !important;
+	width: 100%;
+	padding:0;
 	/*margin-top:20px !important;*/
 }
 
@@ -2292,12 +2322,16 @@ width: 31%;*/
 
 /* Return button */
 .return button{
-	background-color:transparent;
+	background-color:inherit !important;
 	color:#ff6400;
 	font-size:20px;
-	padding: 0;
-	margin: 30px 0 0 40px;
+	padding: 10px 10px 0px 5px;
+	margin: 30px 0 30px;
+}
 
+.return button:hover{
+	opacity: 0.5;
+	color:#ff6400;
 }
 
 .return span{
@@ -2315,9 +2349,8 @@ img.fleche-retour{
 /* Left Column */
 /*.detail-content*/
 .detail-content article{
-	margin: 30px 40px 37px;
 	padding: 76px 70px 57px;
-	width: 1146px;
+	width: 100%;
 	background-color: #ffffff;
 }
 
@@ -2332,6 +2365,7 @@ h1.entry-title{
 }
 
 .detail-pays {
+	display:none;
 	font-size:18px;
 	margin-bottom:13px !important;
 }
@@ -2356,7 +2390,7 @@ h1.entry-title{
 /* list of artists & credit */
 .content-left{
 	float:left;
-	width:518px;
+	width:585px;
 }
 
 .artiste{
@@ -2464,11 +2498,11 @@ h1.entry-title{
 	color: #ff6400;
 	text-transform: uppercase;
 	font-family: 'BrandonGrotesque-Regular', Helvetica Neue, Helvetica, Arial, sans-serif;
-	margin-bottom:40px;
+	margin:40px 15px 40px;
 
 }
 .row{
-	margin:0 40px 26px;
+	margin:0 -15px 20px;
 }
 
 .row div {
@@ -2618,6 +2652,20 @@ h1.entry-title{
 	text-transform: none;
 }
 
+#contact a{
+	display:block;
+	line-height: 1.3;
+}
+
+.contact-title{
+	font-size:18px;
+	/*font-weight: bold;*/
+}
+
+.ctitle2{
+	margin-bottom:10px !important;
+}
+
 #contact,
 #presse-comite{
 	vertical-align: top;
@@ -2626,7 +2674,7 @@ h1.entry-title{
 #contact,
 #presse-parcours-bijoux,
 #presse-comite{
-	margin: 20px 90px 20px 0;
+	margin: 0 90px 20px 0;
 }
 
 
@@ -2677,8 +2725,22 @@ h1.entry-title{
 		margin-right: 0px !important;
 	}
 
-	.row{
+	/*.row{
 		margin: 0;
+	}*/
+
+	.caption-project .title,
+	#list-content .title,
+	.other-events-name{
+		font-size: 20px;
+	}
+
+	.caption-project p,
+	#list-content .address p,
+	#list-content .address span,
+	#list-content .date {
+		font-size:14px;
+
 	}
 
 	/* home */
@@ -2692,10 +2754,10 @@ h1.entry-title{
 	}
 
 	/* detail page */
-	.detail-content article {
+	/*.detail-content article {
 		width: inherit;
 		margin: 0 0 20px;
-	}
+	}*/
 
 	.content-left{
 		width: 381px !important;
@@ -2723,6 +2785,11 @@ h1.entry-title{
 	/*, 	.site-header .widget-area */
 	{
 		width: 620px;
+	}
+
+
+	.thumbnail{
+		width:32.9% ;
 	}
 
 	.sidebar-content-sidebar .content,
@@ -2753,16 +2820,17 @@ h1.entry-title{
 		float:none;
 	}
 
+	/* menu */
+	#menu-item-241, #menu-item-1008{
+		margin-right: 65%;
+	}
+
 	/* Footer */
 	#contact, #presse-parcours-bijoux, #presse-comite {
 		margin-right: 80px;
 	}
 
 	/* detail page */
-	.detail-content .thumbnail{
-		margin-right:auto !important;
-	}
-
 	.content-left{
 		width: 305px !important;
 	}
@@ -2813,6 +2881,10 @@ h1.entry-title{
 	.site-header ul.genesis-nav-menu,
 	.site-header .search-form {
 		float: none;
+	}
+
+	.genesis-nav-menu li{
+		margin: 0 2%;
 	}
 
 	.site-description,
@@ -2921,7 +2993,7 @@ h1.entry-title{
 	.js .nav-primary .genesis-nav-menu .menu-item a,
 	.js .site-header .genesis-nav-menu .menu-item a {
 		border: none;
-		padding: 12px 0;
+		padding: 15px 0 15px;
 		width: 100%;
 	}
 
@@ -2980,6 +3052,9 @@ h1.entry-title{
 	#header-description{
 		float:right !important;
 	}
+
+	/* menu */
+
 
 	/* Footer */
 	#contact, #presse-parcours-bijoux, #presse-comite {
@@ -3063,7 +3138,6 @@ h1.entry-title{
 		height: 385px;
 	}
 
-
 	/* header */
 	.header-image .site-title > a {
 		margin-left: 5%;
@@ -3089,7 +3163,7 @@ h1.entry-title{
 
 	/* menu */
 	nav#genesis-nav-primary li{
-		margin: 0 15%;
+		margin: 0 5%;
 	}
 
 	#menu-item-241 /* button in localhost */,
@@ -3170,6 +3244,12 @@ h1.entry-title{
 		margin: 10px auto;
 	}
 
+	#contact a,
+	#presse-parcours-bijoux a,
+	#presse-comite a	{
+		margin-bottom:5px;
+	}
+
 
 	/* home page */
 	/* filtre */
@@ -3217,8 +3297,8 @@ h1.entry-title{
 	.research-content article,
 	.categorie-content article{
 		width:inherit !important;
-		margin-top:0 !important;
-		margin-right:0 !important;
+		/*margin-top:0 !important;
+		margin-right:0 !important;*/
 		display:block;
 	}
 
@@ -3233,15 +3313,6 @@ h1.entry-title{
 		margin-top:0 !important;
 	}*/
 
-	#title-description{
-		line-height: 1.2;
-	}
-
-	#d1-bijou-a-lautre{
-		margin-bottom:20px;
-	}
-
-
 	/* categorie pages */
 	/*.load-more{
 		margin:0 auto 20px !important;
@@ -3254,7 +3325,7 @@ h1.entry-title{
 
 	/* detail pages */
 	.return button{
-		margin: 30px 0 30px
+		margin: 15px 0 15px
 	}
 
 	.owl-theme .owl-nav [class*='owl-'] {
@@ -3296,6 +3367,17 @@ h1.entry-title{
 	a#maito-mines-paristech {
 		display: inline-block !important;
 	}
+
+	/* Page A propos */
+	/*#title-description{
+		line-height: 1.2;
+	}*/
+
+	#d1-bijou-a-lautre{
+		margin-bottom:20px;
+	}
+
+
 
 }
 

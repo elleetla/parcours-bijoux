@@ -177,10 +177,10 @@ function artists_credit(){
 
     if(pll_current_language() =='en'){
 
-        echo '<div class="post-credit">&copy; credits : '.$creditsPerson.'</div>';
+        echo '<div class="post-credit">credits : '.$creditsPerson.'</div>';
     }
     else{
-        echo '<div class="post-credit">&copy; crédits : '.$creditsPerson.'</div>';
+        echo '<div class="post-credit">crédits : '.$creditsPerson.'</div>';
     }
 
     echo '</div>'; // ./content-left
@@ -196,14 +196,7 @@ function proposition_post(){?>
         <div class="row">
 
             <div class="proximite-banner">
-                <?php
-                if(pll_current_language() =='en'){
-                    echo '<p id="a-proximite">around</p>';
-                }
-                else{
-                    echo '<p id="a-proximite">à promixité</p>';
-                }
-                ?>
+                <p id="a-proximite">suggestions</p>
             </div>
 
             <?php
