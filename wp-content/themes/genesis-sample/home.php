@@ -256,8 +256,15 @@ function elleetla_geolocation()
                 }
                 wp_reset_postdata();
             } else {
-                echo '<div class="linkage">Désolé, aucun contenu ne correspond à vos critères.</div>';
+                if(pll_current_language() =='en'){
+                    echo '<div class="linkage">Sorry, no content matches your criteria.</div>';
+                }
+                else{
+                    echo '<div class="linkage">Désolé, aucun contenu ne correspond à vos critères.</div>';
+                }
             }
+
+
             ?>
         </div>
     </div>

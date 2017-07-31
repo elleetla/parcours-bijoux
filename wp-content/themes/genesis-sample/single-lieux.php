@@ -174,16 +174,19 @@ function artists_credit(){
 
     //display credit
     $creditsPerson = get_field('credits_lieux');
+    if( get_field('field_name') ):
 
-    if(pll_current_language() =='en'){
+        if(pll_current_language() =='en'){
 
-        echo '<div class="post-credit">credits : '.$creditsPerson.'</div>';
-    }
-    else{
-        echo '<div class="post-credit">crédits : '.$creditsPerson.'</div>';
-    }
+            echo '<div class="post-credit">credits : '.$creditsPerson.'</div>';
+        }
+        else{
+            echo '<div class="post-credit">crédits : '.$creditsPerson.'</div>';
+        }
 
-    echo '</div>'; // ./content-left
+        echo '</div>'; // ./content-left
+
+    endif;
 
 }
 

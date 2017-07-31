@@ -2422,6 +2422,10 @@ h1.entry-title{
 	text-transform: none;
 }
 
+.detail-vernissage a{
+	display:inline-block;
+}
+
 .detail-vernissage,
 .detail-horaires,
 .detail-adresse,
